@@ -1,0 +1,86 @@
+﻿@model SmaxV2Attendance.Models.Smx_AccessLevelDetails
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Access Reader Details</h2>
+<h4>Edit</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ALD_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALD_AL_ID, "Access ", new { @class = "control-label col-md-2" })
+            @*ALD_AL_ID*@
+            <div class="col-md-10">
+                @Html.DropDownList("ALD_AL_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.ALD_AL_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALD_NODEID,"Node Id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALD_NODEID)
+                @Html.ValidationMessageFor(model => model.ALD_NODEID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALD_TZ_ID, "Time Zone Id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ALD_TZ_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.ALD_TZ_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALD_READER_IPADDRESS,"Ip address", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALD_READER_IPADDRESS)
+                @Html.ValidationMessageFor(model => model.ALD_READER_IPADDRESS)
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.ALD_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALD_CREATED)
+                @Html.ValidationMessageFor(model => model.ALD_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.ALD_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALD_MODIFIED)
+                @Html.ValidationMessageFor(model => model.ALD_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.ALD_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALD_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.ALD_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,74 @@
+﻿@model SmaxV2Attendance.Models.Smx_ShiftDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Smx_ShiftDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_EndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_EndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_Hours_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_Hours_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_Modified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sftd_Modifiedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sftd_Modifiedby)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Sftd_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

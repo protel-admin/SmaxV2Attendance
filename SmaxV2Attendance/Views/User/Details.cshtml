@@ -1,0 +1,68 @@
+﻿@model SmaxV2Attendance.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.US_User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.US_User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.US_Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.US_Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.US_Password)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.US_Password)*@
+            @Html.DisplayName("******")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.US_Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.US_Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.US_Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.US_Modified)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.UserGroup.UG_GroupName)*@
+            @Html.DisplayName("Group Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserGroup.UG_GroupName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.US_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

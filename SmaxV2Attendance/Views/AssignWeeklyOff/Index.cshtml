@@ -1,0 +1,229 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/weeklyoffassignment")
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+@Styles.Render("~/Content/chkboxliststyle")
+@Scripts.Render("~/bundles/chkboxlist")
+<script>
+
+</script>
+<h2>WeeklyOff Assignment</h2>
+<div class="container well">
+    <div class="col-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    Department
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddl_DepartmentId", (IEnumerable<SelectListItem>)ViewBag.DP_ID, new { @class = "form-control" })
+                </div>
+                <script>
+                    $("#ddl_DepartmentId option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                    $('#ddl_DepartmentId option:eq(1)').prop('selected', false);
+                </script>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    Employee
+                </div>
+                <div class="col-md-5" style="overflow :auto ">
+                    @*@Html.DropDownList("lst_EmployeeId", Enumerable.Empty<SelectListItem>(), new { @class = "form-control", @size = "20" })*@
+                    <div id='jqxWidget' style="display:none">
+                        <div>
+                            <input class="btn-sm" type="button" id='btnclear' value="Refresh" />
+                        </div>
+                        <div id="lstemp"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="container">
+            <div class="row hide">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-5">
+                    <label class="radio-inline"><input id="radio1" type="radio" name="optradio" checked >For a Month</label>
+                    <label class="radio-inline"><input id="radio2" type="radio" name="optradio">For a Date Range</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row hide" id="div_monthyear">
+
+                <div class="alert alert-info col-md-6">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+                            Month
+                        </div>
+                        <div class="col-lg-5">
+                            @{
+                                var monthlist = new SelectList(new[]
+                                {
+                                    new {ID="1", Name="January"},
+                                    new {ID="2", Name="February"},
+                                    new {ID="3", Name="March"},
+                                    new {ID="4", Name="April"},
+                                    new {ID="5", Name="May"},
+                                    new {ID="6", Name="June"},
+                                    new {ID="7", Name="July"},
+                                    new {ID="8", Name="August"},
+                                    new {ID="9", Name="September"},
+                                    new {ID="10", Name="October"},
+                                    new {ID="11", Name="November"},
+                                    new {ID="12", Name="December"},
+                                },
+                                    "ID", "Name", 1);
+                            }
+                            @Html.DropDownList("ddl_month", monthlist, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+                            Year
+                        </div>
+                        <div class="col-md-5">
+                            @{
+                                var yearlist = new SelectList(new[]
+                                {
+                                    new {ID="2015", Name="2015"},
+                                    new {ID="2016", Name="2016"},
+                                    new {ID="2017", Name="2017"},
+                                    new {ID="2018", Name="2018"},
+                                    new {ID="2019", Name="2019"},
+                                    new {ID="2020", Name="2020"},
+                                    new {ID="2021", Name="2021"},
+                                    new {ID="2022", Name="2022"},
+                                    new {ID="2023", Name="2023"},
+                                    new {ID="2024", Name="2024"},
+                                    new {ID="2025", Name="2025"},
+                                    new {ID="2026", Name="2026"},
+                                },
+                                    "ID", "Name", 1);
+                            }
+                            @Html.DropDownList("ddl_month", yearlist, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row" id="div_daterange">
+
+                <div class="alert alert-info col-md-6">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+                            From
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" id="srcdate" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+                            To
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" id="trgdate" class="form-control" />
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#srcdate').datetimepicker({
+                                pickTime: false,
+                                format: 'MM/DD/YYYY'
+                            });
+
+                            $('#trgdate').datetimepicker({
+                                pickTime: false,
+                                format: 'MM/DD/YYYY'
+                            });
+                        });
+                    </script>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    Selet Days
+                </div>
+                <div class="col-md-2">
+                    @*@Html.CheckBoxList("chk_day", , new { @class = "form-control" })*@
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="1" id="Chk_1" />
+                            <label for="1">Monday</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="2" id="Chk_2" />
+                            <label for="1">Tuesday</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="3" id="Chk_3" />
+                            <label for="1">Wednessday</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="4" id="Chk_4" />
+                            <label for="1">Thursday</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="5" id="Chk_5" />
+                            <label for="1">Friday</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="6" id="Chk_6" />
+                            <label for="1">Saturday</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SelectedGroups" value="0" id="Chk_0" />
+                            <label for="1">Sunday</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            
+          
+           
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input id="btn_submit" type="button" class="btn btn-success" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

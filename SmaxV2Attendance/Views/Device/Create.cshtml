@@ -1,0 +1,278 @@
+﻿@model SmaxV2Attendance.Models.Smx_Devices
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h3>Create Device</h3>
+@RenderPage("../Shared/_Common.cshtml")
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/device")
+@Scripts.Render("~/bundles/blockui")
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        @Html.ValidationSummary(true)
+
+        <div class="col-md-12" >
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_IPADDRESS, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_IPADDRESS)
+                        @Html.ValidationMessageFor(model => model.DE_IPADDRESS)
+                    </div>
+                    <div>
+                        <input type="button" id="btnstarttalk" class="btn btn-info btn-sm" value="Check"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" >
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_NODEID, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.DE_NODEID, new { @class = "form-control", @Value = "1", @Disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.DE_NODEID)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12" >
+            <div class="col-md-6" >
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_NAME, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_NAME)
+                        @Html.ValidationMessageFor(model => model.DE_NAME)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_LN_ID, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_LN_ID", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_LN_ID)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_MESSAGE, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_MESSAGE)
+                        @Html.ValidationMessageFor(model => model.DE_MESSAGE)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_READERTYPE, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_READERTYPE", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_READERTYPE)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_RELAYTIME, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_RELAYTIME)
+                        @Html.ValidationMessageFor(model => model.DE_RELAYTIME)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_DOTL, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_DOTL)
+                        @Html.ValidationMessageFor(model => model.DE_DOTL)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_IP1_NAME, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_IP1_NAME)
+                        @Html.ValidationMessageFor(model => model.DE_IP1_NAME)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_IP2_NAME, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_IP2_NAME)
+                        @Html.ValidationMessageFor(model => model.DE_IP2_NAME)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_IP1_NONC, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_IP1_NONC", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_IP1_NONC)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_IP2_NONC, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_IP2_NONC", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_IP2_NONC)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_MEMORY, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_MEMORY", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_MEMORY)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_OPERATIONAL, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @*@Html.EditorFor(model => model.DE_OPERATIONAL)*@
+                        @Html.CheckBox("DE_OPERATIONAL")
+                        @Html.ValidationMessageFor(model => model.DE_OPERATIONAL)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_DOTZ , new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_DOTZ", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_DOTZ)
+                    </div>
+                    <script>
+                        $("#DE_DOTZ option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#DE_DOTZ option:eq(1)').prop('selected', false);
+                    </script>
+                </div>
+            </div>            
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_FIREALARM, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownListFor(model => model.DE_FIREALARM, new SelectList(
+                            new List<Object>{
+                                new { value = "0" , text = "Disabled"  },
+                                new { value = "1" , text = "Enabled" },
+                            },
+                            "value",
+                            "text",
+                            2), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_FIREALARM)
+                    </div>
+                </div>
+            </div>            
+            @*<div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_READERMODE, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("DE_READERMODE", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DE_READERMODE)
+                    </div>
+                </div>
+            </div>*@
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_MODEL, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_MODEL)
+                        @Html.ValidationMessageFor(model => model.DE_MODEL)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DE_FIRMWARE, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.DE_FIRMWARE)
+                        @Html.ValidationMessageFor(model => model.DE_FIRMWARE)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.DE_CREATED, new { @class = "control-label col-md-4" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.DE_CREATED)
+                @Html.ValidationMessageFor(model => model.DE_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DE_MODIFIED, new { @class = "control-label col-md-4" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.DE_MODIFIED)
+                @Html.ValidationMessageFor(model => model.DE_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DE_MODIFIEDBY, new { @class = "control-label col-md-4" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.DE_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.DE_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-4">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        @*disabled id="btnsubmit"*@
+                        <button class="btn btn-success" id="btnsave">
+                            @*Submit &nbsp;*@
+                            <span class="glyphicon glyphicon-floppy-disk"></span>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>        
+        <div class="form-group">
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

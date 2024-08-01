@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+    string msg = "";
+    if (ViewData["ErrMsg"] != null)
+    {
+        msg = ViewData["ErrMsg"].ToString();
+    }
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<h2>Index</h2>
+
+
+<body>
+    <div class="container">
+        <center>
+            <img src="~/Images/SmaxV2Attendance.Models.jpg" height="50%" width="75%" />
+        </center>
+        @{
+            if ((ViewData["ErrMsg"] != null && ViewData["ErrMsg"] != ""))
+            {
+                <div class="alert alert-danger">
+                    @msg
+                </div>
+            }
+
+            if (Session["ErrMsg"] != null && Session["ErrMsg"] != "")
+            {
+                <div class="alert alert-danger">
+                    @Session["ErrMsg"]
+                </div>
+            }
+        }
+
+
+
+</body>
+

@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/assignpermission")
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+@Styles.Render("~/Content/chkboxliststyle")
+@Scripts.Render("~/bundles/chkboxlist")
+<script>
+
+</script>
+<h2>Permission Assignment</h2>
+<div class="container well">
+    <div class="col-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    Department
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddl_DepartmentId", (IEnumerable<SelectListItem>)ViewBag.DP_ID, new { @class = "form-control" })
+                </div>
+                <script>
+                    $("#ddl_DepartmentId option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                    $('#ddl_DepartmentId option:eq(1)').prop('selected', false);
+                </script>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    Employee
+                </div>
+                <div class="col-md-5" style="overflow :auto ">
+                    @*@Html.DropDownList("lst_EmployeeId", Enumerable.Empty<SelectListItem>(), new { @class = "form-control", @size = "20" })*@
+                    <div id='jqxWidget' style="display:none">
+                        <div>
+                            <input class="btn-sm" type="button" id='btnclear' value="Refresh" />
+                        </div>
+                        <div id="lstemp"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="container">
+            <div class="row" id="div_date">
+                <div class="col-md-1">
+                    Date
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="trgdate" class="form-control" />
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#trgdate').datetimepicker({
+                            pickTime: false,
+                            format: 'MM/DD/YYYY'
+                        });
+                    });
+                </script>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    Shift
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBox("ShiftName", "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    StartTime
+                </div>
+                <div class="col-md-1">
+                    @Html.TextBox("StartTime", "", new { @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    EndTime
+                </div>
+                <div class="col-md-1">
+                    @Html.TextBox("EndTime", "", new { @class = "form-control" })
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-5">
+                    <label class="radio-inline"><input id="radio1" type="radio" name="optradio">1st Half</label>
+                    <label class="radio-inline"><input id="radio2" type="radio" name="optradio">2nd Half</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    Description
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBox("Description", "", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input id="btn_submit" type="button" class="btn btn-success" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

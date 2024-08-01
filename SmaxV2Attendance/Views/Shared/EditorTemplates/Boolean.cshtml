@@ -1,0 +1,25 @@
+﻿@model Nullable<bool>
+
+@{
+    var listItems = new[]{
+        new SelectListItem { Value = "false", Text = "Not Set", Selected = !Model.HasValue },
+        new SelectListItem { Value = "true", Text = "Yes", Selected = Model.HasValue && Model.Value },
+        new SelectListItem { Value = "false", Text = "No", Selected = Model.HasValue && !Model.Value}
+    };
+}
+
+@if (ViewData.ModelMetadata.IsNullableValueType)
+{
+
+    @Html.DropDownList(string.Empty, listItems)
+}
+else
+{
+    @Html.CheckBox(string.Empty, Model.GetValueOrDefault())
+}
+<script type="text/javascript">
+    if ("@ViewData.ModelMetadata.Description" == "Hidden") {
+        $("#@Html.IdForModel()").parent('div').parent('div').hide();
+    }
+</script>
+

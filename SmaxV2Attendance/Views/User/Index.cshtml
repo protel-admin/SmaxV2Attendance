@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.User>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.US_User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.US_Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.US_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.US_Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.US_Modified)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.UserGroup.UG_GroupName)*@
+            @Html.DisplayName("User Group")
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.US_User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.US_Login)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.US_Password)*@
+                @Html.DisplayName("********")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.US_Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.US_Modified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserGroup.UG_GroupName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.US_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.US_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.US_Id })
+            </td>
+        </tr>
+    }
+
+</table>

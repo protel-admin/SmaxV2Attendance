@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.Smx_Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Company</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_SHORTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_HEAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_ADDRESS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_CITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_PHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_FAX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_CREATED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_MODIFIED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CG_MODIFIEDBY)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_SHORTNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_HEAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_ADDRESS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_CITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_PHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_FAX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_CREATED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_MODIFIED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CG_MODIFIEDBY)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CG_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CG_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CG_ID })
+        </td>
+    </tr>
+}
+
+</table>

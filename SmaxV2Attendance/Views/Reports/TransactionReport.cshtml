@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/datagrid")
+@Scripts.Render("~/bundles/Utility")
+<script>
+    var rpthtml = "";
+    $(document).ready(function () {
+
+        $("#rptprint").click(function () {
+
+            printpreview(rpthtml);
+        });
+
+        var url = fullhost + "/Reports/GetTransaction";
+        json = GetURLasJSON(url);
+        if(json.length > 0)
+        {
+            for(i=0;i<=json.length-1;i++)
+            {
+                str = "<tr>";
+                str += "<td>" + json[i].Emp_Id + "</td>";
+                str += "<td>" + json[i].Name + "</td>";
+                str += "<td>" + json[i].Card_Number + "</td>";
+                str += "<td>" + json[i].Date + "</td>";
+                str += "<td>" + json[i].Time + "</td>";
+                str += "<td>" + json[i].Device_Name + "</td>";
+                str += "</tr>";
+                $("#dbgridbody").append(str);
+            }
+            rpthtml = $("#datagrid1").html();
+            $("#datagrid1").dataTable();
+            $("#datagrid1").show();
+        }
+        
+    });
+</script>
+<h2>Transaction Report</h2>
+<div>
+    <button id="rptprint">Print View</button>
+</div>
+<br />
+<table id="datagrid1" class="table table-striped table-bordered" width="75%">
+    <thead>
+        <tr>
+            <th>Emp Id</th>
+            <th>Name</th>
+            <th>CardNumber</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Device Name</th>
+        </tr>
+    </thead>
+    <tbody id="dbgridbody">
+
+    </tbody>
+</table>

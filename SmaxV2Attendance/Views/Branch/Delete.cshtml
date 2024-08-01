@@ -1,0 +1,59 @@
+﻿@model SmaxV2Attendance.Models.Smx_Branch
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Branch</h2>
+<h4>Delete</h4>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.BR_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BR_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BR_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BR_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BR_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BR_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BR_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BR_MODIFIEDBY)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @*<input type="submit" value="Delete" class="btn btn-danger" />*@ 
+            <button class="btn btn-danger" id="btndelete">
+                Delete &nbsp;
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

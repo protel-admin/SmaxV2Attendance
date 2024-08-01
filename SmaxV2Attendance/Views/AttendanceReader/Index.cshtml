@@ -1,0 +1,289 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/attendancereader.js"></script>
+
+
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/unobtrusive")
+@*@Scripts.Render("~/bundles/weeklyoffassignment")*@
+@Scripts.Render("~/bundles/datagrid")
+
+
+<link href="~/Content/multiselect.css" rel="stylesheet" />
+<script src="~/Scripts/multiselect.min.js"></script>
+
+<link href="~/Content/Smx_CustomStyle.css" rel="stylesheet" />
+
+<h2>Attendance Readers</h2>
+
+
+<div class="text-justify alert alert-success col-md-12" id="SuccessMsgdiv1" style="display:none">
+    <p id="SuccessMsgTxt1">
+    </p>
+
+</div>
+
+<div class="text-justify alert alert-danger col-md-12" id="SuccessMsgdiv2" style="display:none">
+    <p id="SuccessMsgTxt2">
+
+    </p>
+
+</div>
+<div class="row">
+    <div class="col-md-1">
+        &nbsp;
+    </div>
+</div>
+
+<div lcass="col-md-12 col-lg-12 col-sm-12">
+
+
+    <div class="container">
+
+        <div class="form-group row formgroupborder">
+
+            @*<div class="form-group row " style="padding-left:30px">*@
+            <div class="form-group formheader col-md-12">
+                <label class="radio-inline control-label"><input id="radio1" type="radio" name="optradio" checked><b>Single Readers(Reader type 'None')</b></label>
+
+                <label class="radio-inline  control-label"><input id="radio2" type="radio" name="optradio"><b>In/Out Readers</b></label>
+                <label class="radio-inline  control-label"><input id="radio3" type="radio" name="optradio"><b>InOut Readers</b></label>
+            </div>
+            @*</div>*@
+
+            <div class="col-md-12 col-lg-12 col-sm-12">
+
+                <div class="form-horizontal" id="singlereaders">
+
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <label class="control-label">List of available readers</label>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">List of assigned readers</label>
+                        </div>
+
+                    </div>
+                    <div class=" form-group row">
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_nonereaders", (IEnumerable<SelectListItem>)ViewBag.NONE_DE_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+
+                        <div class="col-md-1" style="padding-top:20px;"
+                             ">
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneright" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="nonerightall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-forward"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneleft" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneleftall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-backward"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_arnonereaders", (IEnumerable<SelectListItem>)ViewBag.NONE_AR_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal" id="inreader" style="display:none">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <label class="control-label">List of available 'In' readers</label>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">List of assigned 'In' readers</label>
+                        </div>
+                    </div>
+                    <div class=" form-group row">
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_inreaders", (IEnumerable<SelectListItem>)ViewBag.IN_DE_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+
+                        <div class="col-md-1">
+                            <div class="form-group row" style="padding-top:20px;padding-right:0px">
+                                <button class="btn btn-info" id="inright" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="inrightall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-forward"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="inleft" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="inleftall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-backward"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_arinreaders", (IEnumerable<SelectListItem>)ViewBag.IN_AR_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal" id="outreader" style="display:none">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <label class="control-label">List of available 'Out' readers</label>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">List of assigned 'Out' readers</label>
+                        </div>
+                    </div>
+                    <div class=" form-group row">
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_outreaders", (IEnumerable<SelectListItem>)ViewBag.OUT_DE_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+
+                        <div class="col-md-1">
+                            <div class="form-group row" style="padding-top:20px;padding-left:0px">
+                                <button class="btn btn-info" id="outright" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="outrightall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-forward"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="outleft" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="outleftall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-backward"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_aroutreaders", (IEnumerable<SelectListItem>)ViewBag.OUT_AR_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal" id="inoutreaders" style="display:none">
+
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <label class="control-label">List of available 'InOut' readers</label>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="control-label">List of assigned 'InOut' readers</label>
+                        </div>
+                    </div>
+                    <div class=" form-group row">
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_iononereaders", (IEnumerable<SelectListItem>)ViewBag.IO_NONE_DE_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+
+                        <div class="col-md-1" style="padding-top:20px;"
+                             ">
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneioright" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneiorightall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-forward"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneioleft" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                            </div>
+                            <div class="form-group row">
+                                <button class="btn btn-info" id="noneioleftall" style="color:white">
+                                    &nbsp;
+                                    <span class="glyphicon glyphicon-backward"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddl_ioarnonereaders", (IEnumerable<SelectListItem>)ViewBag.IO_NONE_AR_ID, new { @class = "form-control", multiple = "multiple", @style = "width: 300px; height: 225px" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <div class="form-group row text-center">
+
+
+                    </div>
+                </div>
+                <div class="form-horizontal" hidden>
+                    <div class="form-group row">
+                        <div class="col-md-5">
+
+                        </div>
+                        <div class="col-md-2">
+                            <input id="btn_submit" type="button" class="btn btn-info" value="Assign" />
+
+                        </div>
+                        <div class="col-md-5">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+

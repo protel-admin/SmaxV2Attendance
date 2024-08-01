@@ -1,0 +1,58 @@
+﻿@model SmaxV2Attendance.Models.Smx_Group
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Smx_Group</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gr_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gr_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gr_ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gr_ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gr_Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gr_Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gr_Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gr_Modified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gr_Modifiedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gr_Modifiedby)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PK_Gr_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

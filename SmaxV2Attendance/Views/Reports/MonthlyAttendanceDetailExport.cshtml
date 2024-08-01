@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "GetMonthlyAttendanceDetailExport";
+}
+
+<h2>GetMonthlyAttendanceDetailExport</h2>
+
+@{
+    byte[] fileData = System.Text.ASCIIEncoding.ASCII.GetBytes(Convert.ToString(ViewData["CsvContent"]));
+    Response.Clear();
+    Response.AppendHeader("Content-Disposition", "attachment; filename=MonthlyAttendanceReport.csv");
+    Response.ContentType = "application/CSV";
+    Response.BinaryWrite(fileData);
+    Response.End();
+}

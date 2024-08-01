@@ -1,0 +1,60 @@
+﻿@model SmaxV2Attendance.Models.Smx_AccessLevel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>AccessLevel</h2>
+<h4>Create</h4>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+         
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AL_NAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AL_NAME)
+                @Html.ValidationMessageFor(model => model.AL_NAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AL_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AL_CREATED)
+                @Html.ValidationMessageFor(model => model.AL_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AL_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AL_MODIFIED)
+                @Html.ValidationMessageFor(model => model.AL_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AL_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AL_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.AL_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

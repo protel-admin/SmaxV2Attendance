@@ -1,0 +1,85 @@
+﻿@model SmaxV2Attendance.Models.Smx_Leave
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Leave</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Lv_Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lv_ShortDesc, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lv_ShortDesc)
+                @Html.ValidationMessageFor(model => model.Lv_ShortDesc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lv_Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lv_Description)
+                @Html.ValidationMessageFor(model => model.Lv_Description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lv_MaxDays, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lv_MaxDays)
+                @Html.ValidationMessageFor(model => model.Lv_MaxDays)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lv_MaxAllowed, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lv_MaxAllowed)
+                @Html.ValidationMessageFor(model => model.Lv_MaxAllowed)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lv_Created, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lv_Created)
+                @Html.ValidationMessageFor(model => model.Lv_Created)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LV_Modified, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LV_Modified)
+                @Html.ValidationMessageFor(model => model.LV_Modified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lv_Modifiedby, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lv_Modifiedby)
+                @Html.ValidationMessageFor(model => model.Lv_Modifiedby)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

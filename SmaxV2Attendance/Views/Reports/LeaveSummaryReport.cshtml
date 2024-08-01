@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Leave Summary Report";
+}
+
+@Scripts.Render("~/bundles/datagrid")
+@Scripts.Render("~/bundles/Utility")
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+
+<h2>Access Level Report</h2>
+
+
+<script>
+    var rpthtml = "";
+    $(document).ready(function () {
+
+        var url = fullhost + "/Reports/LeaveSummaryReportData";
+        result = GetURLasString(url);
+        $("#datagrid1").html(result);
+        $("#divprocess").html("Loading...");
+        rpthtml = $("#datagrid1").html();
+        $("#datagrid1").dataTable();
+        $("#datagrid1").show();
+        var exlurl = fullhost + "/Reports/LeaveSummaryReportDataExport?reportname=Leave Summary Report&reporttype=EXCEL";
+        var pdfurl = fullhost + "/Reports/LeaveSummaryReportDataExport?reportname=Leave Summary Report&reporttype=PDF";
+        $('#lnkexcel').attr("href", exlurl)
+        $('#lnkpdf').attr("href", pdfurl)
+
+
+
+    });
+
+    function ShowHotlist() {
+
+    }
+</script>
+<div>
+    @*<button id="rptprint">Print View</button>
+        <a href="/Report/GetCardIssuedReportData?srcdate=01/27/2015&trgdate=01/28/2015">Export as CSV</a>*@
+</div>
+
+<br />
+<table width="100%">
+    <tr>
+        <td align="right">
+            <a href="#" id="lnkexcel" class="btn btn-info" target="_blank">Export Excel</a>
+            <a href="#" id="lnkpdf" class="btn btn-info" target="_blank">Export PDF</a>
+        </td>
+    </tr>
+</table>
+<br />
+<table id="datagrid1" class="table table-striped" border="1" cellspacing="0"></table>

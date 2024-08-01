@@ -1,0 +1,81 @@
+﻿@model SmaxV2Attendance.Models.Smx_TimeZoneDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>TimeZone Details</h2>
+<h4>Details</h4>
+
+<div>    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_DAYS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_DAYS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_START_TIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_START_TIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_END_TIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_END_TIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_SPECIFIC_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_SPECIFIC_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZD_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZD_MODIFIEDBY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_TimeZone.TZ_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_TimeZone.TZ_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TZD_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

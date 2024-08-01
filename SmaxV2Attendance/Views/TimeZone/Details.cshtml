@@ -1,0 +1,58 @@
+﻿@model SmaxV2Attendance.Models.Smx_TimeZone
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Smx_TimeZone</h4>
+	<hr />
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_UPDATE_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_UPDATE_STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_MODIFIEDBY)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TZ_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

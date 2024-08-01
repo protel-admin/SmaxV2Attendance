@@ -1,0 +1,74 @@
+﻿@model SmaxV2Attendance.Models.Smx_AccessLevelDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Access Level Details</h2>
+<h4>Details</h4>
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_NODEID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_NODEID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_READER_IPADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_READER_IPADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_MODIFIEDBY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_AccessLevel.AL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_AccessLevel.AL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_TimeZone.TZ_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_TimeZone.TZ_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ALD_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

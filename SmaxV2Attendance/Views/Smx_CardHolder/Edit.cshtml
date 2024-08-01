@@ -1,0 +1,473 @@
+﻿@model SmaxV2Attendance.Models.Smx_CardHolder
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>CardHolder</h2>
+<h4>Edit</h4>
+@RenderPage("../Shared/_Common.cshtml")
+
+@using (Html.BeginForm("Edit", "Smx_CardHolder", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Ch_Id)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Ch_CardNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ch_CardNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ch_CardNo, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Csnnumber, new { @class = "control-label col-md-4" })
+
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(model => model.Ch_Csnnumber, new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(model => model.Ch_Csnnumber)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_EmpId, new { @class = "control-label col-md-4" })
+
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_EmpId)
+
+                        @Html.ValidationMessageFor(model => model.Ch_EmpId)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Title, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_Title)
+                        @Html.ValidationMessageFor(model => model.Ch_Title)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_FName, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_FName)
+                        @Html.ValidationMessageFor(model => model.Ch_FName)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_LName, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_LName)
+                        @Html.ValidationMessageFor(model => model.Ch_LName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_ShortName, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_ShortName)
+                        @Html.ValidationMessageFor(model => model.Ch_ShortName)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Dob, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Ch_Dob)
+                        @Html.ValidationMessageFor(model => model.Ch_Dob)
+                    </div>
+                </div>
+            </div>
+            <script>
+            //$(function () {
+            //    $('#Ch_Dob').datepicker({
+            //        format: 'MM/DD/YYYY',
+            //        endDate: '+0d',
+            //        autoclose: true
+            //    });
+            //});
+            </script>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Gender, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @*@Html.EditorFor(model => model.Ch_Gender)*@
+                        @Html.DropDownListFor(model => model.Ch_Gender, new SelectList(
+                              new List<Object>{
+                                   new { value = "" , text = "Select"  },
+                                   new { value = "M" , text = "Male"  },
+                                   new { value = "F" , text = "Female" },
+                                   new { value = "O" , text = "Others"}
+                                },
+                              "value",
+                              "text",
+                            2), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Gender)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Nationality, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @*@Html.EditorFor(model => model.Ch_Nationality)*@
+                        @Html.DropDownListFor(model => model.Ch_Nationality, new SelectList(
+                              new List<Object>{
+                                   new { value = "" , text = "Select"  },
+                                   new { value = "Indian" , text = "Indian"  },
+                                   new { value = "Others" , text = "Others" },
+                                },
+                              "value",
+                              "text",
+                            2), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Nationality)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_ContactAddress, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_ContactAddress)
+                        @Html.ValidationMessageFor(model => model.Ch_ContactAddress)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_PhoneNumber, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_PhoneNumber)
+                        @Html.ValidationMessageFor(model => model.Ch_PhoneNumber)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_MailId, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_MailId)
+                        @Html.ValidationMessageFor(model => model.Ch_MailId)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Dn_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Dn_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Dn_Id)
+                    </div>
+                    <script>
+                            $("#Ch_Dn_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                            $('#Ch_Dn_Id option:eq(1)').prop('selected', false);
+                            $("#Ch_Dn_Id").val(@ViewData["Ch_Dn_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Ct_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Ct_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Ct_Id)
+                    </div>
+                    <script>
+                        $("#Ch_Ct_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_Ct_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_Ct_Id").val(@ViewData["Ch_Ct_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Cg_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Cg_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Cg_Id)
+                    </div>
+                    <script>
+                        $("#Ch_Cg_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_Cg_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_Cg_Id").val(@ViewData["Ch_Cg_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Ut_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Ut_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Ut_Id)
+                    </div>
+                    <script>
+                        $("#Ch_Ut_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_Ut_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_Ut_Id").val(@ViewData["Ch_Ut_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Br_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Br_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Br_Id)
+                    </div>
+                    <script>
+                        $("#Ch_Br_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_Br_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_Br_Id").val(@ViewData["Ch_Br_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Ln_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Ln_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Ln_Id)
+                    </div>
+                    <script>
+                        $("#Ch_Ln_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_Ln_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_Ln_Id").val(@ViewData["Ch_Ln_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Dp_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Dp_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Dp_Id)
+                    </div>
+                    <script>
+                        $("#Ch_Dp_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_Dp_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_Dp_Id").val(@ViewData["Ch_Dp_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_CS_Id, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_CS_Id", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_CS_Id)
+                    </div>
+                    <script>
+                        $("#Ch_CS_Id option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                        $('#Ch_CS_Id option:eq(1)').prop('selected', false);
+                        $("#Ch_CS_Id").val(@ViewData["Ch_CS_Id_VAL"]);
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_DOJ, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Ch_DOJ)
+                        @Html.ValidationMessageFor(model => model.Ch_DOJ)
+                    </div>
+                </div>
+            </div>
+               
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_ValidTo, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Ch_ValidTo)
+                        @Html.ValidationMessageFor(model => model.Ch_ValidTo)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_ISBio, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_ISBio)
+                        @Html.ValidationMessageFor(model => model.Ch_ISBio)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_ISCard, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_ISCard)
+                        @Html.ValidationMessageFor(model => model.Ch_ISCard)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_IsCardBio, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_IsCardBio)
+                        @Html.ValidationMessageFor(model => model.Ch_IsCardBio)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_CardIssued, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_CardIssued)
+                        @Html.ValidationMessageFor(model => model.Ch_CardIssued)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Es_ID, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.DropDownList("Ch_Es_ID", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Ch_Es_ID)
+                    </div>
+                </div>
+                @{
+            if (ViewData["Ch_Es_ID_VAL"] == "0" || ViewData["Ch_Es_ID_VAL"] == "")
+            {
+                <script>
+                    $("#Ch_Es_ID option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                    $('#Ch_Es_ID option:eq(1)').prop('selected', false);
+                </script>
+            }
+            else
+            {
+                <script>
+                    $("#Ch_Es_ID option").eq(0).before($("<option></option>").val("").text("Select")).attr('selected', 'selected');
+                    $("#Ch_Es_ID").val(@ViewData["Ch_Es_ID_VAL"]);
+                </script>
+            }
+                }
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_DOS, new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Ch_DOS)
+                        @Html.ValidationMessageFor(model => model.Ch_DOS)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">            
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Photo, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @*@Html.EditorFor(model => model.Ch_Photo)*@
+                        @{
+                            string empid = Model.Ch_EmpId;
+                        }
+                        <img src="/Smx_CardHolder/RetrieveImage/@empid" alt="" height=100 width=100 />
+                        <input type="file" name="Ch_Photo" class="input-files" id="Ch_Photo" />
+                        @Html.ValidationMessageFor(model => model.Ch_Photo)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Created, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_Created)
+                        @Html.ValidationMessageFor(model => model.Ch_Created)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Modified, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_Modified)
+                        @Html.ValidationMessageFor(model => model.Ch_Modified)
+                    </div>
+                </div>
+            </div>
+        </div>            
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ch_Modifiedby, new { @class = "control-label col-md-4" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Ch_Modifiedby)
+                        @Html.ValidationMessageFor(model => model.Ch_Modifiedby)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" value="Save" class="btn btn-default" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

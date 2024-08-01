@@ -1,0 +1,57 @@
+﻿@model SmaxV2Attendance.Models.Smx_Unit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Unit</h2>
+<h4>Details</h4>
+
+<div>
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.UT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UT_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UT_DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UT_DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UT_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UT_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UT_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UT_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UT_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UT_MODIFIEDBY)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UT_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

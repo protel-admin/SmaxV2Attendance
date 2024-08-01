@@ -1,0 +1,65 @@
+﻿@model SmaxV2Attendance.Models.Smx_Location
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Location</h2>
+<h4>Details</h4>
+
+<div>
+         <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_SHORTNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_SHORTNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_MODIFIEDBY)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LN_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

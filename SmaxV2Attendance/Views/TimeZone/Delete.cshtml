@@ -1,0 +1,68 @@
+﻿@model SmaxV2Attendance.Models.Smx_TimeZone
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Smx_TimeZone</h4>
+    <hr />
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_UPDATE_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_UPDATE_STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TZ_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TZ_MODIFIEDBY)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @*<input type="submit" value="Delete" class="btn btn-default" />*@ 
+            <button class="btn btn-danger" id="btndelete">
+                Delete &nbsp;
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

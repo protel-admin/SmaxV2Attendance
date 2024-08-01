@@ -1,0 +1,24 @@
+﻿<br />
+<div id="info" class="alert alert-info">
+    @ViewBag.Info
+</div>
+<div id="errormsg" class="alert alert-danger">
+    @ViewBag.ErrorMsg
+</div>
+<script>
+    if ($("#errormsg").html().trim() == "") {
+        $("#errormsg").hide();
+    }
+    else {
+        $("#errormsg").show();
+        //alert($("#errormsg").html());
+    }
+
+    if ($("#info").html().trim() == "") {
+        $("#info").hide();
+    }
+    else {
+        $("#info").show();
+        //alert($("#errormsg").html());
+    }
+</script>

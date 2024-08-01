@@ -1,0 +1,78 @@
+﻿@model SmaxV2Attendance.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@RenderPage("../Shared/_Common.cshtml")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>User</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.US_User, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.US_User, new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.US_User)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.US_Login, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.US_Login, new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.US_Login)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.US_Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.US_Password, new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.US_Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FK_UG_GroupId, "Group Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FK_UG_GroupId", null, new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.FK_UG_GroupId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.US_Created, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.US_Created)
+                @Html.ValidationMessageFor(model => model.US_Created)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.US_Modified, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.US_Modified)
+                @Html.ValidationMessageFor(model => model.US_Modified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn-info input-sm" />
+                @* <button type="button" id="btn_submit" class="btn-info input-sm">Create</button>&nbsp;*@
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

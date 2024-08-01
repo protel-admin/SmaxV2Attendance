@@ -1,0 +1,80 @@
+﻿@model SmaxV2Attendance.Models.Smx_Leave
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Leave</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv_ShortDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv_ShortDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv_MaxDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv_MaxDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv_MaxAllowed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv_MaxAllowed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv_Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv_Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LV_Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LV_Modified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lv_Modifiedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lv_Modifiedby)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

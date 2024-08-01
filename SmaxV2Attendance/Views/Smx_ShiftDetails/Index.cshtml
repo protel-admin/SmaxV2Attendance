@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.Smx_ShiftDetails>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_Hours_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_Modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sftd_Modifiedby)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_Hours_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_Modified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sftd_Modifiedby)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Sftd_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Sftd_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Sftd_Id })
+        </td>
+    </tr>
+}
+
+</table>

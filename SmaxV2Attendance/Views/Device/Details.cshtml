@@ -1,0 +1,178 @@
+﻿@model SmaxV2Attendance.Models.Smx_Devices
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Devices</h2>
+<h4>Details</h4>
+
+<div>
+    
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_IPADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_IPADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_NODEID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_NODEID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_MESSAGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_MESSAGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_READERTYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_READERTYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_RELAYTIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_RELAYTIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_DOTL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_DOTL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_IP1_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_IP1_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_IP2_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_IP2_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_IP1_NONC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_IP1_NONC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_IP2_NONC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_IP2_NONC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_MEMORY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_MEMORY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_OPERATIONAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_OPERATIONAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_MODEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_MODEL)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.DE_READERMODE)
+        </dt>*@
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_READERMODE)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_FIRMWARE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_FIRMWARE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DE_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DE_MODIFIEDBY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Location.LN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Location.LN_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/datagrid")
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/livemonitor")
+@Scripts.Render("~/bundles/blockui")
+
+<h2>Live Monitor</h2>
+
+<div class="form-group col-md-12">
+    <div class="col-md-3">
+        <select id="ddl_ttype" class="form-control">
+            <option value="0">All</option>
+            <option value="1">Granted</option>
+            <option value="2">Denied</option>
+            <option value="4">Invalid Shift</option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <select id="ddl_location" class="form-control">
+            <option value="0">Select Location</option>
+            <option>Loading...</option>
+        </select>
+    </div>
+
+    <div class="col-md-1">
+        <input type="button" value="Go" id="btnreport" class="btn btn-success" />
+    </div>
+
+    <div class="col-md-2">
+        <label>Auto Refresh &nbsp;</label>
+        <input type="checkbox" name="chkautorefresh" id="chkautorefresh" class="checkbox" checked />
+    </div>  
+</div> 
+    <table id="datagrid1" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Device Name</th>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="livetransactions"></tbody>
+    </table>

@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/networkmonitor")
+@Scripts.Render("~/bundles/blockui")
+
+
+<h2>Network Monitor</h2>
+<form id="frm_timezone" class="form-horizontal well" role="form">
+    <div class="form-group">
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
+                <select id="ddl_location" class="form-control">
+                    <option value="0">Select Location</option>
+                    <option>Loading...</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="ddl_command" class="form-control">
+                    <option value="0">Select Command</option>
+                    <option value="1">Beep</option>
+                    <option value="2">GetReaderStatus</option>
+                    <option value="3">GetAccessCodeTransCount</option>                                        
+                    <option value="4">Pulse Relay</option>
+                    <option value="5">DeSecure Relay</option>
+                    <option value="6">Secure Relay</option>
+                    <option value="7">Factory Reset</option>                    
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="ddl_config" class="form-control">
+                    <option value="0">Select Configuration</option>
+                    <option value="8">Update Everything</option>
+                    <option value="9">Update System Time</option>
+                    <option value="10">Update Cardholders</option>                    
+                    <option value="11">Update TimeZones</option>
+                    <option value="12">Update Holidays</option>                    
+                    <option value="13">Update Messages</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <input type="button" id="btnsend" class="btn btn-success" value="Send" />
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="Chk_Checkall" /></th>
+                            <th>Location</th>
+                            <th>Reader</th>
+                            <th>Ip Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="readerdetails"></tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ip Address</th>
+                            <th>Command</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="downloadstatus"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</form>
+

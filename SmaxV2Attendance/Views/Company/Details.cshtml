@@ -1,0 +1,105 @@
+﻿@model SmaxV2Attendance.Models.Smx_Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Company</h2>
+<h4>Details</h4>
+
+<div>
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_SHORTNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_SHORTNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_HEAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_HEAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_CITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_CITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_PHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_PHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_FAX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_FAX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CG_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CG_MODIFIEDBY)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CG_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

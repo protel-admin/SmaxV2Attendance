@@ -1,0 +1,80 @@
+﻿@model SmaxV2Attendance.Models.Smx_AccessLevelDetails
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Access Level Details</h2>
+<h4>Delete</h4>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_NODEID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_NODEID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_READER_IPADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_READER_IPADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALD_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALD_MODIFIEDBY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_AccessLevel.AL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_AccessLevel.AL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_TimeZone.TZ_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_TimeZone.TZ_NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

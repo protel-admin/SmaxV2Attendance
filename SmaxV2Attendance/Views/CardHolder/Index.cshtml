@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.CardHolderDisplay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cardholder</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <table class="col-md-4" >
+            <tr>
+                <td>
+                    @Html.Label("Smart Search : ")
+                </td>
+                <td>
+                    @Html.TextBox("SearchString", "", new { @class = "form-control", placeholder = "Name/Card no/empid" })
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </td>
+            </tr>
+            <tr height="5">
+                <td colspan="4"></td>
+            </tr>
+        </table>
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Csnnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_EmpId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LN_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CS_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ES_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_CardIssued)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_Csnnumber).ToString().Split('.')[0]
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_EmpId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LN_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CS_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ES_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_CardIssued)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Ch_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Ch_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Ch_Id })
+            </td>
+        </tr>
+    }
+
+</table>

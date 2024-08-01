@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "AttendenceForMonthStatus";
+}
+@Scripts.Render("~/bundles/datagrid")
+@Scripts.Render("~/bundles/Utility")
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+
+<script>
+    var rpthtml = "";
+    $(document).ready(function () {
+
+        $("#rptprint").click(function () {
+
+            printpreview(rpthtml);
+        });
+
+
+        $("#rptgenerate").click(function () {
+            //var url = "/Reports/GetAttendanceSingleDay?srcdate=" + $("#srcdate").val() + "&trgdate=" + $("#trgdate").val();
+            var url = fullhost + "/Reports/GetMonthlyAttendanceStatus?month=" + $("#srcdate").val().substring(0, 2) + "&year=" + $("#srcdate").val().substring(3, 7);
+            //alert(url);
+            //var url = "/Reports/GetMonthlyAttendanceStatus?month=01&year=2015";
+            result = GetURLasString(url);
+            $("#datagrid1").html(result);
+            rpthtml = $("#datagrid1").html();
+            $("#datagrid1").dataTable();
+            $("#datagrid1").show();
+            var exlurl = fullhost + "/Reports/GetMonthlyAttendanceStatusExport?month=" + $("#srcdate").val().substring(0, 2) + "&year=" + $("#srcdate").val().substring(3, 7) + "&reportname=Monthy Attendance Status Report&reporttype=EXCEL";
+            var pdfurl = fullhost + "/Reports/GetMonthlyAttendanceStatusExport?month=" + $("#srcdate").val().substring(0, 2) + "&year=" + $("#srcdate").val().substring(3, 7) + "&reportname=Monthy Attendance Status Report&reporttype=PDF";
+            $('#lnkexcel').attr("href", exlurl)
+            $('#lnkpdf').attr("href", pdfurl)
+
+        });
+
+        
+    });
+
+
+
+</script>
+<h2>Attendance For Month (Status) Report &nbsp;<span id="headingdate"></span></h2>
+<div>
+    <table>
+        <tr>
+            <td>
+                Select date : &nbsp;
+            </td>
+            <td>
+                <input type="text" id="srcdate" class="form-control" />
+            </td>
+            <td>
+                &nbsp;&nbsp;
+                <button id="rptgenerate" class="btn btn-default">Get Report</button>
+                &nbsp;
+            </td>
+            <td>
+                <a href="#" id="lnkexcel" class="btn btn-info" target="_blank">Export Excel</a>
+                <a href="#" id="lnkpdf" class="btn btn-info" target="_blank">Export PDF</a>
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#srcdate').datetimepicker({
+                viewMode: 'years',
+                format: 'MM-YYYY'
+            });
+
+            //$('#trgdate').datetimepicker({
+            //    pickTime: false,
+            //    format: 'MM/DD/YYYY'
+            //});
+        });
+    </script>
+</div>
+
+</br>
+<table id="datagrid1" class="table table-striped" border="1" cellspacing="0"></table>
+
+

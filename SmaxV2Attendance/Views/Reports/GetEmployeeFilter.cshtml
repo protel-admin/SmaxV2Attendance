@@ -1,0 +1,47 @@
+﻿@model List<SmaxV2Attendance.Models.EmployeeListItemDto>
+@{
+
+    Layout = null;
+
+}
+
+
+        @if (Model != null)
+        {
+
+            if (Model.Count > 0)
+            { int i = 0;
+                foreach (var item in Model)
+                {
+
+
+        <tr>
+
+            <td>@(i + 1)</td>
+            
+            
+            <td>
+
+                @Html.HiddenFor(x => x[i].EmployeeId)
+                @Html.HiddenFor(x => x[i].EmployeeName)
+                
+
+                <label for="@string.Concat("chk",i)"> <input type="checkbox" class="chkEmployeeId"  data-empid="@item.EmployeeId" id="@string.Concat("chk",i)" name="[@i].IsSelected" value="false" />&nbsp;  @item.EmployeeId </label>
+            </td>
+            <td>@item.EmployeeName</td>
+            <td>@item.CSN</td>
+            <td>@item.Department</td>
+            <td>@item.Designation</td>
+            <td>@item.Unit</td>
+
+
+        </tr>
+
+                    i++; }
+
+
+
+            }
+
+        }
+

@@ -1,0 +1,73 @@
+﻿@model SmaxV2Attendance.Models.Smx_TimeZone
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        <h4>Smx_TimeZone</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.TZ_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_NAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_NAME)
+                @Html.ValidationMessageFor(model => model.TZ_NAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_UPDATE_STATUS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_UPDATE_STATUS)
+                @Html.ValidationMessageFor(model => model.TZ_UPDATE_STATUS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_CREATED)
+                @Html.ValidationMessageFor(model => model.TZ_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_MODIFIED)
+                @Html.ValidationMessageFor(model => model.TZ_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.TZ_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" value="Save" class="btn btn-default" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

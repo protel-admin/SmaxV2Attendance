@@ -1,0 +1,354 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.CardHolderDisplay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <table class="col-md-4">
+            <tr>
+                <td>
+                    @Html.Label("Smart Search : ")
+                </td>
+                <td>
+                    @Html.TextBox("SearchString", "", new { @class = "form-control", placeholder = "Name/Card no/empid" })
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </td>
+            </tr>
+            <tr height="5">
+                <td colspan="4"></td>
+            </tr>
+        </table>
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Csnnumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_EmpId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LN_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CS_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ES_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_CardIssued)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_Csnnumber).ToString().Split('.')[0]
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_EmpId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LN_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CS_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ES_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ch_CardIssued)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Ch_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Ch_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Ch_Id })
+            </td>
+        </tr>
+    }
+
+</table>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_CardNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_EmpId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_ShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_ContactAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_MailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Finger1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Finger2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_PinNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_ValidTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_ISBio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_ISCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_ISPin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_AntiPassBack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_CardIssued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_TrackCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_DOJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_DOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_AccessValidation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ch_Modifiedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Branch.BR_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_CardStatus.CS_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Category.CT_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Company.CG_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Department.DP_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Designation.DN_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_EmployeeStatus.ES_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Location.LN_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Message.MS_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Unit.UT_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_CardNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_EmpId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_LName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Dob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_ContactAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_MailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Finger1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Finger2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_PinNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_ValidTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_ISBio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_ISCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_ISPin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_AntiPassBack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_CardIssued)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_TrackCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_DOJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_DOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_AccessValidation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Modified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ch_Modifiedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Branch.BR_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_CardStatus.CS_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Category.CT_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Company.CG_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Department.DP_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Designation.DN_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_EmployeeStatus.ES_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Location.LN_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Message.MS_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Unit.UT_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Ch_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Ch_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Ch_Id })
+        </td>
+    </tr>
+}
+
+</table>*@

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    //Layout = null;
+    string msg = "";
+    if (ViewData["ErrMsg"] != null)
+    {
+        msg = ViewData["ErrMsg"].ToString();
+    }
+}
+
+@{
+    if ((ViewData["ErrMsg"] != null && ViewData["ErrMsg"] != ""))
+    {
+        <div class="alert alert-danger">
+            @msg
+        </div>
+    }
+
+    if (Session["ErrMsg"] != null && Session["ErrMsg"] != "")
+    {
+        <div class="alert alert-danger">
+            @Session["ErrMsg"]
+        </div>
+    }
+}
+<div class="jumbotron">
+    <h1>ACS</h1>
+    <p class="lead">Access Control System Report</p>
+    <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>

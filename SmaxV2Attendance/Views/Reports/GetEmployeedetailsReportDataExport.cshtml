@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "GetEmployeedetailsReportDataExport";
+}
+
+<h2>GetEmployeedetailsReportDataExport</h2>
+
+@{
+
+    byte[] fileData = ((MemoryStream)ViewData["FileContent"]).ToArray();
+    Response.Clear();
+
+    if (ViewData["FileType"].ToString().ToUpper() == "EXCEL")
+    {
+        Response.ContentType = "application/vnd.ms-excel";
+        Response.AddHeader("content-disposition", "attachment; filename=" + ViewData["FileName"] + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".xlsx");
+    }
+    if (ViewData["FileType"].ToString().ToUpper() == "PDF")
+    {
+        Response.ContentType = "application/pdf";
+        Response.AddHeader("content-disposition", "attachment; filename=" + ViewData["FileName"] + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + ".pdf");
+    }
+
+    Response.BinaryWrite(fileData);
+    Response.End();
+}
+
+

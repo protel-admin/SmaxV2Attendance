@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "LatecomersReport";
+}
+
+@Scripts.Render("~/bundles/datagrid")
+@Scripts.Render("~/bundles/Utility")
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+
+<script>
+    var rpthtml = "";
+    $(document).ready(function () {
+        $("#divmsg").hide();
+
+
+        $("#rptgenerate").click(function (){
+
+
+            var url = fullhost + "/Reports/GetLatecomersReportData?date=" + $("#srcdate").val() + "&gracetime=" + $("#ddl_gracetime").val();
+            GetURLasString_callback(url, loadreport);
+            $("#divmsg").show();
+            $("#datagrid1").html("");
+            var exlurl = fullhost + "/Reports/GetLatecomersReportDataExport?date=" + $("#srcdate").val() + "&gracetime=" + $("#ddl_gracetime").val() + "&reportname=Late Comers Report&reporttype=EXCEL";
+            var pdfurl = fullhost + "/Reports/GetLatecomersReportDataExport?date=" + $("#srcdate").val() + "&gracetime=" + $("#ddl_gracetime").val() + "&reportname=Late Comers Report&reporttype=PDF";
+            $('#lnkexcel').attr("href", exlurl)
+            $('#lnkpdf').attr("href", pdfurl)
+
+            ////var url = "/Reports/GetAttendanceSingleDay?srcdate=" + $("#srcdate").val() + "&trgdate=" + $("#trgdate").val();
+            //var url = "/Reports/GetAttendanceSingleDay?srcdate=" + $("#srcdate").val() + "&trgdate=" + $("#srcdate").val();
+            //result = GetURLasString(url);
+            //$("#headingdate").html(" (" + $("#srcdate").val() + ")");
+            //$("#datagrid1").html(result);
+            //rpthtml = $("#datagrid1").html();
+            ////$("#datagrid1").dataTable();
+            //$("#datagrid1").show();
+
+        });
+
+        function loadreport(result) {
+            $("#datagrid1").html(result);
+            rpthtml = $("#datagrid1").html();
+            //$("#datagrid1").dataTable();
+            $("#datagrid1").show();
+            $("#divmsg").hide();
+        }
+    });
+</script>
+<h2>Late Comers Report&nbsp;<span id="headingdate"></span></h2>
+<table>
+    <tr>
+        <td>
+            Select date : &nbsp;
+        </td>
+        <td>
+            <input type="text" id="srcdate" class="form-control"/>
+        </td>
+        <td>
+            &nbsp;&nbsp; Grace Time : &nbsp;
+        </td>
+        <td>
+           @* <input type="text" id="gracetime" class="form-control" />*@
+            <select id="ddl_gracetime" class="form-control">
+                <option value="0">0</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+            </select>
+        </td>
+
+        <td>
+            &nbsp;&nbsp;
+            <button id="rptgenerate" class="btn btn-default">Get Report</button>
+            &nbsp;
+        </td>
+        <td>
+            <a href="#" id="lnkexcel" class="btn btn-info" target="_blank">Export Excel</a>
+            <a href="#" id="lnkpdf" class="btn btn-info" target="_blank">Export PDF</a>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    $(function () {
+        $('#srcdate').datetimepicker({
+            pickTime: false,
+            format: 'MM/DD/YYYY'
+        });
+
+        $('#trgdate').datetimepicker({
+            pickTime: false,
+            format: 'MM/DD/YYYY'
+        });
+    });
+</script>
+<br />
+<div id="divmsg" class="alert alert-info">
+    Loading.. Please Wait...
+</div>
+<table id="datagrid1" class="table table-striped" border="1" cellspacing="0"></table>
+
+

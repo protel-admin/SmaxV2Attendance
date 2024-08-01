@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f72fec9035b344229be81e24d510d3bc" Name="Diagram1" ZoomLevel="86" ShowGrid="false" SnapToGrid="false">
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Branch" Width="1.5" PointX="7.4374999999999982" PointY="16.093750000000004" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_CardReissue" Width="1.5" PointX="9.2395833333333339" PointY="9.3020833333333339" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_CardStatus" Width="1.5" PointX="2.9479166666666679" PointY="16.229166666666675" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Category" Width="1.5" PointX="5.1979166666666661" PointY="9.4270833333333339" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Company" Width="1.5" PointX="2.8125" PointY="21.229166666666671" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_EmployeeStatus" Width="1.75" PointX="2.958333333333333" PointY="11.250000000000002" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Holiday" Width="1.5" PointX="0.75000000000000044" PointY="0.5" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_TimeZone" Width="1.5" PointX="2.875" PointY="7.59375" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_TimeZoneDetails" Width="1.5" PointX="4.229166666666667" PointY="3.927083333333333" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Unit" Width="1.5" PointX="7.4062499999999973" PointY="13.645833333333341" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_TimeZoneDetails_Smx_TimeZone" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Designation" Width="1.5" PointX="7.1875" PointY="9.3958333333333339" />
+        <EntityTypeShape EntityType="SMAXV2Model.Entitlement" Width="1.5" PointX="14.166666666666666" PointY="4.8125000000000044" />
+        <EntityTypeShape EntityType="SMAXV2Model.ScreenName" Width="1.5" PointX="14.218750000000002" PointY="2.84375" />
+        <AssociationConnector Association="SMAXV2Model.FK_Entitlements_ScreenName" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Leave" Width="1.5" PointX="8.4791666666666679" PointY="18.802083333333336" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Leavedetails" Width="1.5" PointX="10.875" PointY="18.125" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_Leavedetails_Smx_Leave" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Areas" Width="1.5" PointX="2.875" PointY="25.25" />
+        <EntityTypeShape EntityType="SMAXV2Model.vw_AreaName" Width="1.5" PointX="10.79166666666667" PointY="0.562500000000002" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Message" Width="1.5" PointX="12.958333333333336" PointY="9.0520833333333339" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Group" Width="1.5" PointX="12.51041666666667" PointY="5.645833333333333" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Permission" Width="1.5" PointX="2.5729166666666679" PointY="0.5" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_ShiftAssignment" Width="1.5" PointX="13.510416666666666" PointY="14.79166666666667" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_ShiftAssignmentDetails" Width="1.5" PointX="12.489583333333334" PointY="3.541666666666667" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_EventTask" Width="1.5" PointX="14.708333333333336" PointY="7.3645833333333339" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_ShiftDetails" Width="1.5" PointX="12.479166666666666" PointY="0.54166666666666718" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Location" Width="1.5" PointX="0.80208333333333326" PointY="9.7395833333333357" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_Areas_Smx_Location" />
+        <EntityTypeShape EntityType="SMAXV2Model.vw_Smx_AccessLevel_ReaderDetails" Width="1.5" PointX="5.822916666666667" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.vw_Smx_CardAccesslevel_Delete" Width="1.5" PointX="9.1666666666666661" PointY="0.54166666666666663" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.vw_Smx_CardAccesslevel_Download" Width="1.5" PointX="7.4791666666666679" PointY="0.51041666666666663" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_CardholderAccessLevel" Width="1.5" PointX="0.64583333333333326" PointY="3.447916666666667" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_AccessLevel" Width="1.5" PointX="0.75" PointY="6.625" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardholderAccessLevel_Smx_AccessLevel" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Transaction" Width="1.5" PointX="5.84375" PointY="3.1145833333333344" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_TransactionType" Width="1.5" PointX="5.8541666666666661" PointY="6.8333333333333339" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_AccessLevelDetails" Width="1.5" PointX="2.5104166666666661" PointY="3.8333333333333335" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_AccessLevel" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_Location" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_TimeZone" />
+        <EntityTypeShape EntityType="SMAXV2Model.User" Width="1.5" PointX="16.843750000000007" PointY="4.9351513671874976" />
+        <EntityTypeShape EntityType="SMAXV2Model.UserGroup" Width="1.5" PointX="14.625" PointY="24.451904296874996" />
+        <AssociationConnector Association="SMAXV2Model.FK_Users_UserGroups" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_CardHolder" Width="1.5" PointX="16.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Department" Width="1.5" PointX="8.375" PointY="5.75" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Branch" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_CardStatus" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Category" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Company" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Department" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Designation" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_EmployeeStatus" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Location" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Message" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Unit" />
+        <EntityTypeShape EntityType="SMAXV2Model.vw_Smx_Transaction" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_Devices" Width="1.5" PointX="3" PointY="29.307739257812493" />
+        <AssociationConnector Association="SMAXV2Model.FK_Smx_Devices_Smx_Location" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_LastFlashdayscount" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMAXV2Model.Smx_AttendanceReaders" Width="1.5" PointX="17.375" PointY="8.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

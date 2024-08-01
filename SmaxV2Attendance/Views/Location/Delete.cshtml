@@ -1,0 +1,75 @@
+﻿@model SmaxV2Attendance.Models.Smx_Location
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Location</h2>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>        
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_SHORTNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_SHORTNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_CREATED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_CREATED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_MODIFIED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_MODIFIED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LN_MODIFIEDBY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LN_MODIFIEDBY)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @*<input type="submit" value="Delete" class="btn btn-danger" /> |*@
+            <button class="btn btn-danger" id="btndelete">
+                Delete &nbsp;
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

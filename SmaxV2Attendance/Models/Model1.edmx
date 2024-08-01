@@ -1,0 +1,2804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SMAXV2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Entitlements">
+          <Key>
+            <PropertyRef Name="EN_Id" />
+          </Key>
+          <Property Name="EN_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_UG_GroupId" Type="int" Nullable="false" />
+          <Property Name="FK_SC_ScreenName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScreenName">
+          <Key>
+            <PropertyRef Name="SC_ScreenName" />
+          </Key>
+          <Property Name="SC_ScreenName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="SC_Description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Smx_AccessLevel">
+          <Key>
+            <PropertyRef Name="AL_ID" />
+          </Key>
+          <Property Name="AL_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AL_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AL_CREATED" Type="datetime" />
+          <Property Name="AL_MODIFIED" Type="datetime" />
+          <Property Name="AL_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_AccessLevelDetails">
+          <Key>
+            <PropertyRef Name="ALD_ID" />
+          </Key>
+          <Property Name="ALD_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ALD_AL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ALD_NODEID" Type="int" Nullable="false" />
+          <Property Name="ALD_TZ_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ALD_READER_IPADDRESS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ALD_LN_ID" Type="int" Nullable="false" />
+          <Property Name="ALD_CREATED" Type="datetime" />
+          <Property Name="ALD_MODIFIED" Type="datetime" />
+          <Property Name="ALD_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Areas">
+          <Key>
+            <PropertyRef Name="AR_ID" />
+          </Key>
+          <Property Name="AR_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AR_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AR_NODEID" Type="int" />
+          <Property Name="AR_TYPE" Type="varchar" MaxLength="4" />
+          <Property Name="AR_APB" Type="numeric" Precision="19" Scale="0" />
+          <Property Name="AR_LN_ID" Type="int" />
+          <Property Name="AR_IPADDRESS" Type="varchar" MaxLength="15" />
+          <Property Name="AR_APBNUMBER" Type="numeric" Precision="19" Scale="0" />
+          <Property Name="AR_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="AR_DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="Smx_AttendanceReaders">
+          <Key>
+            <PropertyRef Name="AR_Id" />
+          </Key>
+          <Property Name="AR_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AR_IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="AR_Nodeid" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AR_ReaderType" Type="int" />
+          <Property Name="AR_Createddate" Type="datetime" />
+          <Property Name="AR_Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="AR_Modifieddate" Type="datetime" />
+          <Property Name="AR_Modifiedby" Type="varchar" MaxLength="50" />
+          <Property Name="AR_Remarks" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Branch">
+          <Key>
+            <PropertyRef Name="BR_ID" />
+          </Key>
+          <Property Name="BR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BR_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BR_CREATED" Type="datetime" />
+          <Property Name="BR_MODIFIED" Type="datetime" />
+          <Property Name="BR_MODIFIEDBY" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_CardHolder">
+          <Key>
+            <PropertyRef Name="Ch_Id" />
+          </Key>
+          <Property Name="Ch_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ch_Cardno" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Ch_Csnnumber" Type="varchar" MaxLength="20" />
+          <Property Name="Ch_EmpId" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Ch_Title" Type="varchar" MaxLength="7" />
+          <Property Name="Ch_FName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ch_LName" Type="varchar" MaxLength="50" />
+          <Property Name="Ch_ShortName" Type="varchar" MaxLength="50" />
+          <Property Name="Ch_Dob" Type="datetime" />
+          <Property Name="Ch_Gender" Type="char" MaxLength="1" />
+          <Property Name="Ch_Nationality" Type="varchar" MaxLength="10" />
+          <Property Name="Ch_ContactAddress" Type="varchar" MaxLength="200" />
+          <Property Name="Ch_PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Ch_MailId" Type="varchar" MaxLength="100" />
+          <Property Name="Ch_Dn_Id" Type="int" />
+          <Property Name="Ch_Ct_Id" Type="int" />
+          <Property Name="Ch_Cg_Id" Type="int" />
+          <Property Name="Ch_Ut_Id" Type="int" />
+          <Property Name="Ch_Br_Id" Type="int" />
+          <Property Name="Ch_Ln_Id" Type="int" />
+          <Property Name="Ch_Dp_Id" Type="int" />
+          <Property Name="Ch_Photo" Type="image" />
+          <Property Name="Ch_Finger1" Type="image" />
+          <Property Name="Ch_Finger2" Type="image" />
+          <Property Name="Ch_PinNo" Type="int" />
+          <Property Name="Ch_ValidTo" Type="datetime" />
+          <Property Name="Ch_CS_Id" Type="int" />
+          <Property Name="Ch_ISBio" Type="bit" Nullable="false" />
+          <Property Name="Ch_ISCard" Type="bit" Nullable="false" />
+          <Property Name="Ch_ISPin" Type="bit" Nullable="false" />
+          <Property Name="Ch_AntiPassBack" Type="bit" Nullable="false" />
+          <Property Name="Ch_CardIssued" Type="bit" Nullable="false" />
+          <Property Name="Ch_TrackCard" Type="bit" />
+          <Property Name="Ch_MS_Id" Type="int" />
+          <Property Name="Ch_DOJ" Type="datetime" />
+          <Property Name="Ch_AccessValidation" Type="bit" />
+          <Property Name="Ch_Es_ID" Type="int" />
+          <Property Name="Ch_DOS" Type="datetime" />
+          <Property Name="Ch_Finger1Identity" Type="varchar" MaxLength="50" />
+          <Property Name="Ch_Finger2Identity" Type="varchar" MaxLength="50" />
+          <Property Name="Ch_Created" Type="datetime" Nullable="false" />
+          <Property Name="Ch_Modified" Type="datetime" Nullable="false" />
+          <Property Name="Ch_Modifiedby" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ch_IsCardBio" Type="bit" Nullable="false" />
+          <Property Name="Ch_IsCardBasedBio" Type="bit" />
+        </EntityType>
+        <EntityType Name="Smx_CardholderAccessLevel">
+          <Key>
+            <PropertyRef Name="CAL_Id" />
+          </Key>
+          <Property Name="CAL_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAL_CH_Cardno" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CAL_CH_Csnnumber" Type="varchar" MaxLength="20" />
+          <Property Name="CAL_AL_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CAL_Deleted" Type="bit" />
+          <Property Name="CAL_DWStatus" Type="bit" />
+          <Property Name="CAL_Created" Type="datetime" />
+          <Property Name="CAL_Modified" Type="datetime" />
+          <Property Name="CAL_Modifiedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_CardReissue">
+          <Key>
+            <PropertyRef Name="CR_ID" />
+          </Key>
+          <Property Name="CR_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CR_Ch_EmpId" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="CR_Ch_CardNo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CR_Created" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_CardStatus">
+          <Key>
+            <PropertyRef Name="CS_Id" />
+          </Key>
+          <Property Name="CS_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CS_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_Category">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CT_SHORTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CT_CREATED" Type="datetime" />
+          <Property Name="CT_MODIFIED" Type="datetime" />
+          <Property Name="CT_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Company">
+          <Key>
+            <PropertyRef Name="CG_ID" />
+          </Key>
+          <Property Name="CG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CG_NAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CG_SHORTNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CG_HEAD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CG_ADDRESS" Type="varchar" MaxLength="150" />
+          <Property Name="CG_CITY" Type="varchar" MaxLength="50" />
+          <Property Name="CG_PHONE" Type="varchar" MaxLength="15" />
+          <Property Name="CG_FAX" Type="varchar" MaxLength="15" />
+          <Property Name="CG_EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="CG_CREATED" Type="datetime" Nullable="false" />
+          <Property Name="CG_MODIFIED" Type="datetime" Nullable="false" />
+          <Property Name="CG_MODIFIEDBY" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_Department">
+          <Key>
+            <PropertyRef Name="DP_ID" />
+          </Key>
+          <Property Name="DP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DP_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DP_SHORTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DP_CREATED" Type="datetime" />
+          <Property Name="DP_MODIFIED" Type="datetime" />
+          <Property Name="DP_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Designation">
+          <Key>
+            <PropertyRef Name="DN_ID" />
+          </Key>
+          <Property Name="DN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DN_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DN_SHORTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DN_CREATED" Type="datetime" />
+          <Property Name="DN_MODIFIED" Type="datetime" />
+          <Property Name="DN_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Devices">
+          <Key>
+            <PropertyRef Name="DE_ID" />
+          </Key>
+          <Property Name="DE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DE_IPADDRESS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="DE_NODEID" Type="int" Nullable="false" />
+          <Property Name="DE_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DE_LN_ID" Type="int" Nullable="false" />
+          <Property Name="DE_MESSAGE" Type="varchar" MaxLength="50" />
+          <Property Name="DE_READERTYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DE_RELAYTIME" Type="int" />
+          <Property Name="DE_DOTL" Type="int" />
+          <Property Name="DE_DOTZ" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DE_IP1_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DE_IP2_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DE_IP1_NONC" Type="varchar" MaxLength="50" />
+          <Property Name="DE_IP2_NONC" Type="varchar" MaxLength="50" />
+          <Property Name="DE_MEMORY" Type="varchar" MaxLength="50" />
+          <Property Name="DE_OPERATIONAL" Type="varchar" MaxLength="50" />
+          <Property Name="DE_MODEL" Type="varchar" MaxLength="50" />
+          <Property Name="DE_FIRMWARE" Type="varchar" MaxLength="50" />
+          <Property Name="DE_FIREALARM" Type="int" />
+          <Property Name="DE_INTZID" Type="int" />
+          <Property Name="DE_Remarks" Type="varchar" MaxLength="50" />
+          <Property Name="DE_READERMODE" Type="varchar" MaxLength="50" />
+          <Property Name="DE_BUZZER_BEEP_COUNT" Type="int" />
+          <Property Name="DE_BUZZER_INTERVAL" Type="int" />
+          <Property Name="DE_OPTIONALTRANS" Type="int" />
+          <Property Name="DE_TIMESYNCTIME" Type="int" />
+          <Property Name="DE_CREATED" Type="datetime" />
+          <Property Name="DE_MODIFIED" Type="datetime" />
+          <Property Name="DE_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_EmployeeStatus">
+          <Key>
+            <PropertyRef Name="ES_ID" />
+          </Key>
+          <Property Name="ES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ES_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ES_SHORTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ES_CREATED" Type="datetime" />
+          <Property Name="ES_MODIFIED" Type="datetime" />
+          <Property Name="ES_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_EventTask">
+          <Key>
+            <PropertyRef Name="ET_ID" />
+          </Key>
+          <Property Name="ET_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ET_Device_IPAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ET_NodeId" Type="int" Nullable="false" />
+          <Property Name="ET_IP3ACT_R3_Status" Type="varchar" MaxLength="50" />
+          <Property Name="ET_IP3ACT_R3_Time" Type="int" />
+          <Property Name="ET_IP3ACT_R3_Message" Type="bit" />
+          <Property Name="ET_IP3ACT_R3_Message_Duration" Type="int" />
+          <Property Name="ET_IP3NRM_R3_Status" Type="varchar" MaxLength="50" />
+          <Property Name="ET_IP3NRM_R3_Time" Type="int" />
+          <Property Name="ET_IP3NRM_R3_Message" Type="bit" />
+          <Property Name="ET_IP3NRM_R3_Message_Duration" Type="int" />
+          <Property Name="ET_IP4ACT_R3_Status" Type="varchar" MaxLength="50" />
+          <Property Name="ET_IP4ACT_R3_Time" Type="int" />
+          <Property Name="ET_IP4ACT_R3_Message" Type="bit" />
+          <Property Name="ET_IP4ACT_R3_Message_Duration" Type="int" />
+          <Property Name="ET_IP4NRM_R3_Status" Type="varchar" MaxLength="50" />
+          <Property Name="ET_IP4NRM_R3_Time" Type="int" />
+          <Property Name="ET_IP4NRM_R3_Message" Type="bit" />
+          <Property Name="ET_IP4NRM_R3_Message_Duration" Type="int" />
+        </EntityType>
+        <EntityType Name="Smx_Group">
+          <Key>
+            <PropertyRef Name="PK_Gr_Id" />
+          </Key>
+          <Property Name="PK_Gr_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gr_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Gr_ShortName" Type="varchar" MaxLength="10" />
+          <Property Name="Gr_Created" Type="datetime" Nullable="false" />
+          <Property Name="Gr_Modified" Type="datetime" Nullable="false" />
+          <Property Name="Gr_Modifiedby" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_Holiday">
+          <Key>
+            <PropertyRef Name="HD_ID" />
+          </Key>
+          <Property Name="HD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HD_DATE" Type="date" Nullable="false" />
+          <Property Name="HD_DESC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HD_ISREADERDOWNLOAD" Type="bit" Nullable="false" />
+          <Property Name="HD_UPDATE_STATUS" Type="bit" />
+          <Property Name="HD_CREATED" Type="datetime" />
+          <Property Name="HD_MODIFIED" Type="datetime" />
+          <Property Name="HD_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_LastFlashdayscount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dayscount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_Leave">
+          <Key>
+            <PropertyRef Name="Lv_Id" />
+          </Key>
+          <Property Name="Lv_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lv_ShortDesc" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Lv_Description" Type="varchar" MaxLength="50" />
+          <Property Name="Lv_MaxDays" Type="int" />
+          <Property Name="Lv_MaxAllowed" Type="nchar" MaxLength="10" />
+          <Property Name="Lv_Created" Type="datetime" />
+          <Property Name="LV_Modified" Type="datetime" />
+          <Property Name="Lv_Modifiedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Leavedetails">
+          <Key>
+            <PropertyRef Name="LD_Id" />
+          </Key>
+          <Property Name="LD_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Lv_Id" Type="int" />
+          <Property Name="LD_DateLDetails" Type="datetime" />
+          <Property Name="LD_Duration" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="LD_ChId" Type="varchar" MaxLength="50" />
+          <Property Name="LD_Unit" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LD_Created" Type="datetime" />
+          <Property Name="LD_Modified" Type="datetime" />
+          <Property Name="LD_Modifiedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Location">
+          <Key>
+            <PropertyRef Name="LN_ID" />
+          </Key>
+          <Property Name="LN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LN_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LN_ADDRESS" Type="varchar" MaxLength="150" />
+          <Property Name="LN_SHORTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LN_CREATED" Type="datetime" />
+          <Property Name="LN_MODIFIED" Type="datetime" />
+          <Property Name="LN_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Message">
+          <Key>
+            <PropertyRef Name="MS_ID" />
+          </Key>
+          <Property Name="MS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MS_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MS_LINE1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MS_LINE2" Type="varchar" MaxLength="50" />
+          <Property Name="MS_CREATED" Type="datetime" />
+          <Property Name="MS_MODIFIED" Type="datetime" />
+          <Property Name="MS_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Permission">
+          <Key>
+            <PropertyRef Name="PR_Id" />
+          </Key>
+          <Property Name="PR_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PR_ChId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PR_Date" Type="datetime" Nullable="false" />
+          <Property Name="PR_StartTime" Type="datetime" Nullable="false" />
+          <Property Name="PR_EndTime" Type="datetime" Nullable="false" />
+          <Property Name="FK_DP_ID" Type="int" />
+          <Property Name="PR_Description" Type="varchar" MaxLength="50" />
+          <Property Name="PR_Permission" Type="varchar" MaxLength="50" />
+          <Property Name="PR_UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="PR_CreatedDate" Type="datetime" />
+          <Property Name="PR_ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Smx_ShiftAssignment">
+          <Key>
+            <PropertyRef Name="PK_Sft_Id" />
+          </Key>
+          <Property Name="PK_Sft_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sft_ChId" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Sft_MonthYear" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Sft_D1" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D2" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D3" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D4" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D5" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D6" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D7" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D8" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D9" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D10" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D11" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D12" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D13" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D14" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D15" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D16" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D17" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D18" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D19" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D20" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D21" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D22" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D23" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D24" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D25" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D26" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D27" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D28" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D29" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D30" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_D31" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_Unit" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sft_Created" Type="datetime" Nullable="false" />
+          <Property Name="Sft_Modified" Type="datetime" Nullable="false" />
+          <Property Name="Sft_Modifiedby" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_ShiftAssignmentDetails">
+          <Key>
+            <PropertyRef Name="Sftd_Id" />
+          </Key>
+          <Property Name="Sftd_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Sft_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FK_Emp_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sftd_DateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_ShiftDetails">
+          <Key>
+            <PropertyRef Name="Sftd_Id" />
+          </Key>
+          <Property Name="Sftd_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sftd_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sftd_StartTime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sftd_EndTime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sftd_Hours_Id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Sftd_Created" Type="datetime" />
+          <Property Name="Sftd_Modified" Type="datetime" />
+          <Property Name="Sftd_Modifiedby" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_TimeZone">
+          <Key>
+            <PropertyRef Name="TZ_ID" />
+          </Key>
+          <Property Name="TZ_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TZ_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="TZ_UPDATE_STATUS" Type="bit" />
+          <Property Name="TZ_CREATED" Type="datetime" />
+          <Property Name="TZ_MODIFIED" Type="datetime" />
+          <Property Name="TZ_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_TimeZoneDetails">
+          <Key>
+            <PropertyRef Name="TZD_ID" />
+          </Key>
+          <Property Name="TZD_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TZD_TZ_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TZD_DAYS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TZD_START_TIME" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="TZD_END_TIME" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="TZD_SPECIFIC_DATE" Type="datetime" />
+          <Property Name="TZD_CREATED" Type="datetime" />
+          <Property Name="TZD_MODIFIED" Type="datetime" />
+          <Property Name="TZD_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Smx_Transaction">
+          <Key>
+            <PropertyRef Name="Tr_Id" />
+          </Key>
+          <Property Name="Tr_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tr_Date" Type="datetime" />
+          <Property Name="Tr_Time" Type="datetime" />
+          <Property Name="Tr_TType" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Tr_NodeId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Tr_CardNumber" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Tr_Csnnumber" Type="varchar" MaxLength="20" />
+          <Property Name="Tr_Reason" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Tr_IpAddress" Type="varchar" MaxLength="15" />
+          <Property Name="Tr_Message" Type="varchar" MaxLength="500" />
+          <Property Name="Tr_TrackCard" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Tr_EmpId" Type="varchar" MaxLength="16" />
+          <Property Name="Tr_Created" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EIRFID.dbo.Smx_TransactionType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Smx_TransactionType">
+          <Key>
+            <PropertyRef Name="TT_ID" />
+            <PropertyRef Name="TT_CODE" />
+            <PropertyRef Name="TT_DESCRIPTION" />
+          </Key>
+          <Property Name="TT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TT_CODE" Type="int" Nullable="false" />
+          <Property Name="TT_DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_Unit">
+          <Key>
+            <PropertyRef Name="UT_ID" />
+          </Key>
+          <Property Name="UT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UT_DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="UT_CREATED" Type="datetime" />
+          <Property Name="UT_MODIFIED" Type="datetime" />
+          <Property Name="UT_MODIFIEDBY" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserGroups">
+          <Key>
+            <PropertyRef Name="PK_UG_GroupId" />
+          </Key>
+          <Property Name="PK_UG_GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UG_GroupName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="US_Id" />
+          </Key>
+          <Property Name="US_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="US_User" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="US_Login" Type="nvarchar(max)" />
+          <Property Name="US_Password" Type="nvarchar(max)" />
+          <Property Name="FK_UG_GroupId" Type="int" Nullable="false" />
+          <Property Name="US_Created" Type="datetime" Nullable="false" />
+          <Property Name="US_Modified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EIRFID.dbo.vw_AreaName' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_AreaName">
+          <Key>
+            <PropertyRef Name="AR_Name" />
+          </Key>
+          <Property Name="AR_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EIRFID.dbo.vw_Smx_AccessLevel_ReaderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Smx_AccessLevel_ReaderDetails">
+          <Key>
+            <PropertyRef Name="AL_ID" />
+            <PropertyRef Name="AL_NAME" />
+            <PropertyRef Name="DE_NAME" />
+            <PropertyRef Name="ALD_AL_ID" />
+            <PropertyRef Name="DE_ID" />
+            <PropertyRef Name="DE_IPADDRESS" />
+            <PropertyRef Name="ALD_READER_IPADDRESS" />
+          </Key>
+          <Property Name="AL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AL_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DE_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ALD_AL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DE_ID" Type="int" Nullable="false" />
+          <Property Name="DE_IPADDRESS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ALD_READER_IPADDRESS" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EIRFID.dbo.vw_Smx_CardAccesslevel_Delete' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Smx_CardAccesslevel_Delete">
+          <Key>
+            <PropertyRef Name="Ch_EmpId" />
+            <PropertyRef Name="Ch_FName" />
+            <PropertyRef Name="Ch_ISBio" />
+            <PropertyRef Name="Ch_ISCard" />
+            
+            <PropertyRef Name="Ch_ISPin" />
+            <PropertyRef Name="Ch_AntiPassBack" />
+            <PropertyRef Name="ALD_TZ_ID" />
+            <PropertyRef Name="ALD_READER_IPADDRESS" />
+            <PropertyRef Name="ALD_LN_ID" />
+          </Key>
+          <Property Name="Ch_CardNo" Type="varchar" MaxLength="20" />
+          <Property Name="Ch_EmpId" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Ch_FName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ch_PinNo" Type="int" />
+          <Property Name="Ch_ValidTo" Type="datetime" />
+          <Property Name="Ch_ISBio" Type="bit" Nullable="false" />
+          <Property Name="Ch_ISCard" Type="bit" Nullable="false" />
+          <Property Name="Ch_IsCardBio" Type="bit" Nullable="false" />
+          <Property Name="Ch_ISPin" Type="bit" Nullable="false" />
+          <Property Name="Ch_AntiPassBack" Type="bit" Nullable="false" />
+          <Property Name="Ch_AccessValidation" Type="bit" />
+          <Property Name="CAL_AL_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CAL_Deleted" Type="bit" />
+          <Property Name="CAL_DWStatus" Type="bit" />
+          <Property Name="ALD_TZ_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ALD_READER_IPADDRESS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ALD_LN_ID" Type="int" Nullable="false" />
+          <Property Name="Ch_IsCardBasedBio" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EIRFID.dbo.vw_Smx_CardAccesslevel_Download' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Smx_CardAccesslevel_Download">
+          <Key>
+            <PropertyRef Name="Ch_EmpId" />
+            <PropertyRef Name="Ch_FName" />
+            <PropertyRef Name="Ch_ISBio" />
+            <PropertyRef Name="Ch_ISCard" />
+            
+            <PropertyRef Name="Ch_ISPin" />
+            <PropertyRef Name="Ch_AntiPassBack" />
+            <PropertyRef Name="ALD_TZ_ID" />
+            <PropertyRef Name="ALD_READER_IPADDRESS" />
+            <PropertyRef Name="ALD_LN_ID" />
+          </Key>
+          <Property Name="Ch_CardNo" Type="varchar" MaxLength="20" />
+          <Property Name="Ch_EmpId" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Ch_FName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ch_PinNo" Type="int" />
+          <Property Name="Ch_ValidTo" Type="datetime" />
+          <Property Name="Ch_MS_Id" Type="int" />
+          <Property Name="Ch_ISBio" Type="bit" Nullable="false" />
+          <Property Name="Ch_ISCard" Type="bit" Nullable="false" />
+          <Property Name="Ch_IsCardBio" Type="bit" Nullable="false" />
+          <Property Name="Ch_ISPin" Type="bit" Nullable="false" />
+          <Property Name="Ch_AntiPassBack" Type="bit" Nullable="false" />
+          <Property Name="Ch_AccessValidation" Type="bit" />
+          <Property Name="CAL_AL_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CAL_Deleted" Type="bit" />
+          <Property Name="CAL_DWStatus" Type="bit" />
+          <Property Name="ALD_TZ_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ALD_READER_IPADDRESS" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ALD_LN_ID" Type="int" Nullable="false" />
+          <Property Name="Ch_IsCardBasedBio" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EIRFID.dbo.vw_Smx_Transaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Smx_Transaction">
+          <Key>
+            <PropertyRef Name="DE_LN_ID" />
+            <PropertyRef Name="LN_NAME" />
+            <PropertyRef Name="DE_ID" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="Device_Name" />
+          </Key>
+          <Property Name="Emp_Id" Type="varchar" MaxLength="16" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Ch_LName" Type="varchar" MaxLength="50" />
+          <Property Name="Card_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Date" Type="varchar" MaxLength="10" />
+          <Property Name="Time" Type="varchar" MaxLength="10" />
+          <Property Name="Date_Time" Type="datetime" />
+          <Property Name="Tr_TType" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DE_LN_ID" Type="int" Nullable="false" />
+          <Property Name="LN_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DE_ID" Type="int" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Device_Name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Smx_AccessLevelDetails_Smx_AccessLevel">
+          <End Role="Smx_AccessLevel" Type="Self.Smx_AccessLevel" Multiplicity="1" />
+          <End Role="Smx_AccessLevelDetails" Type="Self.Smx_AccessLevelDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_AccessLevel">
+              <PropertyRef Name="AL_ID" />
+            </Principal>
+            <Dependent Role="Smx_AccessLevelDetails">
+              <PropertyRef Name="ALD_AL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_AccessLevelDetails_Smx_Location">
+          <End Role="Smx_Location" Type="Self.Smx_Location" Multiplicity="1" />
+          <End Role="Smx_AccessLevelDetails" Type="Self.Smx_AccessLevelDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_AccessLevelDetails">
+              <PropertyRef Name="ALD_LN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_AccessLevelDetails_Smx_TimeZone">
+          <End Role="Smx_TimeZone" Type="Self.Smx_TimeZone" Multiplicity="1" />
+          <End Role="Smx_AccessLevelDetails" Type="Self.Smx_AccessLevelDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_TimeZone">
+              <PropertyRef Name="TZ_ID" />
+            </Principal>
+            <Dependent Role="Smx_AccessLevelDetails">
+              <PropertyRef Name="ALD_TZ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_Areas_Smx_Location">
+          <End Role="Smx_Location" Type="Self.Smx_Location" Multiplicity="0..1" />
+          <End Role="Smx_Areas" Type="Self.Smx_Areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_Areas">
+              <PropertyRef Name="AR_LN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Branch">
+          <End Role="Smx_Branch" Type="Self.Smx_Branch" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Branch">
+              <PropertyRef Name="BR_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Br_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_CardStatus">
+          <End Role="Smx_CardStatus" Type="Self.Smx_CardStatus" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_CardStatus">
+              <PropertyRef Name="CS_Id" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_CS_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Category">
+          <End Role="Smx_Category" Type="Self.Smx_Category" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Category">
+              <PropertyRef Name="CT_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Ct_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Company">
+          <End Role="Smx_Company" Type="Self.Smx_Company" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Company">
+              <PropertyRef Name="CG_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Cg_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Department">
+          <End Role="Smx_Department" Type="Self.Smx_Department" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Department">
+              <PropertyRef Name="DP_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Dp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Designation">
+          <End Role="Smx_Designation" Type="Self.Smx_Designation" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Designation">
+              <PropertyRef Name="DN_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Dn_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_EmployeeStatus">
+          <End Role="Smx_EmployeeStatus" Type="Self.Smx_EmployeeStatus" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_EmployeeStatus">
+              <PropertyRef Name="ES_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Es_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Location">
+          <End Role="Smx_Location" Type="Self.Smx_Location" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Ln_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Message">
+          <End Role="Smx_Message" Type="Self.Smx_Message" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Message">
+              <PropertyRef Name="MS_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_MS_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Unit">
+          <End Role="Smx_Unit" Type="Self.Smx_Unit" Multiplicity="0..1" />
+          <End Role="Smx_CardHolder" Type="Self.Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Unit">
+              <PropertyRef Name="UT_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Ut_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardholderAccessLevel_Smx_AccessLevel">
+          <End Role="Smx_AccessLevel" Type="Self.Smx_AccessLevel" Multiplicity="0..1" />
+          <End Role="Smx_CardholderAccessLevel" Type="Self.Smx_CardholderAccessLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_AccessLevel">
+              <PropertyRef Name="AL_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardholderAccessLevel">
+              <PropertyRef Name="CAL_AL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_Devices_Smx_Location">
+          <End Role="Smx_Location" Type="Self.Smx_Location" Multiplicity="1" />
+          <End Role="Smx_Devices" Type="Self.Smx_Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_Devices">
+              <PropertyRef Name="DE_LN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails">
+          <End Role="Smx_ShiftDetails" Type="Self.Smx_ShiftDetails" Multiplicity="1" />
+          <End Role="Smx_ShiftAssignmentDetails" Type="Self.Smx_ShiftAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_ShiftDetails">
+              <PropertyRef Name="Sftd_Id" />
+            </Principal>
+            <Dependent Role="Smx_ShiftAssignmentDetails">
+              <PropertyRef Name="FK_Sft_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_TimeZoneDetails_Smx_TimeZone">
+          <End Role="Smx_TimeZone" Type="Self.Smx_TimeZone" Multiplicity="1" />
+          <End Role="Smx_TimeZoneDetails" Type="Self.Smx_TimeZoneDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_TimeZone">
+              <PropertyRef Name="TZ_ID" />
+            </Principal>
+            <Dependent Role="Smx_TimeZoneDetails">
+              <PropertyRef Name="TZD_TZ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_GetAttendenceForMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="month" Type="varchar" Mode="In" />
+          <Parameter Name="year" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SMAXV2ModelStoreContainer">
+          <EntitySet Name="Entitlements" EntityType="Self.Entitlements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScreenName" EntityType="Self.ScreenName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_AccessLevel" EntityType="Self.Smx_AccessLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_AccessLevelDetails" EntityType="Self.Smx_AccessLevelDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Areas" EntityType="Self.Smx_Areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_AttendanceReaders" EntityType="Self.Smx_AttendanceReaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Branch" EntityType="Self.Smx_Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_CardHolder" EntityType="Self.Smx_CardHolder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_CardholderAccessLevel" EntityType="Self.Smx_CardholderAccessLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_CardReissue" EntityType="Self.Smx_CardReissue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_CardStatus" EntityType="Self.Smx_CardStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Category" EntityType="Self.Smx_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Company" EntityType="Self.Smx_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Department" EntityType="Self.Smx_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Designation" EntityType="Self.Smx_Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Devices" EntityType="Self.Smx_Devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_EmployeeStatus" EntityType="Self.Smx_EmployeeStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_EventTask" EntityType="Self.Smx_EventTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Group" EntityType="Self.Smx_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Holiday" EntityType="Self.Smx_Holiday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_LastFlashdayscount" EntityType="Self.Smx_LastFlashdayscount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Leave" EntityType="Self.Smx_Leave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Leavedetails" EntityType="Self.Smx_Leavedetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Location" EntityType="Self.Smx_Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Message" EntityType="Self.Smx_Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Permission" EntityType="Self.Smx_Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_ShiftAssignment" EntityType="Self.Smx_ShiftAssignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_ShiftAssignmentDetails" EntityType="Self.Smx_ShiftAssignmentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_ShiftDetails" EntityType="Self.Smx_ShiftDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_TimeZone" EntityType="Self.Smx_TimeZone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_TimeZoneDetails" EntityType="Self.Smx_TimeZoneDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Transaction" EntityType="Self.Smx_Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_Unit" EntityType="Self.Smx_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroups" EntityType="Self.UserGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Smx_TransactionType" EntityType="Self.Smx_TransactionType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Smx_TransactionType].[TT_ID] AS [TT_ID], 
+    [Smx_TransactionType].[TT_CODE] AS [TT_CODE], 
+    [Smx_TransactionType].[TT_DESCRIPTION] AS [TT_DESCRIPTION]
+    FROM [dbo].[Smx_TransactionType] AS [Smx_TransactionType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_AreaName" EntityType="Self.vw_AreaName" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_AreaName].[AR_Name] AS [AR_Name]
+    FROM [dbo].[vw_AreaName] AS [vw_AreaName]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Smx_AccessLevel_ReaderDetails" EntityType="Self.vw_Smx_AccessLevel_ReaderDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Smx_AccessLevel_ReaderDetails].[AL_ID] AS [AL_ID], 
+    [vw_Smx_AccessLevel_ReaderDetails].[AL_NAME] AS [AL_NAME], 
+    [vw_Smx_AccessLevel_ReaderDetails].[DE_NAME] AS [DE_NAME], 
+    [vw_Smx_AccessLevel_ReaderDetails].[ALD_AL_ID] AS [ALD_AL_ID], 
+    [vw_Smx_AccessLevel_ReaderDetails].[DE_ID] AS [DE_ID], 
+    [vw_Smx_AccessLevel_ReaderDetails].[DE_IPADDRESS] AS [DE_IPADDRESS], 
+    [vw_Smx_AccessLevel_ReaderDetails].[ALD_READER_IPADDRESS] AS [ALD_READER_IPADDRESS]
+    FROM [dbo].[vw_Smx_AccessLevel_ReaderDetails] AS [vw_Smx_AccessLevel_ReaderDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Smx_CardAccesslevel_Delete" EntityType="Self.vw_Smx_CardAccesslevel_Delete" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_CardNo] AS [Ch_CardNo], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_EmpId] AS [Ch_EmpId], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_FName] AS [Ch_FName], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_PinNo] AS [Ch_PinNo], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_ValidTo] AS [Ch_ValidTo], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_ISBio] AS [Ch_ISBio], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_ISCard] AS [Ch_ISCard], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_IsCardBio] AS [Ch_IsCardBio], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_ISPin] AS [Ch_ISPin], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_AntiPassBack] AS [Ch_AntiPassBack], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_AccessValidation] AS [Ch_AccessValidation], 
+    [vw_Smx_CardAccesslevel_Delete].[CAL_AL_ID] AS [CAL_AL_ID], 
+    [vw_Smx_CardAccesslevel_Delete].[CAL_Deleted] AS [CAL_Deleted], 
+    [vw_Smx_CardAccesslevel_Delete].[CAL_DWStatus] AS [CAL_DWStatus], 
+    [vw_Smx_CardAccesslevel_Delete].[ALD_TZ_ID] AS [ALD_TZ_ID], 
+    [vw_Smx_CardAccesslevel_Delete].[ALD_READER_IPADDRESS] AS [ALD_READER_IPADDRESS], 
+    [vw_Smx_CardAccesslevel_Delete].[ALD_LN_ID] AS [ALD_LN_ID], 
+    [vw_Smx_CardAccesslevel_Delete].[Ch_IsCardBasedBio] AS [Ch_IsCardBasedBio]
+    FROM [dbo].[vw_Smx_CardAccesslevel_Delete] AS [vw_Smx_CardAccesslevel_Delete]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Smx_CardAccesslevel_Download" EntityType="Self.vw_Smx_CardAccesslevel_Download" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Smx_CardAccesslevel_Download].[Ch_CardNo] AS [Ch_CardNo], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_EmpId] AS [Ch_EmpId], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_FName] AS [Ch_FName], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_PinNo] AS [Ch_PinNo], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_ValidTo] AS [Ch_ValidTo], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_MS_Id] AS [Ch_MS_Id], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_ISBio] AS [Ch_ISBio], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_ISCard] AS [Ch_ISCard], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_IsCardBio] AS [Ch_IsCardBio], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_ISPin] AS [Ch_ISPin], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_AntiPassBack] AS [Ch_AntiPassBack], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_AccessValidation] AS [Ch_AccessValidation], 
+    [vw_Smx_CardAccesslevel_Download].[CAL_AL_ID] AS [CAL_AL_ID], 
+    [vw_Smx_CardAccesslevel_Download].[CAL_Deleted] AS [CAL_Deleted], 
+    [vw_Smx_CardAccesslevel_Download].[CAL_DWStatus] AS [CAL_DWStatus], 
+    [vw_Smx_CardAccesslevel_Download].[ALD_TZ_ID] AS [ALD_TZ_ID], 
+    [vw_Smx_CardAccesslevel_Download].[ALD_READER_IPADDRESS] AS [ALD_READER_IPADDRESS], 
+    [vw_Smx_CardAccesslevel_Download].[ALD_LN_ID] AS [ALD_LN_ID], 
+    [vw_Smx_CardAccesslevel_Download].[Ch_IsCardBasedBio] AS [Ch_IsCardBasedBio]
+    FROM [dbo].[vw_Smx_CardAccesslevel_Download] AS [vw_Smx_CardAccesslevel_Download]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Smx_Transaction" EntityType="Self.vw_Smx_Transaction" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Smx_Transaction].[Emp_Id] AS [Emp_Id], 
+    [vw_Smx_Transaction].[Name] AS [Name], 
+    [vw_Smx_Transaction].[Ch_LName] AS [Ch_LName], 
+    [vw_Smx_Transaction].[Card_Number] AS [Card_Number], 
+    [vw_Smx_Transaction].[Date] AS [Date], 
+    [vw_Smx_Transaction].[Time] AS [Time], 
+    [vw_Smx_Transaction].[Date_Time] AS [Date_Time], 
+    [vw_Smx_Transaction].[Tr_TType] AS [Tr_TType], 
+    [vw_Smx_Transaction].[DE_LN_ID] AS [DE_LN_ID], 
+    [vw_Smx_Transaction].[LN_NAME] AS [LN_NAME], 
+    [vw_Smx_Transaction].[DE_ID] AS [DE_ID], 
+    [vw_Smx_Transaction].[Message] AS [Message], 
+    [vw_Smx_Transaction].[Device_Name] AS [Device_Name]
+    FROM [dbo].[vw_Smx_Transaction] AS [vw_Smx_Transaction]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Smx_AccessLevelDetails_Smx_AccessLevel" Association="Self.FK_Smx_AccessLevelDetails_Smx_AccessLevel">
+            <End Role="Smx_AccessLevel" EntitySet="Smx_AccessLevel" />
+            <End Role="Smx_AccessLevelDetails" EntitySet="Smx_AccessLevelDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_AccessLevelDetails_Smx_Location" Association="Self.FK_Smx_AccessLevelDetails_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_AccessLevelDetails" EntitySet="Smx_AccessLevelDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_AccessLevelDetails_Smx_TimeZone" Association="Self.FK_Smx_AccessLevelDetails_Smx_TimeZone">
+            <End Role="Smx_TimeZone" EntitySet="Smx_TimeZone" />
+            <End Role="Smx_AccessLevelDetails" EntitySet="Smx_AccessLevelDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_Areas_Smx_Location" Association="Self.FK_Smx_Areas_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_Areas" EntitySet="Smx_Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Branch" Association="Self.FK_Smx_CardHolder_Smx_Branch">
+            <End Role="Smx_Branch" EntitySet="Smx_Branch" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_CardStatus" Association="Self.FK_Smx_CardHolder_Smx_CardStatus">
+            <End Role="Smx_CardStatus" EntitySet="Smx_CardStatus" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Category" Association="Self.FK_Smx_CardHolder_Smx_Category">
+            <End Role="Smx_Category" EntitySet="Smx_Category" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Company" Association="Self.FK_Smx_CardHolder_Smx_Company">
+            <End Role="Smx_Company" EntitySet="Smx_Company" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Department" Association="Self.FK_Smx_CardHolder_Smx_Department">
+            <End Role="Smx_Department" EntitySet="Smx_Department" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Designation" Association="Self.FK_Smx_CardHolder_Smx_Designation">
+            <End Role="Smx_Designation" EntitySet="Smx_Designation" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_EmployeeStatus" Association="Self.FK_Smx_CardHolder_Smx_EmployeeStatus">
+            <End Role="Smx_EmployeeStatus" EntitySet="Smx_EmployeeStatus" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Location" Association="Self.FK_Smx_CardHolder_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Message" Association="Self.FK_Smx_CardHolder_Smx_Message">
+            <End Role="Smx_Message" EntitySet="Smx_Message" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Unit" Association="Self.FK_Smx_CardHolder_Smx_Unit">
+            <End Role="Smx_Unit" EntitySet="Smx_Unit" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardholderAccessLevel_Smx_AccessLevel" Association="Self.FK_Smx_CardholderAccessLevel_Smx_AccessLevel">
+            <End Role="Smx_AccessLevel" EntitySet="Smx_AccessLevel" />
+            <End Role="Smx_CardholderAccessLevel" EntitySet="Smx_CardholderAccessLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_Devices_Smx_Location" Association="Self.FK_Smx_Devices_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_Devices" EntitySet="Smx_Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails" Association="Self.FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails">
+            <End Role="Smx_ShiftDetails" EntitySet="Smx_ShiftDetails" />
+            <End Role="Smx_ShiftAssignmentDetails" EntitySet="Smx_ShiftAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_TimeZoneDetails_Smx_TimeZone" Association="Self.FK_Smx_TimeZoneDetails_Smx_TimeZone">
+            <End Role="Smx_TimeZone" EntitySet="Smx_TimeZone" />
+            <End Role="Smx_TimeZoneDetails" EntitySet="Smx_TimeZoneDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMAXV2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SMAXV2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Smx_Branch" EntityType="SMAXV2Model.Smx_Branch" />
+          <EntitySet Name="Smx_CardReissue" EntityType="SMAXV2Model.Smx_CardReissue" />
+          <EntitySet Name="Smx_CardStatus" EntityType="SMAXV2Model.Smx_CardStatus" />
+          <EntitySet Name="Smx_Category" EntityType="SMAXV2Model.Smx_Category" />
+          <EntitySet Name="Smx_Company" EntityType="SMAXV2Model.Smx_Company" />
+          <EntitySet Name="Smx_EmployeeStatus" EntityType="SMAXV2Model.Smx_EmployeeStatus" />
+          <EntitySet Name="Smx_Holiday" EntityType="SMAXV2Model.Smx_Holiday" />
+          <EntitySet Name="Smx_TimeZone" EntityType="SMAXV2Model.Smx_TimeZone" />
+          <EntitySet Name="Smx_TimeZoneDetails" EntityType="SMAXV2Model.Smx_TimeZoneDetails" />
+          <EntitySet Name="Smx_Unit" EntityType="SMAXV2Model.Smx_Unit" />
+          <AssociationSet Name="FK_Smx_TimeZoneDetails_Smx_TimeZone" Association="SMAXV2Model.FK_Smx_TimeZoneDetails_Smx_TimeZone">
+            <End Role="Smx_TimeZone" EntitySet="Smx_TimeZone" />
+            <End Role="Smx_TimeZoneDetails" EntitySet="Smx_TimeZoneDetails" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GetAttendenceForMonth">
+            <Parameter Name="month" Mode="In" Type="String" />
+            <Parameter Name="year" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Smx_Designation" EntityType="SMAXV2Model.Smx_Designation" />
+          <EntitySet Name="Entitlements" EntityType="SMAXV2Model.Entitlement" />
+          <EntitySet Name="ScreenNames" EntityType="SMAXV2Model.ScreenName" />
+          <AssociationSet Name="FK_Entitlements_ScreenName" Association="SMAXV2Model.FK_Entitlements_ScreenName">
+            <End Role="ScreenName" EntitySet="ScreenNames" />
+            <End Role="Entitlement" EntitySet="Entitlements" />
+          </AssociationSet>
+          <EntitySet Name="Smx_Leave" EntityType="SMAXV2Model.Smx_Leave" />
+          <EntitySet Name="Smx_Leavedetails" EntityType="SMAXV2Model.Smx_Leavedetails" />
+          <AssociationSet Name="FK_Smx_Leavedetails_Smx_Leave" Association="SMAXV2Model.FK_Smx_Leavedetails_Smx_Leave">
+            <End Role="Smx_Leave" EntitySet="Smx_Leave" />
+            <End Role="Smx_Leavedetails" EntitySet="Smx_Leavedetails" />
+          </AssociationSet>
+          <EntitySet Name="Smx_Areas" EntityType="SMAXV2Model.Smx_Areas" />
+          <EntitySet Name="vw_AreaName" EntityType="SMAXV2Model.vw_AreaName" />
+          <EntitySet Name="Smx_Message" EntityType="SMAXV2Model.Smx_Message" />
+          <EntitySet Name="Smx_Group" EntityType="SMAXV2Model.Smx_Group" />
+          <EntitySet Name="Smx_Permission" EntityType="SMAXV2Model.Smx_Permission" />
+          <EntitySet Name="Smx_ShiftAssignment" EntityType="SMAXV2Model.Smx_ShiftAssignment" />
+          <EntitySet Name="Smx_ShiftAssignmentDetails" EntityType="SMAXV2Model.Smx_ShiftAssignmentDetails" />
+          <EntitySet Name="Smx_EventTask" EntityType="SMAXV2Model.Smx_EventTask" />
+          <EntitySet Name="Smx_ShiftDetails" EntityType="SMAXV2Model.Smx_ShiftDetails" />
+          <AssociationSet Name="FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails" Association="SMAXV2Model.FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails">
+            <End Role="Smx_ShiftDetails" EntitySet="Smx_ShiftDetails" />
+            <End Role="Smx_ShiftAssignmentDetails" EntitySet="Smx_ShiftAssignmentDetails" />
+          </AssociationSet>
+          <EntitySet Name="Smx_Location" EntityType="SMAXV2Model.Smx_Location" />
+          <AssociationSet Name="FK_Smx_Areas_Smx_Location" Association="SMAXV2Model.FK_Smx_Areas_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_Areas" EntitySet="Smx_Areas" />
+          </AssociationSet>
+          <EntitySet Name="vw_Smx_AccessLevel_ReaderDetails" EntityType="SMAXV2Model.vw_Smx_AccessLevel_ReaderDetails" />
+          <EntitySet Name="vw_Smx_CardAccesslevel_Delete" EntityType="SMAXV2Model.vw_Smx_CardAccesslevel_Delete" />
+          <EntitySet Name="vw_Smx_CardAccesslevel_Download" EntityType="SMAXV2Model.vw_Smx_CardAccesslevel_Download" />
+          <EntitySet Name="Smx_CardholderAccessLevel" EntityType="SMAXV2Model.Smx_CardholderAccessLevel" />
+          <EntitySet Name="Smx_AccessLevel" EntityType="SMAXV2Model.Smx_AccessLevel" />
+          <AssociationSet Name="FK_Smx_CardholderAccessLevel_Smx_AccessLevel" Association="SMAXV2Model.FK_Smx_CardholderAccessLevel_Smx_AccessLevel">
+            <End Role="Smx_AccessLevel" EntitySet="Smx_AccessLevel" />
+            <End Role="Smx_CardholderAccessLevel" EntitySet="Smx_CardholderAccessLevel" />
+          </AssociationSet>
+          <EntitySet Name="Smx_Transaction" EntityType="SMAXV2Model.Smx_Transaction" />
+          <EntitySet Name="Smx_TransactionType" EntityType="SMAXV2Model.Smx_TransactionType" />
+          <EntitySet Name="Smx_AccessLevelDetails" EntityType="SMAXV2Model.Smx_AccessLevelDetails" />
+          <AssociationSet Name="FK_Smx_AccessLevelDetails_Smx_AccessLevel" Association="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_AccessLevel">
+            <End Role="Smx_AccessLevel" EntitySet="Smx_AccessLevel" />
+            <End Role="Smx_AccessLevelDetails" EntitySet="Smx_AccessLevelDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_AccessLevelDetails_Smx_Location" Association="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_AccessLevelDetails" EntitySet="Smx_AccessLevelDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_AccessLevelDetails_Smx_TimeZone" Association="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_TimeZone">
+            <End Role="Smx_TimeZone" EntitySet="Smx_TimeZone" />
+            <End Role="Smx_AccessLevelDetails" EntitySet="Smx_AccessLevelDetails" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="SMAXV2Model.User" />
+          <EntitySet Name="UserGroups" EntityType="SMAXV2Model.UserGroup" />
+          <AssociationSet Name="FK_Users_UserGroups" Association="SMAXV2Model.FK_Users_UserGroups">
+            <End Role="UserGroup" EntitySet="UserGroups" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Smx_CardHolder" EntityType="SMAXV2Model.Smx_CardHolder" />
+          <EntitySet Name="Smx_Department" EntityType="SMAXV2Model.Smx_Department" />
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Branch" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Branch">
+            <End Role="Smx_Branch" EntitySet="Smx_Branch" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_CardStatus" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_CardStatus">
+            <End Role="Smx_CardStatus" EntitySet="Smx_CardStatus" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Category" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Category">
+            <End Role="Smx_Category" EntitySet="Smx_Category" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Company" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Company">
+            <End Role="Smx_Company" EntitySet="Smx_Company" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Department" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Department">
+            <End Role="Smx_Department" EntitySet="Smx_Department" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Designation" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Designation">
+            <End Role="Smx_Designation" EntitySet="Smx_Designation" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_EmployeeStatus" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_EmployeeStatus">
+            <End Role="Smx_EmployeeStatus" EntitySet="Smx_EmployeeStatus" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Location" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Message" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Message">
+            <End Role="Smx_Message" EntitySet="Smx_Message" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Smx_CardHolder_Smx_Unit" Association="SMAXV2Model.FK_Smx_CardHolder_Smx_Unit">
+            <End Role="Smx_Unit" EntitySet="Smx_Unit" />
+            <End Role="Smx_CardHolder" EntitySet="Smx_CardHolder" />
+          </AssociationSet>
+          <EntitySet Name="vw_Smx_Transaction" EntityType="SMAXV2Model.vw_Smx_Transaction" />
+          <EntitySet Name="Smx_Devices" EntityType="SMAXV2Model.Smx_Devices" />
+          <AssociationSet Name="FK_Smx_Devices_Smx_Location" Association="SMAXV2Model.FK_Smx_Devices_Smx_Location">
+            <End Role="Smx_Location" EntitySet="Smx_Location" />
+            <End Role="Smx_Devices" EntitySet="Smx_Devices" />
+          </AssociationSet>
+          <EntitySet Name="Smx_LastFlashdayscount" EntityType="SMAXV2Model.Smx_LastFlashdayscount" />
+          <EntitySet Name="Smx_AttendanceReaders" EntityType="SMAXV2Model.Smx_AttendanceReaders" />
+          </EntityContainer>
+        <EntityType Name="Smx_Branch">
+          <Key>
+            <PropertyRef Name="BR_ID" />
+          </Key>
+          <Property Name="BR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BR_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BR_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="BR_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="BR_MODIFIEDBY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Branch" FromRole="Smx_Branch" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Smx_CardReissue">
+          <Key>
+            <PropertyRef Name="CR_ID" />
+          </Key>
+          <Property Name="CR_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CR_Ch_EmpId" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CR_Ch_CardNo" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CR_Created" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Smx_CardStatus">
+          <Key>
+            <PropertyRef Name="CS_Id" />
+          </Key>
+          <Property Name="CS_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CS_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_CardStatus" FromRole="Smx_CardStatus" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Smx_Category">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CT_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CT_SHORTNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CT_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="CT_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="CT_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Category" FromRole="Smx_Category" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Smx_Company">
+          <Key>
+            <PropertyRef Name="CG_ID" />
+          </Key>
+          <Property Name="CG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CG_NAME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CG_SHORTNAME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CG_HEAD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CG_ADDRESS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CG_CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CG_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CG_FAX" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CG_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CG_CREATED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CG_MODIFIED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CG_MODIFIEDBY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Company" FromRole="Smx_Company" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Smx_EmployeeStatus">
+          <Key>
+            <PropertyRef Name="ES_ID" />
+          </Key>
+          <Property Name="ES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ES_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ES_SHORTNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ES_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="ES_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="ES_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_EmployeeStatus" FromRole="Smx_EmployeeStatus" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Smx_Holiday">
+          <Key>
+            <PropertyRef Name="HD_ID" />
+          </Key>
+          <Property Name="HD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HD_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HD_DESC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HD_ISREADERDOWNLOAD" Type="Boolean" Nullable="false" />
+          <Property Name="HD_UPDATE_STATUS" Type="Boolean" />
+          <Property Name="HD_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="HD_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="HD_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Smx_TimeZone">
+          <Key>
+            <PropertyRef Name="TZ_ID" />
+          </Key>
+          <Property Name="TZ_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TZ_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TZ_UPDATE_STATUS" Type="Boolean" />
+          <Property Name="TZ_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="TZ_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="TZ_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_TimeZoneDetails" Relationship="SMAXV2Model.FK_Smx_TimeZoneDetails_Smx_TimeZone" FromRole="Smx_TimeZone" ToRole="Smx_TimeZoneDetails" />
+          <NavigationProperty Name="Smx_AccessLevelDetails" Relationship="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_TimeZone" FromRole="Smx_TimeZone" ToRole="Smx_AccessLevelDetails" />
+        </EntityType>
+        <EntityType Name="Smx_TimeZoneDetails">
+          <Key>
+            <PropertyRef Name="TZD_ID" />
+          </Key>
+          <Property Name="TZD_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TZD_TZ_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="TZD_DAYS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TZD_START_TIME" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TZD_END_TIME" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TZD_SPECIFIC_DATE" Type="DateTime" Precision="3" />
+          <Property Name="TZD_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="TZD_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="TZD_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_TimeZone" Relationship="SMAXV2Model.FK_Smx_TimeZoneDetails_Smx_TimeZone" FromRole="Smx_TimeZoneDetails" ToRole="Smx_TimeZone" />
+        </EntityType>
+        <EntityType Name="Smx_Unit">
+          <Key>
+            <PropertyRef Name="UT_ID" />
+          </Key>
+          <Property Name="UT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UT_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UT_DESCRIPTION" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UT_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="UT_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="UT_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Unit" FromRole="Smx_Unit" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <Association Name="FK_Smx_TimeZoneDetails_Smx_TimeZone">
+          <End Type="SMAXV2Model.Smx_TimeZone" Role="Smx_TimeZone" Multiplicity="1" />
+          <End Type="SMAXV2Model.Smx_TimeZoneDetails" Role="Smx_TimeZoneDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_TimeZone">
+              <PropertyRef Name="TZ_ID" />
+            </Principal>
+            <Dependent Role="Smx_TimeZoneDetails">
+              <PropertyRef Name="TZD_TZ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_Designation">
+          <Key>
+            <PropertyRef Name="DN_ID" />
+          </Key>
+          <Property Name="DN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DN_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DN_SHORTNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DN_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="DN_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DN_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Designation" FromRole="Smx_Designation" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Entitlement">
+          <Key>
+            <PropertyRef Name="EN_Id" />
+          </Key>
+          <Property Name="EN_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_UG_GroupId" Type="Int32" Nullable="false" />
+          <Property Name="FK_SC_ScreenName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ScreenName" Relationship="SMAXV2Model.FK_Entitlements_ScreenName" FromRole="Entitlement" ToRole="ScreenName" />
+        </EntityType>
+        <EntityType Name="ScreenName">
+          <Key>
+            <PropertyRef Name="SC_ScreenName" />
+          </Key>
+          <Property Name="SC_ScreenName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SC_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Entitlements" Relationship="SMAXV2Model.FK_Entitlements_ScreenName" FromRole="ScreenName" ToRole="Entitlement" />
+        </EntityType>
+        <Association Name="FK_Entitlements_ScreenName">
+          <End Type="SMAXV2Model.ScreenName" Role="ScreenName" Multiplicity="1" />
+          <End Type="SMAXV2Model.Entitlement" Role="Entitlement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScreenName">
+              <PropertyRef Name="SC_ScreenName" />
+            </Principal>
+            <Dependent Role="Entitlement">
+              <PropertyRef Name="FK_SC_ScreenName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_Leave">
+          <Key>
+            <PropertyRef Name="Lv_Id" />
+          </Key>
+          <Property Name="Lv_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lv_ShortDesc" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Lv_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lv_MaxDays" Type="Int32" />
+          <Property Name="Lv_MaxAllowed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Lv_Created" Type="DateTime" Precision="3" />
+          <Property Name="LV_Modified" Type="DateTime" Precision="3" />
+          <Property Name="Lv_Modifiedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_Leavedetails" Relationship="SMAXV2Model.FK_Smx_Leavedetails_Smx_Leave" FromRole="Smx_Leave" ToRole="Smx_Leavedetails" />
+        </EntityType>
+        <EntityType Name="Smx_Leavedetails">
+          <Key>
+            <PropertyRef Name="LD_Id" />
+          </Key>
+          <Property Name="LD_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Lv_Id" Type="Int32" />
+          <Property Name="LD_DateLDetails" Type="DateTime" Precision="3" />
+          <Property Name="LD_Duration" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LD_ChId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LD_Unit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LD_Created" Type="DateTime" Precision="3" />
+          <Property Name="LD_Modified" Type="DateTime" Precision="3" />
+          <Property Name="LD_Modifiedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_Leave" Relationship="SMAXV2Model.FK_Smx_Leavedetails_Smx_Leave" FromRole="Smx_Leavedetails" ToRole="Smx_Leave" />
+        </EntityType>
+        <Association Name="FK_Smx_Leavedetails_Smx_Leave">
+          <End Type="SMAXV2Model.Smx_Leave" Role="Smx_Leave" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_Leavedetails" Role="Smx_Leavedetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Leave">
+              <PropertyRef Name="Lv_Id" />
+            </Principal>
+            <Dependent Role="Smx_Leavedetails">
+              <PropertyRef Name="FK_Lv_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_Areas">
+          <Key>
+            <PropertyRef Name="AR_ID" />
+          </Key>
+          <Property Name="AR_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AR_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AR_NODEID" Type="Int32" />
+          <Property Name="AR_TYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="AR_APB" Type="Decimal" Precision="19" Scale="0" />
+          <Property Name="AR_LN_ID" Type="Int32" />
+          <Property Name="AR_IPADDRESS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AR_APBNUMBER" Type="Decimal" Precision="19" Scale="0" />
+          <Property Name="AR_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AR_DELETED" Type="Boolean" />
+          <NavigationProperty Name="Smx_Location" Relationship="SMAXV2Model.FK_Smx_Areas_Smx_Location" FromRole="Smx_Areas" ToRole="Smx_Location" />
+        </EntityType>
+        <EntityType Name="vw_AreaName">
+          <Key>
+            <PropertyRef Name="AR_Name" />
+          </Key>
+          <Property Name="AR_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Smx_Message">
+          <Key>
+            <PropertyRef Name="MS_ID" />
+          </Key>
+          <Property Name="MS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MS_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MS_LINE1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MS_LINE2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MS_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MS_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="MS_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Message" FromRole="Smx_Message" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <EntityType Name="Smx_Group">
+          <Key>
+            <PropertyRef Name="PK_Gr_Id" />
+          </Key>
+          <Property Name="PK_Gr_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gr_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gr_ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Gr_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Gr_Modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Gr_Modifiedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Smx_Permission">
+          <Key>
+            <PropertyRef Name="PR_Id" />
+          </Key>
+          <Property Name="PR_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PR_ChId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PR_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PR_StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PR_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FK_DP_ID" Type="Int32" />
+          <Property Name="PR_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PR_Permission" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PR_UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PR_CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="PR_ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Smx_ShiftAssignment">
+          <Key>
+            <PropertyRef Name="PK_Sft_Id" />
+          </Key>
+          <Property Name="PK_Sft_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sft_ChId" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Sft_MonthYear" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Sft_D1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D3" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D4" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D5" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D6" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D7" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D8" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D9" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D10" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D11" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D12" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D13" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D14" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D15" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D16" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D17" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D18" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D19" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D20" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D21" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D22" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D23" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D24" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D25" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D26" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D27" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D28" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D29" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D30" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_D31" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_Unit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sft_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sft_Modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sft_Modifiedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Smx_ShiftAssignmentDetails">
+          <Key>
+            <PropertyRef Name="Sftd_Id" />
+          </Key>
+          <Property Name="Sftd_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Sft_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="FK_Emp_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sftd_DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Smx_ShiftDetails" Relationship="SMAXV2Model.FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails" FromRole="Smx_ShiftAssignmentDetails" ToRole="Smx_ShiftDetails" />
+        </EntityType>
+        <EntityType Name="Smx_EventTask">
+          <Key>
+            <PropertyRef Name="ET_ID" />
+          </Key>
+          <Property Name="ET_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ET_Device_IPAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ET_NodeId" Type="Int32" Nullable="false" />
+          <Property Name="ET_IP3ACT_R3_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ET_IP3ACT_R3_Time" Type="Int32" />
+          <Property Name="ET_IP3ACT_R3_Message" Type="Boolean" />
+          <Property Name="ET_IP3ACT_R3_Message_Duration" Type="Int32" />
+          <Property Name="ET_IP3NRM_R3_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ET_IP3NRM_R3_Time" Type="Int32" />
+          <Property Name="ET_IP3NRM_R3_Message" Type="Boolean" />
+          <Property Name="ET_IP3NRM_R3_Message_Duration" Type="Int32" />
+          <Property Name="ET_IP4ACT_R3_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ET_IP4ACT_R3_Time" Type="Int32" />
+          <Property Name="ET_IP4ACT_R3_Message" Type="Boolean" />
+          <Property Name="ET_IP4ACT_R3_Message_Duration" Type="Int32" />
+          <Property Name="ET_IP4NRM_R3_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ET_IP4NRM_R3_Time" Type="Int32" />
+          <Property Name="ET_IP4NRM_R3_Message" Type="Boolean" />
+          <Property Name="ET_IP4NRM_R3_Message_Duration" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Smx_ShiftDetails">
+          <Key>
+            <PropertyRef Name="Sftd_Id" />
+          </Key>
+          <Property Name="Sftd_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sftd_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sftd_StartTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sftd_EndTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sftd_Hours_Id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sftd_Created" Type="DateTime" Precision="3" />
+          <Property Name="Sftd_Modified" Type="DateTime" Precision="3" />
+          <Property Name="Sftd_Modifiedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_ShiftAssignmentDetails" Relationship="SMAXV2Model.FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails" FromRole="Smx_ShiftDetails" ToRole="Smx_ShiftAssignmentDetails" />
+        </EntityType>
+        <Association Name="FK_Smx_ShiftAssignmentDetails_Smx_ShiftDetails">
+          <End Type="SMAXV2Model.Smx_ShiftDetails" Role="Smx_ShiftDetails" Multiplicity="1" />
+          <End Type="SMAXV2Model.Smx_ShiftAssignmentDetails" Role="Smx_ShiftAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_ShiftDetails">
+              <PropertyRef Name="Sftd_Id" />
+            </Principal>
+            <Dependent Role="Smx_ShiftAssignmentDetails">
+              <PropertyRef Name="FK_Sft_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_Location">
+          <Key>
+            <PropertyRef Name="LN_ID" />
+          </Key>
+          <Property Name="LN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LN_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LN_ADDRESS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LN_SHORTNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LN_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="LN_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="LN_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_Areas" Relationship="SMAXV2Model.FK_Smx_Areas_Smx_Location" FromRole="Smx_Location" ToRole="Smx_Areas" />
+          <NavigationProperty Name="Smx_AccessLevelDetails" Relationship="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_Location" FromRole="Smx_Location" ToRole="Smx_AccessLevelDetails" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Location" FromRole="Smx_Location" ToRole="Smx_CardHolder" />
+          <NavigationProperty Name="Smx_Devices" Relationship="SMAXV2Model.FK_Smx_Devices_Smx_Location" FromRole="Smx_Location" ToRole="Smx_Devices" />
+        </EntityType>
+        <Association Name="FK_Smx_Areas_Smx_Location">
+          <End Type="SMAXV2Model.Smx_Location" Role="Smx_Location" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_Areas" Role="Smx_Areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_Areas">
+              <PropertyRef Name="AR_LN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vw_Smx_AccessLevel_ReaderDetails">
+          <Key>
+            <PropertyRef Name="AL_ID" />
+            <PropertyRef Name="AL_NAME" />
+            <PropertyRef Name="DE_NAME" />
+            <PropertyRef Name="ALD_AL_ID" />
+            <PropertyRef Name="DE_ID" />
+            <PropertyRef Name="DE_IPADDRESS" />
+            <PropertyRef Name="ALD_READER_IPADDRESS" />
+          </Key>
+          <Property Name="AL_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="AL_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ALD_AL_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DE_ID" Type="Int32" Nullable="false" />
+          <Property Name="DE_IPADDRESS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ALD_READER_IPADDRESS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_Smx_CardAccesslevel_Delete">
+          <Key>
+            <PropertyRef Name="Ch_EmpId" />
+            <PropertyRef Name="Ch_FName" />
+            <PropertyRef Name="Ch_ISBio" />
+            <PropertyRef Name="Ch_ISCard" />
+            <PropertyRef Name="Ch_ISPin" />
+            <PropertyRef Name="Ch_AntiPassBack" />
+            <PropertyRef Name="ALD_TZ_ID" />
+            <PropertyRef Name="ALD_READER_IPADDRESS" />
+            <PropertyRef Name="ALD_LN_ID" />
+          </Key>
+          <Property Name="Ch_CardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_EmpId" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_PinNo" Type="Int32" />
+          <Property Name="Ch_ValidTo" Type="DateTime" Precision="3" />
+          <Property Name="Ch_ISBio" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_ISCard" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_IsCardBio" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_ISPin" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_AntiPassBack" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_AccessValidation" Type="Boolean" />
+          <Property Name="CAL_AL_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CAL_Deleted" Type="Boolean" />
+          <Property Name="CAL_DWStatus" Type="Boolean" />
+          <Property Name="ALD_TZ_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ALD_READER_IPADDRESS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ALD_LN_ID" Type="Int32" Nullable="false" />
+          <Property Name="Ch_IsCardBasedBio" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="vw_Smx_CardAccesslevel_Download">
+          <Key>
+            <PropertyRef Name="Ch_EmpId" />
+            <PropertyRef Name="Ch_FName" />
+            <PropertyRef Name="Ch_ISBio" />
+            <PropertyRef Name="Ch_ISCard" />
+            <PropertyRef Name="Ch_ISPin" />
+            <PropertyRef Name="Ch_AntiPassBack" />
+            <PropertyRef Name="ALD_TZ_ID" />
+            <PropertyRef Name="ALD_READER_IPADDRESS" />
+            <PropertyRef Name="ALD_LN_ID" />
+          </Key>
+          <Property Name="Ch_CardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_EmpId" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_PinNo" Type="Int32" />
+          <Property Name="Ch_ValidTo" Type="DateTime" Precision="3" />
+          <Property Name="Ch_MS_Id" Type="Int32" />
+          <Property Name="Ch_ISBio" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_ISCard" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_IsCardBio" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_ISPin" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_AntiPassBack" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_AccessValidation" Type="Boolean" />
+          <Property Name="CAL_AL_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CAL_Deleted" Type="Boolean" />
+          <Property Name="CAL_DWStatus" Type="Boolean" />
+          <Property Name="ALD_TZ_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ALD_READER_IPADDRESS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ALD_LN_ID" Type="Int32" Nullable="false" />
+          <Property Name="Ch_IsCardBasedBio" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Smx_CardholderAccessLevel">
+          <Key>
+            <PropertyRef Name="CAL_Id" />
+          </Key>
+          <Property Name="CAL_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAL_CH_Cardno" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CAL_CH_Csnnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CAL_AL_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CAL_Deleted" Type="Boolean" />
+          <Property Name="CAL_DWStatus" Type="Boolean" />
+          <Property Name="CAL_Created" Type="DateTime" Precision="3" />
+          <Property Name="CAL_Modified" Type="DateTime" Precision="3" />
+          <Property Name="CAL_Modifiedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_AccessLevel" Relationship="SMAXV2Model.FK_Smx_CardholderAccessLevel_Smx_AccessLevel" FromRole="Smx_CardholderAccessLevel" ToRole="Smx_AccessLevel" />
+        </EntityType>
+        <EntityType Name="Smx_AccessLevel">
+          <Key>
+            <PropertyRef Name="AL_ID" />
+          </Key>
+          <Property Name="AL_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AL_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AL_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="AL_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="AL_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardholderAccessLevel" Relationship="SMAXV2Model.FK_Smx_CardholderAccessLevel_Smx_AccessLevel" FromRole="Smx_AccessLevel" ToRole="Smx_CardholderAccessLevel" />
+          <NavigationProperty Name="Smx_AccessLevelDetails" Relationship="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_AccessLevel" FromRole="Smx_AccessLevel" ToRole="Smx_AccessLevelDetails" />
+        </EntityType>
+        <Association Name="FK_Smx_CardholderAccessLevel_Smx_AccessLevel">
+          <End Type="SMAXV2Model.Smx_AccessLevel" Role="Smx_AccessLevel" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardholderAccessLevel" Role="Smx_CardholderAccessLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_AccessLevel">
+              <PropertyRef Name="AL_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardholderAccessLevel">
+              <PropertyRef Name="CAL_AL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_Transaction">
+          <Key>
+            <PropertyRef Name="Tr_Id" />
+          </Key>
+          <Property Name="Tr_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tr_Date" Type="DateTime" Precision="3" />
+          <Property Name="Tr_Time" Type="DateTime" Precision="3" />
+          <Property Name="Tr_TType" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tr_NodeId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tr_CardNumber" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tr_Csnnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tr_Reason" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tr_IpAddress" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Tr_Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Tr_TrackCard" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tr_EmpId" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Tr_Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Smx_TransactionType">
+          <Key>
+            <PropertyRef Name="TT_ID" />
+            <PropertyRef Name="TT_CODE" />
+            <PropertyRef Name="TT_DESCRIPTION" />
+          </Key>
+          <Property Name="TT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TT_CODE" Type="Int32" Nullable="false" />
+          <Property Name="TT_DESCRIPTION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Smx_AccessLevelDetails">
+          <Key>
+            <PropertyRef Name="ALD_ID" />
+          </Key>
+          <Property Name="ALD_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ALD_AL_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ALD_NODEID" Type="Int32" Nullable="false" />
+          <Property Name="ALD_TZ_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ALD_READER_IPADDRESS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ALD_LN_ID" Type="Int32" Nullable="false" />
+          <Property Name="ALD_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="ALD_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="ALD_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_AccessLevel" Relationship="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_AccessLevel" FromRole="Smx_AccessLevelDetails" ToRole="Smx_AccessLevel" />
+          <NavigationProperty Name="Smx_Location" Relationship="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_Location" FromRole="Smx_AccessLevelDetails" ToRole="Smx_Location" />
+          <NavigationProperty Name="Smx_TimeZone" Relationship="SMAXV2Model.FK_Smx_AccessLevelDetails_Smx_TimeZone" FromRole="Smx_AccessLevelDetails" ToRole="Smx_TimeZone" />
+        </EntityType>
+        <Association Name="FK_Smx_AccessLevelDetails_Smx_AccessLevel">
+          <End Type="SMAXV2Model.Smx_AccessLevel" Role="Smx_AccessLevel" Multiplicity="1" />
+          <End Type="SMAXV2Model.Smx_AccessLevelDetails" Role="Smx_AccessLevelDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_AccessLevel">
+              <PropertyRef Name="AL_ID" />
+            </Principal>
+            <Dependent Role="Smx_AccessLevelDetails">
+              <PropertyRef Name="ALD_AL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_AccessLevelDetails_Smx_Location">
+          <End Type="SMAXV2Model.Smx_Location" Role="Smx_Location" Multiplicity="1" />
+          <End Type="SMAXV2Model.Smx_AccessLevelDetails" Role="Smx_AccessLevelDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_AccessLevelDetails">
+              <PropertyRef Name="ALD_LN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_AccessLevelDetails_Smx_TimeZone">
+          <End Type="SMAXV2Model.Smx_TimeZone" Role="Smx_TimeZone" Multiplicity="1" />
+          <End Type="SMAXV2Model.Smx_AccessLevelDetails" Role="Smx_AccessLevelDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_TimeZone">
+              <PropertyRef Name="TZ_ID" />
+            </Principal>
+            <Dependent Role="Smx_AccessLevelDetails">
+              <PropertyRef Name="ALD_TZ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="US_Id" />
+          </Key>
+          <Property Name="US_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="US_User" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="US_Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="US_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FK_UG_GroupId" Type="Int32" Nullable="false" />
+          <Property Name="US_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="US_Modified" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserGroup" Relationship="SMAXV2Model.FK_Users_UserGroups" FromRole="User" ToRole="UserGroup" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="PK_UG_GroupId" />
+          </Key>
+          <Property Name="PK_UG_GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UG_GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="SMAXV2Model.FK_Users_UserGroups" FromRole="UserGroup" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Users_UserGroups">
+          <End Type="SMAXV2Model.UserGroup" Role="UserGroup" Multiplicity="1" />
+          <End Type="SMAXV2Model.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="PK_UG_GroupId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="FK_UG_GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_CardHolder">
+          <Key>
+            <PropertyRef Name="Ch_Id" />
+          </Key>
+          <Property Name="Ch_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ch_Cardno" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Ch_Csnnumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_EmpId" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_Title" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_Dob" Type="DateTime" Precision="3" />
+          <Property Name="Ch_Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Ch_Nationality" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_ContactAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_MailId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_Dn_Id" Type="Int32" />
+          <Property Name="Ch_Ct_Id" Type="Int32" />
+          <Property Name="Ch_Cg_Id" Type="Int32" />
+          <Property Name="Ch_Ut_Id" Type="Int32" />
+          <Property Name="Ch_Br_Id" Type="Int32" />
+          <Property Name="Ch_Ln_Id" Type="Int32" />
+          <Property Name="Ch_Dp_Id" Type="Int32" />
+          <Property Name="Ch_Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Ch_Finger1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Ch_Finger2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Ch_PinNo" Type="Int32" />
+          <Property Name="Ch_ValidTo" Type="DateTime" Precision="3" />
+          <Property Name="Ch_CS_Id" Type="Int32" />
+          <Property Name="Ch_ISBio" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_ISCard" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_ISPin" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_AntiPassBack" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_CardIssued" Type="Boolean" Nullable="false" />
+          <Property Name="Ch_TrackCard" Type="Boolean" />
+          <Property Name="Ch_MS_Id" Type="Int32" />
+          <Property Name="Ch_DOJ" Type="DateTime" Precision="3" />
+          <Property Name="Ch_AccessValidation" Type="Boolean" />
+          <Property Name="Ch_Es_ID" Type="Int32" />
+          <Property Name="Ch_DOS" Type="DateTime" Precision="3" />
+          <Property Name="Ch_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ch_Modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ch_Modifiedby" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_IsCardBio" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Smx_Branch" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Branch" FromRole="Smx_CardHolder" ToRole="Smx_Branch" />
+          <NavigationProperty Name="Smx_CardStatus" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_CardStatus" FromRole="Smx_CardHolder" ToRole="Smx_CardStatus" />
+          <NavigationProperty Name="Smx_Category" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Category" FromRole="Smx_CardHolder" ToRole="Smx_Category" />
+          <NavigationProperty Name="Smx_Company" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Company" FromRole="Smx_CardHolder" ToRole="Smx_Company" />
+          <NavigationProperty Name="Smx_Department" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Department" FromRole="Smx_CardHolder" ToRole="Smx_Department" />
+          <NavigationProperty Name="Smx_Designation" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Designation" FromRole="Smx_CardHolder" ToRole="Smx_Designation" />
+          <NavigationProperty Name="Smx_EmployeeStatus" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_EmployeeStatus" FromRole="Smx_CardHolder" ToRole="Smx_EmployeeStatus" />
+          <NavigationProperty Name="Smx_Location" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Location" FromRole="Smx_CardHolder" ToRole="Smx_Location" />
+          <NavigationProperty Name="Smx_Message" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Message" FromRole="Smx_CardHolder" ToRole="Smx_Message" />
+          <NavigationProperty Name="Smx_Unit" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Unit" FromRole="Smx_CardHolder" ToRole="Smx_Unit" />
+          <Property Name="Ch_Finger1Identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_Finger2Identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_IsCardBasedBio" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Smx_Department">
+          <Key>
+            <PropertyRef Name="DP_ID" />
+          </Key>
+          <Property Name="DP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DP_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DP_SHORTNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DP_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="DP_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DP_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_CardHolder" Relationship="SMAXV2Model.FK_Smx_CardHolder_Smx_Department" FromRole="Smx_Department" ToRole="Smx_CardHolder" />
+        </EntityType>
+        <Association Name="FK_Smx_CardHolder_Smx_Branch">
+          <End Type="SMAXV2Model.Smx_Branch" Role="Smx_Branch" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Branch">
+              <PropertyRef Name="BR_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Br_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_CardStatus">
+          <End Type="SMAXV2Model.Smx_CardStatus" Role="Smx_CardStatus" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_CardStatus">
+              <PropertyRef Name="CS_Id" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_CS_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Category">
+          <End Type="SMAXV2Model.Smx_Category" Role="Smx_Category" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Category">
+              <PropertyRef Name="CT_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Ct_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Company">
+          <End Type="SMAXV2Model.Smx_Company" Role="Smx_Company" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Company">
+              <PropertyRef Name="CG_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Cg_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Department">
+          <End Type="SMAXV2Model.Smx_Department" Role="Smx_Department" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Department">
+              <PropertyRef Name="DP_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Dp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Designation">
+          <End Type="SMAXV2Model.Smx_Designation" Role="Smx_Designation" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Designation">
+              <PropertyRef Name="DN_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Dn_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_EmployeeStatus">
+          <End Type="SMAXV2Model.Smx_EmployeeStatus" Role="Smx_EmployeeStatus" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_EmployeeStatus">
+              <PropertyRef Name="ES_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Es_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Location">
+          <End Type="SMAXV2Model.Smx_Location" Role="Smx_Location" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Ln_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Message">
+          <End Type="SMAXV2Model.Smx_Message" Role="Smx_Message" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Message">
+              <PropertyRef Name="MS_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_MS_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Smx_CardHolder_Smx_Unit">
+          <End Type="SMAXV2Model.Smx_Unit" Role="Smx_Unit" Multiplicity="0..1" />
+          <End Type="SMAXV2Model.Smx_CardHolder" Role="Smx_CardHolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Unit">
+              <PropertyRef Name="UT_ID" />
+            </Principal>
+            <Dependent Role="Smx_CardHolder">
+              <PropertyRef Name="Ch_Ut_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vw_Smx_Transaction">
+          <Key>
+            <PropertyRef Name="DE_LN_ID" />
+            <PropertyRef Name="LN_NAME" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="Device_Name" />
+            <PropertyRef Name="DE_ID" />
+          </Key>
+          <Property Name="Emp_Id" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ch_LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Card_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Time" Type="DateTime" Precision="3" />
+          <Property Name="Tr_TType" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DE_LN_ID" Type="Int32" Nullable="false" />
+          <Property Name="LN_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Device_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DE_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Smx_Devices">
+          <Key>
+            <PropertyRef Name="DE_ID" />
+          </Key>
+          <Property Name="DE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DE_IPADDRESS" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DE_NODEID" Type="Int32" Nullable="false" />
+          <Property Name="DE_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DE_LN_ID" Type="Int32" Nullable="false" />
+          <Property Name="DE_MESSAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_READERTYPE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_RELAYTIME" Type="Int32" />
+          <Property Name="DE_DOTL" Type="Int32" />
+          <Property Name="DE_DOTZ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DE_IP1_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_IP2_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_IP1_NONC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_IP2_NONC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_MEMORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_OPERATIONAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_FIRMWARE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_READERMODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_CREATED" Type="DateTime" Precision="3" />
+          <Property Name="DE_MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DE_MODIFIEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_FIREALARM" Type="Int32" />
+          <Property Name="DE_INTZID" Type="Int32" />
+          <Property Name="DE_Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Smx_Location" Relationship="SMAXV2Model.FK_Smx_Devices_Smx_Location" FromRole="Smx_Devices" ToRole="Smx_Location" />
+          <Property Name="DE_BUZZER_BEEP_COUNT" Type="Int32" />
+          <Property Name="DE_BUZZER_INTERVAL" Type="Int32" />
+          <Property Name="DE_OPTIONALTRANS" Type="Int32" />
+          <Property Name="DE_TIMESYNCTIME" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Smx_Devices_Smx_Location">
+          <End Type="SMAXV2Model.Smx_Location" Role="Smx_Location" Multiplicity="1" />
+          <End Type="SMAXV2Model.Smx_Devices" Role="Smx_Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Smx_Location">
+              <PropertyRef Name="LN_ID" />
+            </Principal>
+            <Dependent Role="Smx_Devices">
+              <PropertyRef Name="DE_LN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Smx_LastFlashdayscount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dayscount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Smx_AttendanceReaders">
+          <Key>
+            <PropertyRef Name="AR_Id" />
+          </Key>
+          <Property Name="AR_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AR_IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AR_Nodeid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AR_ReaderType" Type="Int32" />
+          <Property Name="AR_Createddate" Type="DateTime" Precision="3" />
+          <Property Name="AR_Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AR_Modifieddate" Type="DateTime" Precision="3" />
+          <Property Name="AR_Modifiedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AR_Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMAXV2ModelStoreContainer" CdmEntityContainer="SMAXV2Entities">
+          <EntitySetMapping Name="Smx_Branch">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Branch">
+              <MappingFragment StoreEntitySet="Smx_Branch">
+                <ScalarProperty Name="BR_MODIFIEDBY" ColumnName="BR_MODIFIEDBY" />
+                <ScalarProperty Name="BR_MODIFIED" ColumnName="BR_MODIFIED" />
+                <ScalarProperty Name="BR_CREATED" ColumnName="BR_CREATED" />
+                <ScalarProperty Name="BR_Name" ColumnName="BR_Name" />
+                <ScalarProperty Name="BR_ID" ColumnName="BR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_CardReissue">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_CardReissue">
+              <MappingFragment StoreEntitySet="Smx_CardReissue">
+                <ScalarProperty Name="CR_Created" ColumnName="CR_Created" />
+                <ScalarProperty Name="CR_Ch_CardNo" ColumnName="CR_Ch_CardNo" />
+                <ScalarProperty Name="CR_Ch_EmpId" ColumnName="CR_Ch_EmpId" />
+                <ScalarProperty Name="CR_ID" ColumnName="CR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_CardStatus">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_CardStatus">
+              <MappingFragment StoreEntitySet="Smx_CardStatus">
+                <ScalarProperty Name="CS_Name" ColumnName="CS_Name" />
+                <ScalarProperty Name="CS_Id" ColumnName="CS_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Category">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Category">
+              <MappingFragment StoreEntitySet="Smx_Category">
+                <ScalarProperty Name="CT_MODIFIEDBY" ColumnName="CT_MODIFIEDBY" />
+                <ScalarProperty Name="CT_MODIFIED" ColumnName="CT_MODIFIED" />
+                <ScalarProperty Name="CT_CREATED" ColumnName="CT_CREATED" />
+                <ScalarProperty Name="CT_SHORTNAME" ColumnName="CT_SHORTNAME" />
+                <ScalarProperty Name="CT_NAME" ColumnName="CT_NAME" />
+                <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Company">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Company">
+              <MappingFragment StoreEntitySet="Smx_Company">
+                <ScalarProperty Name="CG_MODIFIEDBY" ColumnName="CG_MODIFIEDBY" />
+                <ScalarProperty Name="CG_MODIFIED" ColumnName="CG_MODIFIED" />
+                <ScalarProperty Name="CG_CREATED" ColumnName="CG_CREATED" />
+                <ScalarProperty Name="CG_EMAIL" ColumnName="CG_EMAIL" />
+                <ScalarProperty Name="CG_FAX" ColumnName="CG_FAX" />
+                <ScalarProperty Name="CG_PHONE" ColumnName="CG_PHONE" />
+                <ScalarProperty Name="CG_CITY" ColumnName="CG_CITY" />
+                <ScalarProperty Name="CG_ADDRESS" ColumnName="CG_ADDRESS" />
+                <ScalarProperty Name="CG_HEAD" ColumnName="CG_HEAD" />
+                <ScalarProperty Name="CG_SHORTNAME" ColumnName="CG_SHORTNAME" />
+                <ScalarProperty Name="CG_NAME" ColumnName="CG_NAME" />
+                <ScalarProperty Name="CG_ID" ColumnName="CG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_EmployeeStatus">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_EmployeeStatus">
+              <MappingFragment StoreEntitySet="Smx_EmployeeStatus">
+                <ScalarProperty Name="ES_MODIFIEDBY" ColumnName="ES_MODIFIEDBY" />
+                <ScalarProperty Name="ES_MODIFIED" ColumnName="ES_MODIFIED" />
+                <ScalarProperty Name="ES_CREATED" ColumnName="ES_CREATED" />
+                <ScalarProperty Name="ES_SHORTNAME" ColumnName="ES_SHORTNAME" />
+                <ScalarProperty Name="ES_NAME" ColumnName="ES_NAME" />
+                <ScalarProperty Name="ES_ID" ColumnName="ES_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Holiday">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Holiday">
+              <MappingFragment StoreEntitySet="Smx_Holiday">
+                <ScalarProperty Name="HD_MODIFIEDBY" ColumnName="HD_MODIFIEDBY" />
+                <ScalarProperty Name="HD_MODIFIED" ColumnName="HD_MODIFIED" />
+                <ScalarProperty Name="HD_CREATED" ColumnName="HD_CREATED" />
+                <ScalarProperty Name="HD_UPDATE_STATUS" ColumnName="HD_UPDATE_STATUS" />
+                <ScalarProperty Name="HD_ISREADERDOWNLOAD" ColumnName="HD_ISREADERDOWNLOAD" />
+                <ScalarProperty Name="HD_DESC" ColumnName="HD_DESC" />
+                <ScalarProperty Name="HD_DATE" ColumnName="HD_DATE" />
+                <ScalarProperty Name="HD_ID" ColumnName="HD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_TimeZone">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_TimeZone">
+              <MappingFragment StoreEntitySet="Smx_TimeZone">
+                <ScalarProperty Name="TZ_MODIFIEDBY" ColumnName="TZ_MODIFIEDBY" />
+                <ScalarProperty Name="TZ_MODIFIED" ColumnName="TZ_MODIFIED" />
+                <ScalarProperty Name="TZ_CREATED" ColumnName="TZ_CREATED" />
+                <ScalarProperty Name="TZ_UPDATE_STATUS" ColumnName="TZ_UPDATE_STATUS" />
+                <ScalarProperty Name="TZ_NAME" ColumnName="TZ_NAME" />
+                <ScalarProperty Name="TZ_ID" ColumnName="TZ_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_TimeZoneDetails">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_TimeZoneDetails">
+              <MappingFragment StoreEntitySet="Smx_TimeZoneDetails">
+                <ScalarProperty Name="TZD_MODIFIEDBY" ColumnName="TZD_MODIFIEDBY" />
+                <ScalarProperty Name="TZD_MODIFIED" ColumnName="TZD_MODIFIED" />
+                <ScalarProperty Name="TZD_CREATED" ColumnName="TZD_CREATED" />
+                <ScalarProperty Name="TZD_SPECIFIC_DATE" ColumnName="TZD_SPECIFIC_DATE" />
+                <ScalarProperty Name="TZD_END_TIME" ColumnName="TZD_END_TIME" />
+                <ScalarProperty Name="TZD_START_TIME" ColumnName="TZD_START_TIME" />
+                <ScalarProperty Name="TZD_DAYS" ColumnName="TZD_DAYS" />
+                <ScalarProperty Name="TZD_TZ_ID" ColumnName="TZD_TZ_ID" />
+                <ScalarProperty Name="TZD_ID" ColumnName="TZD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Unit">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Unit">
+              <MappingFragment StoreEntitySet="Smx_Unit">
+                <ScalarProperty Name="UT_MODIFIEDBY" ColumnName="UT_MODIFIEDBY" />
+                <ScalarProperty Name="UT_MODIFIED" ColumnName="UT_MODIFIED" />
+                <ScalarProperty Name="UT_CREATED" ColumnName="UT_CREATED" />
+                <ScalarProperty Name="UT_DESCRIPTION" ColumnName="UT_DESCRIPTION" />
+                <ScalarProperty Name="UT_NAME" ColumnName="UT_NAME" />
+                <ScalarProperty Name="UT_ID" ColumnName="UT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetAttendenceForMonth" FunctionName="SMAXV2Model.Store.sp_GetAttendenceForMonth" />
+          <EntitySetMapping Name="Smx_Designation">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Designation">
+              <MappingFragment StoreEntitySet="Smx_Designation">
+                <ScalarProperty Name="DN_MODIFIEDBY" ColumnName="DN_MODIFIEDBY" />
+                <ScalarProperty Name="DN_MODIFIED" ColumnName="DN_MODIFIED" />
+                <ScalarProperty Name="DN_CREATED" ColumnName="DN_CREATED" />
+                <ScalarProperty Name="DN_SHORTNAME" ColumnName="DN_SHORTNAME" />
+                <ScalarProperty Name="DN_NAME" ColumnName="DN_NAME" />
+                <ScalarProperty Name="DN_ID" ColumnName="DN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entitlements">
+            <EntityTypeMapping TypeName="SMAXV2Model.Entitlement">
+              <MappingFragment StoreEntitySet="Entitlements">
+                <ScalarProperty Name="FK_SC_ScreenName" ColumnName="FK_SC_ScreenName" />
+                <ScalarProperty Name="FK_UG_GroupId" ColumnName="FK_UG_GroupId" />
+                <ScalarProperty Name="EN_Id" ColumnName="EN_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScreenNames">
+            <EntityTypeMapping TypeName="SMAXV2Model.ScreenName">
+              <MappingFragment StoreEntitySet="ScreenName">
+                <ScalarProperty Name="SC_Description" ColumnName="SC_Description" />
+                <ScalarProperty Name="SC_ScreenName" ColumnName="SC_ScreenName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Leave">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Leave">
+              <MappingFragment StoreEntitySet="Smx_Leave">
+                <ScalarProperty Name="Lv_Modifiedby" ColumnName="Lv_Modifiedby" />
+                <ScalarProperty Name="LV_Modified" ColumnName="LV_Modified" />
+                <ScalarProperty Name="Lv_Created" ColumnName="Lv_Created" />
+                <ScalarProperty Name="Lv_MaxAllowed" ColumnName="Lv_MaxAllowed" />
+                <ScalarProperty Name="Lv_MaxDays" ColumnName="Lv_MaxDays" />
+                <ScalarProperty Name="Lv_Description" ColumnName="Lv_Description" />
+                <ScalarProperty Name="Lv_ShortDesc" ColumnName="Lv_ShortDesc" />
+                <ScalarProperty Name="Lv_Id" ColumnName="Lv_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Leavedetails">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Leavedetails">
+              <MappingFragment StoreEntitySet="Smx_Leavedetails">
+                <ScalarProperty Name="LD_Modifiedby" ColumnName="LD_Modifiedby" />
+                <ScalarProperty Name="LD_Modified" ColumnName="LD_Modified" />
+                <ScalarProperty Name="LD_Created" ColumnName="LD_Created" />
+                <ScalarProperty Name="LD_Unit" ColumnName="LD_Unit" />
+                <ScalarProperty Name="LD_ChId" ColumnName="LD_ChId" />
+                <ScalarProperty Name="LD_Duration" ColumnName="LD_Duration" />
+                <ScalarProperty Name="LD_DateLDetails" ColumnName="LD_DateLDetails" />
+                <ScalarProperty Name="FK_Lv_Id" ColumnName="FK_Lv_Id" />
+                <ScalarProperty Name="LD_Id" ColumnName="LD_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Areas">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Areas">
+              <MappingFragment StoreEntitySet="Smx_Areas">
+                <ScalarProperty Name="AR_DELETED" ColumnName="AR_DELETED" />
+                <ScalarProperty Name="AR_STATUS" ColumnName="AR_STATUS" />
+                <ScalarProperty Name="AR_APBNUMBER" ColumnName="AR_APBNUMBER" />
+                <ScalarProperty Name="AR_IPADDRESS" ColumnName="AR_IPADDRESS" />
+                <ScalarProperty Name="AR_LN_ID" ColumnName="AR_LN_ID" />
+                <ScalarProperty Name="AR_APB" ColumnName="AR_APB" />
+                <ScalarProperty Name="AR_TYPE" ColumnName="AR_TYPE" />
+                <ScalarProperty Name="AR_NODEID" ColumnName="AR_NODEID" />
+                <ScalarProperty Name="AR_NAME" ColumnName="AR_NAME" />
+                <ScalarProperty Name="AR_ID" ColumnName="AR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_AreaName">
+            <EntityTypeMapping TypeName="SMAXV2Model.vw_AreaName">
+              <MappingFragment StoreEntitySet="vw_AreaName">
+                <ScalarProperty Name="AR_Name" ColumnName="AR_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Message">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Message">
+              <MappingFragment StoreEntitySet="Smx_Message">
+                <ScalarProperty Name="MS_MODIFIEDBY" ColumnName="MS_MODIFIEDBY" />
+                <ScalarProperty Name="MS_MODIFIED" ColumnName="MS_MODIFIED" />
+                <ScalarProperty Name="MS_CREATED" ColumnName="MS_CREATED" />
+                <ScalarProperty Name="MS_LINE2" ColumnName="MS_LINE2" />
+                <ScalarProperty Name="MS_LINE1" ColumnName="MS_LINE1" />
+                <ScalarProperty Name="MS_NAME" ColumnName="MS_NAME" />
+                <ScalarProperty Name="MS_ID" ColumnName="MS_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Group">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Group">
+              <MappingFragment StoreEntitySet="Smx_Group">
+                <ScalarProperty Name="Gr_Modifiedby" ColumnName="Gr_Modifiedby" />
+                <ScalarProperty Name="Gr_Modified" ColumnName="Gr_Modified" />
+                <ScalarProperty Name="Gr_Created" ColumnName="Gr_Created" />
+                <ScalarProperty Name="Gr_ShortName" ColumnName="Gr_ShortName" />
+                <ScalarProperty Name="Gr_Name" ColumnName="Gr_Name" />
+                <ScalarProperty Name="PK_Gr_Id" ColumnName="PK_Gr_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Permission">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Permission">
+              <MappingFragment StoreEntitySet="Smx_Permission">
+                <ScalarProperty Name="PR_ModifiedDate" ColumnName="PR_ModifiedDate" />
+                <ScalarProperty Name="PR_CreatedDate" ColumnName="PR_CreatedDate" />
+                <ScalarProperty Name="PR_UpdatedBy" ColumnName="PR_UpdatedBy" />
+                <ScalarProperty Name="PR_Permission" ColumnName="PR_Permission" />
+                <ScalarProperty Name="PR_Description" ColumnName="PR_Description" />
+                <ScalarProperty Name="FK_DP_ID" ColumnName="FK_DP_ID" />
+                <ScalarProperty Name="PR_EndTime" ColumnName="PR_EndTime" />
+                <ScalarProperty Name="PR_StartTime" ColumnName="PR_StartTime" />
+                <ScalarProperty Name="PR_Date" ColumnName="PR_Date" />
+                <ScalarProperty Name="PR_ChId" ColumnName="PR_ChId" />
+                <ScalarProperty Name="PR_Id" ColumnName="PR_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_ShiftAssignment">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_ShiftAssignment">
+              <MappingFragment StoreEntitySet="Smx_ShiftAssignment">
+                <ScalarProperty Name="Sft_Modifiedby" ColumnName="Sft_Modifiedby" />
+                <ScalarProperty Name="Sft_Modified" ColumnName="Sft_Modified" />
+                <ScalarProperty Name="Sft_Created" ColumnName="Sft_Created" />
+                <ScalarProperty Name="Sft_Unit" ColumnName="Sft_Unit" />
+                <ScalarProperty Name="Sft_D31" ColumnName="Sft_D31" />
+                <ScalarProperty Name="Sft_D30" ColumnName="Sft_D30" />
+                <ScalarProperty Name="Sft_D29" ColumnName="Sft_D29" />
+                <ScalarProperty Name="Sft_D28" ColumnName="Sft_D28" />
+                <ScalarProperty Name="Sft_D27" ColumnName="Sft_D27" />
+                <ScalarProperty Name="Sft_D26" ColumnName="Sft_D26" />
+                <ScalarProperty Name="Sft_D25" ColumnName="Sft_D25" />
+                <ScalarProperty Name="Sft_D24" ColumnName="Sft_D24" />
+                <ScalarProperty Name="Sft_D23" ColumnName="Sft_D23" />
+                <ScalarProperty Name="Sft_D22" ColumnName="Sft_D22" />
+                <ScalarProperty Name="Sft_D21" ColumnName="Sft_D21" />
+                <ScalarProperty Name="Sft_D20" ColumnName="Sft_D20" />
+                <ScalarProperty Name="Sft_D19" ColumnName="Sft_D19" />
+                <ScalarProperty Name="Sft_D18" ColumnName="Sft_D18" />
+                <ScalarProperty Name="Sft_D17" ColumnName="Sft_D17" />
+                <ScalarProperty Name="Sft_D16" ColumnName="Sft_D16" />
+                <ScalarProperty Name="Sft_D15" ColumnName="Sft_D15" />
+                <ScalarProperty Name="Sft_D14" ColumnName="Sft_D14" />
+                <ScalarProperty Name="Sft_D13" ColumnName="Sft_D13" />
+                <ScalarProperty Name="Sft_D12" ColumnName="Sft_D12" />
+                <ScalarProperty Name="Sft_D11" ColumnName="Sft_D11" />
+                <ScalarProperty Name="Sft_D10" ColumnName="Sft_D10" />
+                <ScalarProperty Name="Sft_D9" ColumnName="Sft_D9" />
+                <ScalarProperty Name="Sft_D8" ColumnName="Sft_D8" />
+                <ScalarProperty Name="Sft_D7" ColumnName="Sft_D7" />
+                <ScalarProperty Name="Sft_D6" ColumnName="Sft_D6" />
+                <ScalarProperty Name="Sft_D5" ColumnName="Sft_D5" />
+                <ScalarProperty Name="Sft_D4" ColumnName="Sft_D4" />
+                <ScalarProperty Name="Sft_D3" ColumnName="Sft_D3" />
+                <ScalarProperty Name="Sft_D2" ColumnName="Sft_D2" />
+                <ScalarProperty Name="Sft_D1" ColumnName="Sft_D1" />
+                <ScalarProperty Name="Sft_MonthYear" ColumnName="Sft_MonthYear" />
+                <ScalarProperty Name="Sft_ChId" ColumnName="Sft_ChId" />
+                <ScalarProperty Name="PK_Sft_Id" ColumnName="PK_Sft_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_ShiftAssignmentDetails">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_ShiftAssignmentDetails">
+              <MappingFragment StoreEntitySet="Smx_ShiftAssignmentDetails">
+                <ScalarProperty Name="Sftd_DateTime" ColumnName="Sftd_DateTime" />
+                <ScalarProperty Name="FK_Emp_Id" ColumnName="FK_Emp_Id" />
+                <ScalarProperty Name="FK_Sft_Id" ColumnName="FK_Sft_Id" />
+                <ScalarProperty Name="Sftd_Id" ColumnName="Sftd_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_EventTask">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_EventTask">
+              <MappingFragment StoreEntitySet="Smx_EventTask">
+                <ScalarProperty Name="ET_IP4NRM_R3_Message_Duration" ColumnName="ET_IP4NRM_R3_Message_Duration" />
+                <ScalarProperty Name="ET_IP4NRM_R3_Message" ColumnName="ET_IP4NRM_R3_Message" />
+                <ScalarProperty Name="ET_IP4NRM_R3_Time" ColumnName="ET_IP4NRM_R3_Time" />
+                <ScalarProperty Name="ET_IP4NRM_R3_Status" ColumnName="ET_IP4NRM_R3_Status" />
+                <ScalarProperty Name="ET_IP4ACT_R3_Message_Duration" ColumnName="ET_IP4ACT_R3_Message_Duration" />
+                <ScalarProperty Name="ET_IP4ACT_R3_Message" ColumnName="ET_IP4ACT_R3_Message" />
+                <ScalarProperty Name="ET_IP4ACT_R3_Time" ColumnName="ET_IP4ACT_R3_Time" />
+                <ScalarProperty Name="ET_IP4ACT_R3_Status" ColumnName="ET_IP4ACT_R3_Status" />
+                <ScalarProperty Name="ET_IP3NRM_R3_Message_Duration" ColumnName="ET_IP3NRM_R3_Message_Duration" />
+                <ScalarProperty Name="ET_IP3NRM_R3_Message" ColumnName="ET_IP3NRM_R3_Message" />
+                <ScalarProperty Name="ET_IP3NRM_R3_Time" ColumnName="ET_IP3NRM_R3_Time" />
+                <ScalarProperty Name="ET_IP3NRM_R3_Status" ColumnName="ET_IP3NRM_R3_Status" />
+                <ScalarProperty Name="ET_IP3ACT_R3_Message_Duration" ColumnName="ET_IP3ACT_R3_Message_Duration" />
+                <ScalarProperty Name="ET_IP3ACT_R3_Message" ColumnName="ET_IP3ACT_R3_Message" />
+                <ScalarProperty Name="ET_IP3ACT_R3_Time" ColumnName="ET_IP3ACT_R3_Time" />
+                <ScalarProperty Name="ET_IP3ACT_R3_Status" ColumnName="ET_IP3ACT_R3_Status" />
+                <ScalarProperty Name="ET_NodeId" ColumnName="ET_NodeId" />
+                <ScalarProperty Name="ET_Device_IPAddress" ColumnName="ET_Device_IPAddress" />
+                <ScalarProperty Name="ET_ID" ColumnName="ET_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_ShiftDetails">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_ShiftDetails">
+              <MappingFragment StoreEntitySet="Smx_ShiftDetails">
+                <ScalarProperty Name="Sftd_Modifiedby" ColumnName="Sftd_Modifiedby" />
+                <ScalarProperty Name="Sftd_Modified" ColumnName="Sftd_Modified" />
+                <ScalarProperty Name="Sftd_Created" ColumnName="Sftd_Created" />
+                <ScalarProperty Name="Sftd_Hours_Id" ColumnName="Sftd_Hours_Id" />
+                <ScalarProperty Name="Sftd_EndTime" ColumnName="Sftd_EndTime" />
+                <ScalarProperty Name="Sftd_StartTime" ColumnName="Sftd_StartTime" />
+                <ScalarProperty Name="Sftd_Name" ColumnName="Sftd_Name" />
+                <ScalarProperty Name="Sftd_Id" ColumnName="Sftd_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Location">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Location">
+              <MappingFragment StoreEntitySet="Smx_Location">
+                <ScalarProperty Name="LN_MODIFIEDBY" ColumnName="LN_MODIFIEDBY" />
+                <ScalarProperty Name="LN_MODIFIED" ColumnName="LN_MODIFIED" />
+                <ScalarProperty Name="LN_CREATED" ColumnName="LN_CREATED" />
+                <ScalarProperty Name="LN_SHORTNAME" ColumnName="LN_SHORTNAME" />
+                <ScalarProperty Name="LN_ADDRESS" ColumnName="LN_ADDRESS" />
+                <ScalarProperty Name="LN_NAME" ColumnName="LN_NAME" />
+                <ScalarProperty Name="LN_ID" ColumnName="LN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Smx_AccessLevel_ReaderDetails">
+            <EntityTypeMapping TypeName="SMAXV2Model.vw_Smx_AccessLevel_ReaderDetails">
+              <MappingFragment StoreEntitySet="vw_Smx_AccessLevel_ReaderDetails">
+                <ScalarProperty Name="ALD_READER_IPADDRESS" ColumnName="ALD_READER_IPADDRESS" />
+                <ScalarProperty Name="DE_IPADDRESS" ColumnName="DE_IPADDRESS" />
+                <ScalarProperty Name="DE_ID" ColumnName="DE_ID" />
+                <ScalarProperty Name="ALD_AL_ID" ColumnName="ALD_AL_ID" />
+                <ScalarProperty Name="DE_NAME" ColumnName="DE_NAME" />
+                <ScalarProperty Name="AL_NAME" ColumnName="AL_NAME" />
+                <ScalarProperty Name="AL_ID" ColumnName="AL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Smx_CardAccesslevel_Delete">
+            <EntityTypeMapping TypeName="SMAXV2Model.vw_Smx_CardAccesslevel_Delete">
+              <MappingFragment StoreEntitySet="vw_Smx_CardAccesslevel_Delete">
+                <ScalarProperty Name="Ch_IsCardBasedBio" ColumnName="Ch_IsCardBasedBio" />
+                <ScalarProperty Name="ALD_LN_ID" ColumnName="ALD_LN_ID" />
+                <ScalarProperty Name="ALD_READER_IPADDRESS" ColumnName="ALD_READER_IPADDRESS" />
+                <ScalarProperty Name="ALD_TZ_ID" ColumnName="ALD_TZ_ID" />
+                <ScalarProperty Name="CAL_DWStatus" ColumnName="CAL_DWStatus" />
+                <ScalarProperty Name="CAL_Deleted" ColumnName="CAL_Deleted" />
+                <ScalarProperty Name="CAL_AL_ID" ColumnName="CAL_AL_ID" />
+                <ScalarProperty Name="Ch_AccessValidation" ColumnName="Ch_AccessValidation" />
+                <ScalarProperty Name="Ch_AntiPassBack" ColumnName="Ch_AntiPassBack" />
+                <ScalarProperty Name="Ch_ISPin" ColumnName="Ch_ISPin" />
+                <ScalarProperty Name="Ch_IsCardBio" ColumnName="Ch_IsCardBio" />
+                <ScalarProperty Name="Ch_ISCard" ColumnName="Ch_ISCard" />
+                <ScalarProperty Name="Ch_ISBio" ColumnName="Ch_ISBio" />
+                <ScalarProperty Name="Ch_ValidTo" ColumnName="Ch_ValidTo" />
+                <ScalarProperty Name="Ch_PinNo" ColumnName="Ch_PinNo" />
+                <ScalarProperty Name="Ch_FName" ColumnName="Ch_FName" />
+                <ScalarProperty Name="Ch_EmpId" ColumnName="Ch_EmpId" />
+                <ScalarProperty Name="Ch_CardNo" ColumnName="Ch_CardNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Smx_CardAccesslevel_Download">
+            <EntityTypeMapping TypeName="SMAXV2Model.vw_Smx_CardAccesslevel_Download">
+              <MappingFragment StoreEntitySet="vw_Smx_CardAccesslevel_Download">
+                <ScalarProperty Name="Ch_IsCardBasedBio" ColumnName="Ch_IsCardBasedBio" />
+                <ScalarProperty Name="ALD_LN_ID" ColumnName="ALD_LN_ID" />
+                <ScalarProperty Name="ALD_READER_IPADDRESS" ColumnName="ALD_READER_IPADDRESS" />
+                <ScalarProperty Name="ALD_TZ_ID" ColumnName="ALD_TZ_ID" />
+                <ScalarProperty Name="CAL_DWStatus" ColumnName="CAL_DWStatus" />
+                <ScalarProperty Name="CAL_Deleted" ColumnName="CAL_Deleted" />
+                <ScalarProperty Name="CAL_AL_ID" ColumnName="CAL_AL_ID" />
+                <ScalarProperty Name="Ch_AccessValidation" ColumnName="Ch_AccessValidation" />
+                <ScalarProperty Name="Ch_AntiPassBack" ColumnName="Ch_AntiPassBack" />
+                <ScalarProperty Name="Ch_ISPin" ColumnName="Ch_ISPin" />
+                <ScalarProperty Name="Ch_IsCardBio" ColumnName="Ch_IsCardBio" />
+                <ScalarProperty Name="Ch_ISCard" ColumnName="Ch_ISCard" />
+                <ScalarProperty Name="Ch_ISBio" ColumnName="Ch_ISBio" />
+                <ScalarProperty Name="Ch_MS_Id" ColumnName="Ch_MS_Id" />
+                <ScalarProperty Name="Ch_ValidTo" ColumnName="Ch_ValidTo" />
+                <ScalarProperty Name="Ch_PinNo" ColumnName="Ch_PinNo" />
+                <ScalarProperty Name="Ch_FName" ColumnName="Ch_FName" />
+                <ScalarProperty Name="Ch_EmpId" ColumnName="Ch_EmpId" />
+                <ScalarProperty Name="Ch_CardNo" ColumnName="Ch_CardNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_CardholderAccessLevel">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_CardholderAccessLevel">
+              <MappingFragment StoreEntitySet="Smx_CardholderAccessLevel">
+                <ScalarProperty Name="CAL_Modifiedby" ColumnName="CAL_Modifiedby" />
+                <ScalarProperty Name="CAL_Modified" ColumnName="CAL_Modified" />
+                <ScalarProperty Name="CAL_Created" ColumnName="CAL_Created" />
+                <ScalarProperty Name="CAL_DWStatus" ColumnName="CAL_DWStatus" />
+                <ScalarProperty Name="CAL_Deleted" ColumnName="CAL_Deleted" />
+                <ScalarProperty Name="CAL_AL_ID" ColumnName="CAL_AL_ID" />
+                <ScalarProperty Name="CAL_CH_Csnnumber" ColumnName="CAL_CH_Csnnumber" />
+                <ScalarProperty Name="CAL_CH_Cardno" ColumnName="CAL_CH_Cardno" />
+                <ScalarProperty Name="CAL_Id" ColumnName="CAL_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_AccessLevel">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_AccessLevel">
+              <MappingFragment StoreEntitySet="Smx_AccessLevel">
+                <ScalarProperty Name="AL_MODIFIEDBY" ColumnName="AL_MODIFIEDBY" />
+                <ScalarProperty Name="AL_MODIFIED" ColumnName="AL_MODIFIED" />
+                <ScalarProperty Name="AL_CREATED" ColumnName="AL_CREATED" />
+                <ScalarProperty Name="AL_NAME" ColumnName="AL_NAME" />
+                <ScalarProperty Name="AL_ID" ColumnName="AL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Transaction">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Transaction">
+              <MappingFragment StoreEntitySet="Smx_Transaction">
+                <ScalarProperty Name="Tr_Created" ColumnName="Tr_Created" />
+                <ScalarProperty Name="Tr_EmpId" ColumnName="Tr_EmpId" />
+                <ScalarProperty Name="Tr_TrackCard" ColumnName="Tr_TrackCard" />
+                <ScalarProperty Name="Tr_Message" ColumnName="Tr_Message" />
+                <ScalarProperty Name="Tr_IpAddress" ColumnName="Tr_IpAddress" />
+                <ScalarProperty Name="Tr_Reason" ColumnName="Tr_Reason" />
+                <ScalarProperty Name="Tr_Csnnumber" ColumnName="Tr_Csnnumber" />
+                <ScalarProperty Name="Tr_CardNumber" ColumnName="Tr_CardNumber" />
+                <ScalarProperty Name="Tr_NodeId" ColumnName="Tr_NodeId" />
+                <ScalarProperty Name="Tr_TType" ColumnName="Tr_TType" />
+                <ScalarProperty Name="Tr_Time" ColumnName="Tr_Time" />
+                <ScalarProperty Name="Tr_Date" ColumnName="Tr_Date" />
+                <ScalarProperty Name="Tr_Id" ColumnName="Tr_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_TransactionType">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_TransactionType">
+              <MappingFragment StoreEntitySet="Smx_TransactionType">
+                <ScalarProperty Name="TT_DESCRIPTION" ColumnName="TT_DESCRIPTION" />
+                <ScalarProperty Name="TT_CODE" ColumnName="TT_CODE" />
+                <ScalarProperty Name="TT_ID" ColumnName="TT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_AccessLevelDetails">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_AccessLevelDetails">
+              <MappingFragment StoreEntitySet="Smx_AccessLevelDetails">
+                <ScalarProperty Name="ALD_MODIFIEDBY" ColumnName="ALD_MODIFIEDBY" />
+                <ScalarProperty Name="ALD_MODIFIED" ColumnName="ALD_MODIFIED" />
+                <ScalarProperty Name="ALD_CREATED" ColumnName="ALD_CREATED" />
+                <ScalarProperty Name="ALD_LN_ID" ColumnName="ALD_LN_ID" />
+                <ScalarProperty Name="ALD_READER_IPADDRESS" ColumnName="ALD_READER_IPADDRESS" />
+                <ScalarProperty Name="ALD_TZ_ID" ColumnName="ALD_TZ_ID" />
+                <ScalarProperty Name="ALD_NODEID" ColumnName="ALD_NODEID" />
+                <ScalarProperty Name="ALD_AL_ID" ColumnName="ALD_AL_ID" />
+                <ScalarProperty Name="ALD_ID" ColumnName="ALD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SMAXV2Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="US_Modified" ColumnName="US_Modified" />
+                <ScalarProperty Name="US_Created" ColumnName="US_Created" />
+                <ScalarProperty Name="FK_UG_GroupId" ColumnName="FK_UG_GroupId" />
+                <ScalarProperty Name="US_Password" ColumnName="US_Password" />
+                <ScalarProperty Name="US_Login" ColumnName="US_Login" />
+                <ScalarProperty Name="US_User" ColumnName="US_User" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroups">
+            <EntityTypeMapping TypeName="SMAXV2Model.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroups">
+                <ScalarProperty Name="UG_GroupName" ColumnName="UG_GroupName" />
+                <ScalarProperty Name="PK_UG_GroupId" ColumnName="PK_UG_GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_CardHolder">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_CardHolder">
+              <MappingFragment StoreEntitySet="Smx_CardHolder">
+                <ScalarProperty Name="Ch_IsCardBasedBio" ColumnName="Ch_IsCardBasedBio" />
+                <ScalarProperty Name="Ch_Finger2Identity" ColumnName="Ch_Finger2Identity" />
+                <ScalarProperty Name="Ch_Finger1Identity" ColumnName="Ch_Finger1Identity" />
+                <ScalarProperty Name="Ch_IsCardBio" ColumnName="Ch_IsCardBio" />
+                <ScalarProperty Name="Ch_Modifiedby" ColumnName="Ch_Modifiedby" />
+                <ScalarProperty Name="Ch_Modified" ColumnName="Ch_Modified" />
+                <ScalarProperty Name="Ch_Created" ColumnName="Ch_Created" />
+                <ScalarProperty Name="Ch_DOS" ColumnName="Ch_DOS" />
+                <ScalarProperty Name="Ch_Es_ID" ColumnName="Ch_Es_ID" />
+                <ScalarProperty Name="Ch_AccessValidation" ColumnName="Ch_AccessValidation" />
+                <ScalarProperty Name="Ch_DOJ" ColumnName="Ch_DOJ" />
+                <ScalarProperty Name="Ch_MS_Id" ColumnName="Ch_MS_Id" />
+                <ScalarProperty Name="Ch_TrackCard" ColumnName="Ch_TrackCard" />
+                <ScalarProperty Name="Ch_CardIssued" ColumnName="Ch_CardIssued" />
+                <ScalarProperty Name="Ch_AntiPassBack" ColumnName="Ch_AntiPassBack" />
+                <ScalarProperty Name="Ch_ISPin" ColumnName="Ch_ISPin" />
+                <ScalarProperty Name="Ch_ISCard" ColumnName="Ch_ISCard" />
+                <ScalarProperty Name="Ch_ISBio" ColumnName="Ch_ISBio" />
+                <ScalarProperty Name="Ch_CS_Id" ColumnName="Ch_CS_Id" />
+                <ScalarProperty Name="Ch_ValidTo" ColumnName="Ch_ValidTo" />
+                <ScalarProperty Name="Ch_PinNo" ColumnName="Ch_PinNo" />
+                <ScalarProperty Name="Ch_Finger2" ColumnName="Ch_Finger2" />
+                <ScalarProperty Name="Ch_Finger1" ColumnName="Ch_Finger1" />
+                <ScalarProperty Name="Ch_Photo" ColumnName="Ch_Photo" />
+                <ScalarProperty Name="Ch_Dp_Id" ColumnName="Ch_Dp_Id" />
+                <ScalarProperty Name="Ch_Ln_Id" ColumnName="Ch_Ln_Id" />
+                <ScalarProperty Name="Ch_Br_Id" ColumnName="Ch_Br_Id" />
+                <ScalarProperty Name="Ch_Ut_Id" ColumnName="Ch_Ut_Id" />
+                <ScalarProperty Name="Ch_Cg_Id" ColumnName="Ch_Cg_Id" />
+                <ScalarProperty Name="Ch_Ct_Id" ColumnName="Ch_Ct_Id" />
+                <ScalarProperty Name="Ch_Dn_Id" ColumnName="Ch_Dn_Id" />
+                <ScalarProperty Name="Ch_MailId" ColumnName="Ch_MailId" />
+                <ScalarProperty Name="Ch_PhoneNumber" ColumnName="Ch_PhoneNumber" />
+                <ScalarProperty Name="Ch_ContactAddress" ColumnName="Ch_ContactAddress" />
+                <ScalarProperty Name="Ch_Nationality" ColumnName="Ch_Nationality" />
+                <ScalarProperty Name="Ch_Gender" ColumnName="Ch_Gender" />
+                <ScalarProperty Name="Ch_Dob" ColumnName="Ch_Dob" />
+                <ScalarProperty Name="Ch_ShortName" ColumnName="Ch_ShortName" />
+                <ScalarProperty Name="Ch_LName" ColumnName="Ch_LName" />
+                <ScalarProperty Name="Ch_FName" ColumnName="Ch_FName" />
+                <ScalarProperty Name="Ch_Title" ColumnName="Ch_Title" />
+                <ScalarProperty Name="Ch_EmpId" ColumnName="Ch_EmpId" />
+                <ScalarProperty Name="Ch_Csnnumber" ColumnName="Ch_Csnnumber" />
+                <ScalarProperty Name="Ch_Cardno" ColumnName="Ch_Cardno" />
+                <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Department">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Department">
+              <MappingFragment StoreEntitySet="Smx_Department">
+                <ScalarProperty Name="DP_MODIFIEDBY" ColumnName="DP_MODIFIEDBY" />
+                <ScalarProperty Name="DP_MODIFIED" ColumnName="DP_MODIFIED" />
+                <ScalarProperty Name="DP_CREATED" ColumnName="DP_CREATED" />
+                <ScalarProperty Name="DP_SHORTNAME" ColumnName="DP_SHORTNAME" />
+                <ScalarProperty Name="DP_NAME" ColumnName="DP_NAME" />
+                <ScalarProperty Name="DP_ID" ColumnName="DP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Smx_Transaction">
+            <EntityTypeMapping TypeName="SMAXV2Model.vw_Smx_Transaction">
+              <MappingFragment StoreEntitySet="vw_Smx_Transaction">
+                <ScalarProperty Name="DE_ID" ColumnName="DE_ID" />
+                <ScalarProperty Name="Device_Name" ColumnName="Device_Name" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="LN_NAME" ColumnName="LN_NAME" />
+                <ScalarProperty Name="DE_LN_ID" ColumnName="DE_LN_ID" />
+                <ScalarProperty Name="Tr_TType" ColumnName="Tr_TType" />
+                <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Card_Number" ColumnName="Card_Number" />
+                <ScalarProperty Name="Ch_LName" ColumnName="Ch_LName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_Devices">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_Devices">
+              <MappingFragment StoreEntitySet="Smx_Devices">
+                <ScalarProperty Name="DE_TIMESYNCTIME" ColumnName="DE_TIMESYNCTIME" />
+                <ScalarProperty Name="DE_OPTIONALTRANS" ColumnName="DE_OPTIONALTRANS" />
+                <ScalarProperty Name="DE_BUZZER_INTERVAL" ColumnName="DE_BUZZER_INTERVAL" />
+                <ScalarProperty Name="DE_BUZZER_BEEP_COUNT" ColumnName="DE_BUZZER_BEEP_COUNT" />
+                <ScalarProperty Name="DE_Remarks" ColumnName="DE_Remarks" />
+                <ScalarProperty Name="DE_INTZID" ColumnName="DE_INTZID" />
+                <ScalarProperty Name="DE_FIREALARM" ColumnName="DE_FIREALARM" />
+                <ScalarProperty Name="DE_MODIFIEDBY" ColumnName="DE_MODIFIEDBY" />
+                <ScalarProperty Name="DE_MODIFIED" ColumnName="DE_MODIFIED" />
+                <ScalarProperty Name="DE_CREATED" ColumnName="DE_CREATED" />
+                <ScalarProperty Name="DE_READERMODE" ColumnName="DE_READERMODE" />
+                <ScalarProperty Name="DE_FIRMWARE" ColumnName="DE_FIRMWARE" />
+                <ScalarProperty Name="DE_MODEL" ColumnName="DE_MODEL" />
+                <ScalarProperty Name="DE_OPERATIONAL" ColumnName="DE_OPERATIONAL" />
+                <ScalarProperty Name="DE_MEMORY" ColumnName="DE_MEMORY" />
+                <ScalarProperty Name="DE_IP2_NONC" ColumnName="DE_IP2_NONC" />
+                <ScalarProperty Name="DE_IP1_NONC" ColumnName="DE_IP1_NONC" />
+                <ScalarProperty Name="DE_IP2_NAME" ColumnName="DE_IP2_NAME" />
+                <ScalarProperty Name="DE_IP1_NAME" ColumnName="DE_IP1_NAME" />
+                <ScalarProperty Name="DE_DOTZ" ColumnName="DE_DOTZ" />
+                <ScalarProperty Name="DE_DOTL" ColumnName="DE_DOTL" />
+                <ScalarProperty Name="DE_RELAYTIME" ColumnName="DE_RELAYTIME" />
+                <ScalarProperty Name="DE_READERTYPE" ColumnName="DE_READERTYPE" />
+                <ScalarProperty Name="DE_MESSAGE" ColumnName="DE_MESSAGE" />
+                <ScalarProperty Name="DE_LN_ID" ColumnName="DE_LN_ID" />
+                <ScalarProperty Name="DE_NAME" ColumnName="DE_NAME" />
+                <ScalarProperty Name="DE_NODEID" ColumnName="DE_NODEID" />
+                <ScalarProperty Name="DE_IPADDRESS" ColumnName="DE_IPADDRESS" />
+                <ScalarProperty Name="DE_ID" ColumnName="DE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_LastFlashdayscount">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_LastFlashdayscount">
+              <MappingFragment StoreEntitySet="Smx_LastFlashdayscount">
+                <ScalarProperty Name="Dayscount" ColumnName="Dayscount" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Smx_AttendanceReaders">
+            <EntityTypeMapping TypeName="SMAXV2Model.Smx_AttendanceReaders">
+              <MappingFragment StoreEntitySet="Smx_AttendanceReaders">
+                <ScalarProperty Name="AR_Remarks" ColumnName="AR_Remarks" />
+                <ScalarProperty Name="AR_Modifiedby" ColumnName="AR_Modifiedby" />
+                <ScalarProperty Name="AR_Modifieddate" ColumnName="AR_Modifieddate" />
+                <ScalarProperty Name="AR_Createdby" ColumnName="AR_Createdby" />
+                <ScalarProperty Name="AR_Createddate" ColumnName="AR_Createddate" />
+                <ScalarProperty Name="AR_ReaderType" ColumnName="AR_ReaderType" />
+                <ScalarProperty Name="AR_Nodeid" ColumnName="AR_Nodeid" />
+                <ScalarProperty Name="AR_IPAddress" ColumnName="AR_IPAddress" />
+                <ScalarProperty Name="AR_Id" ColumnName="AR_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

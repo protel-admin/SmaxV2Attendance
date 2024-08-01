@@ -1,0 +1,86 @@
+﻿@model SmaxV2Attendance.Models.Smx_TimeZone
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<h4>Time Zone</h4>
+
+<div class="alert alert-info">
+    This screen will alow you to create new TimeZone Names.
+</div>
+<div id="errormsg" class="alert alert-danger">
+     @ViewBag.ErrorMsg
+</div>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_NAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_NAME)
+                @Html.ValidationMessageFor(model => model.TZ_NAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_UPDATE_STATUS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_UPDATE_STATUS)
+                @Html.ValidationMessageFor(model => model.TZ_UPDATE_STATUS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_CREATED)
+                @Html.ValidationMessageFor(model => model.TZ_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_MODIFIED)
+                @Html.ValidationMessageFor(model => model.TZ_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TZ_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TZ_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.TZ_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" value="Create" class="btn btn-success" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    if ($("#errormsg").html().trim() == "") {
+        $("#errormsg").hide();
+    }
+    else {
+        $("#errormsg").show();
+    }
+</script>

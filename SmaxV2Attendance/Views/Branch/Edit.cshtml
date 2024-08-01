@@ -1,0 +1,64 @@
+﻿@model SmaxV2Attendance.Models.Smx_Branch
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Branch</h2>
+<h4>Edit</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.BR_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BR_Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BR_Name)
+                @Html.ValidationMessageFor(model => model.BR_Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BR_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BR_CREATED)
+                @Html.ValidationMessageFor(model => model.BR_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BR_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BR_MODIFIED)
+                @Html.ValidationMessageFor(model => model.BR_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BR_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BR_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.BR_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" value="Save" class="btn btn-info" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

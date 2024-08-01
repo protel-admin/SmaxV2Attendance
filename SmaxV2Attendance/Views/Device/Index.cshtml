@@ -1,0 +1,182 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.Smx_Devices>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_IPADDRESS)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DE_NODEID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DE_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_Location.LN_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_MESSAGE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_READERTYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_RELAYTIME)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DE_READERMODE)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.DE_DOTL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_IP1_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_IP2_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_IP1_NONC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_IP2_NONC)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DE_MEMORY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_OPERATIONAL)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DE_MODEL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_FIRMWARE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_CREATED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_MODIFIED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DE_MODIFIEDBY)
+        </th>*@
+        
+        <th></th>
+    </tr>
+@{
+  SelectList listreadertype = SmaxV2Attendance.Util.Utility.GetReaderTypeDDL();
+  SelectList listmem = SmaxV2Attendance.Util.Utility.GetMemoryTypeDDL();
+  //SelectList listreadermode = SmaxV2Attendance.Models.Util.Utility.GetReaderModeDDL();
+}
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_IPADDRESS)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DE_NODEID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_Location.LN_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_MESSAGE)
+        </td>
+        <td>
+            @{
+                //var list = SmaxV2Attendance.Models.Util.Utility.GetReaderTypeDDL();
+               
+                //foreach(var x in list)
+                //{
+                //    if(x.Value == item.DE_READERTYPE.ToString())
+                //    {
+                //        ViewBag.ReaderType = x.Text;
+                //    }
+                //}
+                ViewBag.ReaderType = listreadertype.Where(p => p.Value == item.DE_READERTYPE.ToString()).First().Text;
+            }
+            @Html.Display("ReaderType")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_RELAYTIME)
+        </td>
+        @*<td>
+           @{
+                ViewBag.ReaderMode = listreadermode.Where(p => p.Value == item.DE_READERMODE.ToString()).First().Text;
+               
+           }
+            @Html.Display("ReaderMode")
+            
+        </td>*@
+
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DE_DOTL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_IP1_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_IP2_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_IP1_NONC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_IP2_NONC)
+        </td>*@
+        <td>
+            @{
+                //var listmem = SmaxV2Attendance.Models.Util.Utility.GetMemoryTypeDDL();
+                //foreach (var x in listmem)
+                //{
+                //    if (x.Value == item.DE_MEMORY.ToString())
+                //    {
+                //        ViewBag.MemoryType = x.Text;
+                //    }
+               //}
+               ViewBag.MemoryType = listmem.Where(p => p.Value == item.DE_MEMORY.ToString()).First().Text;
+            }
+            @Html.Display("MemoryType")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_OPERATIONAL)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DE_MODEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_FIRMWARE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_CREATED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_MODIFIED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DE_MODIFIEDBY)
+        </td>*@
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DE_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DE_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DE_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,90 @@
+﻿@model SmaxV2Attendance.Models.Smx_Holiday
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Holiday</h2>
+<h4>Create</h4>
+
+@RenderPage("../Shared/_Common.cshtml")
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_DATE, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.HD_DATE)
+                @Html.ValidationMessageFor(model => model.HD_DATE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_DESC, new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.HD_DESC)
+                @Html.ValidationMessageFor(model => model.HD_DESC)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_ISREADERDOWNLOAD, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HD_ISREADERDOWNLOAD)
+                @Html.ValidationMessageFor(model => model.HD_ISREADERDOWNLOAD)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_UPDATE_STATUS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HD_UPDATE_STATUS)
+                @Html.ValidationMessageFor(model => model.HD_UPDATE_STATUS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HD_CREATED)
+                @Html.ValidationMessageFor(model => model.HD_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HD_MODIFIED)
+                @Html.ValidationMessageFor(model => model.HD_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HD_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HD_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.HD_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">                
+                @*<input type="submit" value="Create" class="btn btn-success" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

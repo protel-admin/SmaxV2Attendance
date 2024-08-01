@@ -1,0 +1,317 @@
+﻿@model SmaxV2.Models.Smx_CardHolder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>CardHolder</h2>
+<h4>Details</h4>
+
+<div>
+    <dl class="dl-horizontal well">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_EmpId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_EmpId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_ContactAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_ContactAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_MailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_MailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Photo)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Ch_Photo)*@
+            @{
+                string empid = Model.Ch_EmpId;
+            }
+            <img src="/CardHolder/RetrieveImage/@empid" alt="" height=100 width=100 />
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Ch_Finger1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ch_Finger1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ch_Finger2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ch_Finger2)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_PinNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_PinNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_ValidTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_ValidTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_ISBio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_ISBio)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Ch_ISCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_ISCard)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_ISPin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_ISPin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_AntiPassBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_AntiPassBack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_CardIssued)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_CardIssued)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Ch_TrackCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_TrackCard)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_DOJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_DOJ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_DOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_DOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Modified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ch_Modifiedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ch_Modifiedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Branch.BR_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Branch.BR_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_CardStatus.CS_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_CardStatus.CS_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Category.CT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Category.CT_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Company.CG_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Company.CG_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Department.DP_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Department.DP_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Designation.DN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Designation.DN_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_EmployeeStatus.ES_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_EmployeeStatus.ES_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Location.LN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Location.LN_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Message.MS_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Message.MS_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smx_Unit.UT_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smx_Unit.UT_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ch_CardNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,82 @@
+﻿@model SmaxV2Attendance.Models.Smx_Location
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Location</h2>
+<h4>Create</h4>
+
+@RenderPage("../Shared/_Common.cshtml")
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LN_NAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LN_NAME)
+                @Html.ValidationMessageFor(model => model.LN_NAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LN_ADDRESS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LN_ADDRESS)
+                @Html.ValidationMessageFor(model => model.LN_ADDRESS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LN_SHORTNAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LN_SHORTNAME)
+                @Html.ValidationMessageFor(model => model.LN_SHORTNAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LN_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LN_CREATED)
+                @Html.ValidationMessageFor(model => model.LN_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LN_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LN_MODIFIED)
+                @Html.ValidationMessageFor(model => model.LN_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LN_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LN_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.LN_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*@<input type="submit" value="Create" class="btn btn-default" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,68 @@
+﻿@model DateTime?
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+
+@{
+    var attributes = new Dictionary<string, object>();
+
+    attributes.Add("class", "form-control date");
+    attributes.Add("placeholder", ViewData.ModelMetadata.Watermark);
+    //if (ViewData.ModelMetadata.Watermark == "Current Date")
+    //{
+    //    attributes.Add("Value", @DateTime.Now.ToShortDateString());
+    //}
+
+    
+    //If this is true, IsRequired and other constraints
+    //won't necessarily apply in the browser, but in case script
+    //turns off readonly we want the constraints passed
+    if (ViewData.ModelMetadata.IsReadOnly)
+    {
+        attributes.Add("readonly", "readonly");
+    }
+
+    if (ViewData.ModelMetadata.IsRequired)
+    {
+        attributes.Add("required", "required");
+    }
+
+    string strdate = "";
+    if (ViewData.ModelMetadata.PropertyName.ToUpper().Contains("CREATED") )
+    {
+        strdate = Model.HasValue ? Model.Value.ToString("d") : DateTime.Now.ToShortDateString();
+    }
+    else if(ViewData.ModelMetadata.PropertyName.ToUpper().Contains("MODIFIED"))
+    {
+        strdate = DateTime.Now.ToShortDateString();
+    }
+    else
+    {
+        strdate = Model.HasValue ? Model.Value.ToString("d") : String.Empty;
+    }
+    
+}
+<div class='input-group date col-sm-8' id='@Html.IdForModel()'>
+    @*@Html.TextBox(string.Empty, Model.HasValue ? Model.Value.ToString("d") : String.Empty, attributes)*@
+
+    @Html.TextBox(string.Empty, @strdate, attributes)
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+</div>
+<script type="text/javascript">
+    $(function () {
+        // target only the input in this editor template
+        $('#@Html.IdForModel()').datetimepicker({
+            pickTime: false,
+            //format: 'dd/MM/yyyy hh:mm:ss'
+            format: 'MM/DD/YYYY'
+        });
+    });
+
+    if ("@ViewData.ModelMetadata.Description" == "Hidden") {
+        $("#@Html.IdForModel()").parent('div').parent('div').hide();
+    }
+       
+    
+       
+</script>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.Smx_Leave>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lv_ShortDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lv_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lv_MaxDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lv_MaxAllowed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lv_Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LV_Modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lv_Modifiedby)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lv_ShortDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lv_Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lv_MaxDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lv_MaxAllowed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lv_Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LV_Modified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lv_Modifiedby)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Lv_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Lv_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Lv_Id })
+        </td>
+    </tr>
+}
+
+</table>

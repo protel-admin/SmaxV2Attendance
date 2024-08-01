@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.Smx_Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Department</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DP_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DP_SHORTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DP_CREATED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DP_MODIFIED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DP_MODIFIEDBY)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DP_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DP_SHORTNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DP_CREATED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DP_MODIFIED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DP_MODIFIEDBY)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DP_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DP_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DP_ID })
+        </td>
+    </tr>
+}
+
+</table>

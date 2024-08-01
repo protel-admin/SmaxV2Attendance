@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/bootstrapswitch")
+@Scripts.Render("~/bundles/bootstrapswitch")
+@Scripts.Render("~/bundles/utility")
+@Scripts.Render("~/bundles/eventtask")
+
+<script>
+   
+</script>
+<h2>Event Task Configutaion</h2>
+<br />
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Input 2 (Active)</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Location</label>
+            <div class="col-md-4">
+                <select id="ddl_location" class="form-control">
+                    <option value="0">Select Location</option>
+                    <option>Loading...</option>
+                </select>                
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Device IP address</label>
+            <div class="col-md-4">
+                <select id="ddl_device" class="form-control">
+                    <option value="0">Select Device</option>
+                    <option>Loading...</option>
+                </select>                
+            </div>
+        </div>
+
+        <!-- Prepended checkbox -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="chk_relay3">Relay 3 Status</label>
+            <div class="col-md-1">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="chk_relay3" name="my-checkbox">
+                    </span>
+                    
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Duration</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="Duration (1-60 secs)" class="form-control input-md">
+                <span class="help-block">Duration of relay status</span>
+            </div>
+        </div>
+
+        <!-- Prepended checkbox -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="prependedcheckbox">Is Message Needed</label>
+            <div class="col-md-1">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="checkbox" id="chk_message" name="my-checkbox">
+                    </span>                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Message Duration</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="Duration (1-60 secs)" class="form-control input-md">
+                <span class="help-block">Duration for the message to be displayed</span>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="btn-submit"></label>
+            <div class="col-md-4">
+                <button id="btn-submit" name="btn-submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+

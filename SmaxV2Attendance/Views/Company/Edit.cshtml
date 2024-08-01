@@ -1,0 +1,120 @@
+﻿@model SmaxV2Attendance.Models.Smx_Company
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Company</h2>
+<h4>Edit</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal well">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CG_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_NAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_NAME)
+                @Html.ValidationMessageFor(model => model.CG_NAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_SHORTNAME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_SHORTNAME)
+                @Html.ValidationMessageFor(model => model.CG_SHORTNAME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_HEAD, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_HEAD)
+                @Html.ValidationMessageFor(model => model.CG_HEAD)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_ADDRESS, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_ADDRESS)
+                @Html.ValidationMessageFor(model => model.CG_ADDRESS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_CITY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_CITY)
+                @Html.ValidationMessageFor(model => model.CG_CITY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_PHONE, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_PHONE)
+                @Html.ValidationMessageFor(model => model.CG_PHONE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_FAX, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_FAX)
+                @Html.ValidationMessageFor(model => model.CG_FAX)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_EMAIL, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_EMAIL)
+                @Html.ValidationMessageFor(model => model.CG_EMAIL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_CREATED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_CREATED)
+                @Html.ValidationMessageFor(model => model.CG_CREATED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_MODIFIED, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_MODIFIED)
+                @Html.ValidationMessageFor(model => model.CG_MODIFIED)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CG_MODIFIEDBY, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CG_MODIFIEDBY)
+                @Html.ValidationMessageFor(model => model.CG_MODIFIEDBY)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" value="Save" class="btn btn-info" />*@
+                <button class="btn btn-success" id="btnsave">
+                    Submit &nbsp;
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

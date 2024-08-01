@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@Scripts.Render("~/bundles/areadetails")
+@Scripts.Render("~/bundles/utility")
+
+
+<h2>Area Details</h2>
+
+<form id="frm_areas" class="form-horizontal" role="form">
+    <div class="col-md-12 well">
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="col-sm-8">
+                    @Html.DropDownList("AreaName", (IEnumerable<SelectListItem>)ViewBag.AR_NAME, new { @class = "form-control", @size = "20" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="form-group">
+                <div class="col-md-2">
+                    Area Name
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBox("AR_NAME", "", new { @class = "form-control", @watermark = "Area Name" })
+                </div>
+                <div class="col-md-2">
+                    APB &nbsp;&nbsp; <input type="checkbox" id="Chk_APB" /></td>
+                </div>
+            </div>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Select the IN Readers</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-6">
+                                <div style="overflow:auto;height:100px;width:600px;">
+                                    <table class="table table-bordered table-striped " width="200">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Reader Name</th>
+                                                <th>IP Address</th>
+                                                <th>Location</th>
+                                                <th>Location Id</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl_in">
+                                            @{
+                                                foreach (SelectListItem x in (IEnumerable<SelectListItem>)ViewBag.IN_Reader)
+                                                {
+                                                    <tr>
+                                                        @*<td>@Html.CheckBox("Chk_" + x.Value)</td>*@
+                                                        <td><input type="checkbox" id="Chk_@x.Value.Replace(".","_")" /></td>
+                                                        <td>@x.Text.Split('|')[1]</td>
+                                                        <td>@x.Text.Split('|')[0]</td>
+                                                        <td>@x.Text.Split('|')[2]</td>
+                                                        <td>@x.Text.Split('|')[3]</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Select the OUT Readers</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-6">
+                                <div style="overflow: auto; height: 100px; width: 600px;">
+                                    <table class="table table-bordered table-striped " width="200">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Reader Name</th>
+                                                <th>IP Address</th>
+                                                <th>Location</th>
+                                                <th>Location Id</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl_out">
+                                            @{
+                                                foreach (SelectListItem x in (IEnumerable<SelectListItem>)ViewBag.OUT_Reader)
+                                                {
+                                                    <tr>
+                                                        @*<td>@Html.CheckBox("Chk_" + x.Value)</td>*@
+                                                        <td><input type="checkbox" id="Chk_@x.Value.Replace(".","_")" /></td>
+                                                        <td>@x.Text.Split('|')[1]</td>
+                                                        <td>@x.Text.Split('|')[0]</td>
+                                                        <td>@x.Text.Split('|')[2]</td>
+                                                        <td>@x.Text.Split('|')[3]</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                   
+                
+               
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-success" id="btnsave">
+                        Submit &nbsp;
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-info" id="btnreset">
+                        Clear &nbsp;
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </button>
+                </div>
+                <div class="col-sm-2">
+
+                    <div class="input-group">
+                        @*<input type="button" class="btn btn-danger" id="btndelete" value="Delete" />
+                            <span class="input-group-addon glyphicon glyphicon-trash"></span>*@
+                        <button class="btn btn-danger" id="btndelete">
+                            Delete &nbsp;
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

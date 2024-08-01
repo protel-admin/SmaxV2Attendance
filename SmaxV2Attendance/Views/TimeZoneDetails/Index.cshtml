@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SmaxV2Attendance.Models.Smx_TimeZoneDetails>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_DAYS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_START_TIME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_END_TIME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_SPECIFIC_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_CREATED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_MODIFIED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TZD_MODIFIEDBY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smx_TimeZone.TZ_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_DAYS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_START_TIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_END_TIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_SPECIFIC_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_CREATED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_MODIFIED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TZD_MODIFIEDBY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smx_TimeZone.TZ_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TZD_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TZD_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TZD_ID })
+        </td>
+    </tr>
+}
+
+</table>

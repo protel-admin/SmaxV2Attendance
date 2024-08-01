@@ -1,0 +1,289 @@
+﻿
+@{
+    ViewBag.Title = "GetEmployeedetailsReport";
+}
+
+@Scripts.Render("~/bundles/datagrid")
+@Scripts.Render("~/bundles/Utility")
+@Styles.Render("~/Content/datetimepicker")
+@Scripts.Render("~/bundles/datetimepicker")
+
+
+<script>
+    var rpthtml = "";
+    $(document).ready(function () {
+        load_device();
+        load_accesslevel();
+        $("#divmsg").hide();
+        $("#rptgenerate").click(function () {
+
+            var SelectedEmpArray = [];
+
+            $('.chkEmployeeId:checked').each(function () {
+
+                var empid = $(this).attr('data-empid');
+
+                SelectedEmpArray.push(empid);
+
+            });
+
+            console.log(SelectedEmpArray.toString());
+
+            var url = fullhost + "/Reports/GetEmployeedetailsReportData?devices=" + $("#ddl_devices").val() + "&accesslevels=" + $("#ddl_accesslevels").val() + "&EmployeedIds=" + SelectedEmpArray.toString();
+            GetURLasString_callback(url, loadreport);
+            $("#divmsg").show();
+            $("#datagrid1").html("");
+            //result = GetURLasString(url);
+            //$("#datagrid1").html(result);
+            //$("#divprocess").html("Loading...");
+            //rpthtml = $("#datagrid1").html();
+            //$("#datagrid1").dataTable();
+            //$("#datagrid1").show();
+            var exlurl = fullhost + "/Reports/GetEmployeedetailsReportDataExport?devices=" + $("#ddl_devices").val() + "&accesslevels=" + $("#ddl_accesslevels").val() + "&EmployeedIds=" + SelectedEmpArray.toString() + "&reportname=Access Level Report&reporttype=EXCEL";
+            var pdfurl = fullhost + "/Reports/GetEmployeedetailsReportDataExport?devices=" + $("#ddl_devices").val() + "&accesslevels=" + $("#ddl_accesslevels").val() + "&EmployeedIds=" + SelectedEmpArray.toString() + "&reportname=Access Level Report&reporttype=PDF";
+            $('#lnkexcel').attr("href", exlurl)
+            $('#lnkpdf').attr("href", pdfurl)
+
+        });
+
+    });
+
+    function loadreport(result) {
+        $("#datagrid1").html(result);
+        rpthtml = $("#datagrid1").html();
+        //$("#datagrid1").dataTable();
+        $("#datagrid1").show();
+        $("#divmsg").hide();
+    }
+
+    function load_device() {
+        var json = GetURLasJSON(fullhost + "/Reports/GetCardStatus?")
+
+        $("#ddl_devices").html("");
+        $("#ddl_devices").append("<option value='-1'>Select CardStatus</option>")
+
+        for (i = 0; i <= json.length - 1; i++) {
+            var str = "<option value='" + json[i].CS_Id + "'>" + json[i].CS_Name + "</option>"
+            $("#ddl_devices").append(str);
+        }
+    }
+
+    //function load_device() {
+    //    var json = GetURLasJSON(fullhost + "/Reports/GetDevices?")
+
+    //    $("#ddl_devices").html("");
+    //    $("#ddl_devices").append("<option value='-1'>Select Device</option>")
+
+    //    for (i = 0; i <= json.length - 1; i++) {
+    //        var str = "<option value='" + json[i].DE_ID + "'>" + json[i].DE_NAME + "</option>"
+    //        $("#ddl_devices").append(str);
+    //    }
+    //}
+
+    function load_accesslevel() {
+        var json = GetURLasJSON(fullhost + "/Reports/GetAccesslvels?")
+
+        $("#ddl_accesslevels").html("");
+        $("#ddl_accesslevels").append("<option value='-1'>Select Accesslevel</option>")
+
+        for (i = 0; i <= json.length - 1; i++) {
+            var str = "<option value='" + json[i].AL_ID + "'>" + json[i].AL_NAME + "</option>"
+            $("#ddl_accesslevels").append(str);
+        }
+    }
+
+    function ShowHotlist() {
+
+    }
+</script>
+<div>
+    @*<button id="rptprint">Print View</button>
+        <a href="/Report/GetCardIssuedReportData?srcdate=01/27/2015&trgdate=01/28/2015">Export as CSV</a>*@
+</div>
+
+
+
+<style>
+    .fixTableHead {
+        overflow-y: auto;
+        height: 110px;
+    }
+
+        .fixTableHead thead th {
+            position: sticky;
+            top: 0;
+        }
+
+        .fixTableHead table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .fixTableHead th,
+        .fixTableHead td {
+            padding: 8px 15px;
+            border: 2px solid #529432;
+        }
+
+        .fixTableHead th {
+            background: #4800ff;
+            color: white;
+        }
+</style>
+<br />
+<br />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h5 class="panel-title">Employee details Report</h5>
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="form-group row">
+                    <label class="col-md-4">CardStatus Name</label>
+                    <div class="col-md-8">
+                        <select id="ddl_devices" class="form-control">
+                            <option value="0">All CardStatus</option>
+                            <option>Loading...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-md-6">
+
+                <div class="form-group row">
+                    <label class="col-md-4">AccessLevel Name</label>
+                    <div class="col-md-8">
+                        <select id="ddl_accesslevels" class="form-control">
+                            <option value="0">All Accesslevel</option>
+                            <option>Loading...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>*@
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                @using (Ajax.BeginForm("GetEmployeeFilter", "Reports", null, new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "employeefilterdata" }))
+                {
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-md-4">Employee</label>
+                                <div class="col-md-8">
+
+                                    <input type="text" id="txtSearch" class="form-control" name="SearchText" />
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-sm">Get Employee details</button>
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+            <div class="col-md-12 table-responsive fixTableHead" style="height:300px;overflow:auto;">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sno</th>
+                            <th>Employee Id</th>
+                            <th>Employee Name</th>
+                            <th>CSN</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Unit</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="employeefilterdata">
+                        @*@Html.Action("GetEmployeeFilter", "Reports", null)*@
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-md-12" style="margin-top:5px;">
+                <span class="btn btn-sm btn-success" onclick="SetCheckedValueByClass('chkEmployeeId','true')"> Select All </span>
+                <span class="btn btn-sm btn-danger" onclick="SetCheckedValueByClass('chkEmployeeId','false')"> Un Select All </span>
+                &nbsp;&nbsp;&nbsp;
+
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-12 text-center" style="margin-top:10px;">
+
+                <button id="rptgenerate" class="btn btn-default">Get Report</button>
+                <a href="#" id="lnkexcel" class="btn btn-info" target="_blank">Export Excel</a>
+                <a href="#" id="lnkpdf" class="btn btn-info" target="_blank">Export PDF</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+    });
+
+    $('body').on('change', '.chkEmployeeId', function () {
+        var propval = $(this).prop('checked');
+        if (propval == true) {
+            $(this).val(propval);
+        } else {
+            $(this).val(propval);
+        }
+        console.log(propval);
+
+    });
+
+
+    function SetCheckedValueByClass(ClassName, boolValue) {
+        try {
+
+            if (boolValue == 'true') {
+                $('.' + ClassName).each(function () {
+                    $(this).prop('checked', boolValue);
+                    $(this).val(boolValue);
+
+                });
+            } else {
+
+
+                $('.' + ClassName).each(function () {
+                    $(this).removeAttr('checked');
+                    $(this).val(boolValue);
+
+                });
+            }
+
+
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+</script>
+
+<br />
+<div id="divmsg" class="alert alert-info">
+    Loading.. Please Wait...
+</div>
+<div style="height:600px;overflow:auto">
+    <table id="datagrid1" class="table table-striped" border="1" cellspacing="0"></table>
+</div>
+
